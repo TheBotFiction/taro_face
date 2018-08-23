@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "rails_helper"
 
 RSpec.describe Term, type: :model do
@@ -18,7 +20,7 @@ RSpec.describe Term, type: :model do
   describe "model validations" do
     it { expect(term).to allow_value(attributes[:term]).for(:term) }
     it { expect(term).to validate_presence_of(:term) }
-    it { expect(term).to validate_uniqueness_of(:term)}
+    it { expect(term).to validate_uniqueness_of(:term) }
   end
 
   describe "model associations" do
