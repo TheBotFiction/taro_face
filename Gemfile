@@ -35,6 +35,7 @@ gem "graphql", "~> 1.7", ">= 1.7.14"
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
+  # gem "graphiql-rails"
   gem "guard-bundler"
   gem "guard-rails"
   gem "guard-rspec"
