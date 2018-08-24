@@ -7,8 +7,6 @@ ruby "2.5.1"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails"
 gem "rails", "~> 5.2.1"
-# Use sqlite3 as the database for Active Record
-gem "sqlite3"
 # Use Puma as the app server
 gem "puma", "~> 3.11"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -27,16 +25,20 @@ gem "puma", "~> 3.11"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.1.0", require: false
 
-gem "graphql", "~> 1.7", ">= 1.7.14"
+gem "graphiql-rails"
+gem "graphql"
 gem "graphql-batch"
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem "rack-cors"
 
+group :production do
+  gem "pg"
+end
+
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
-  gem "graphiql-rails"
   gem "guard-bundler"
   gem "guard-rails"
   gem "guard-rspec"
@@ -49,6 +51,7 @@ group :development do
   gem "spring-commands-rspec"
   gem "spring-watcher-listen", "~> 2.0.0"
 end
+
 group :development, :test do
   gem "factory_bot_rails"
   gem "faker"
@@ -59,6 +62,8 @@ group :development, :test do
   gem "rspec_junit_formatter"
   gem "rubocop-github"
   gem "rubocop-rspec"
+  # Use sqlite3 as the database for Active Record
+  gem "sqlite3"
 end
 group :test do
   gem "capybara", ">= 2.15", "< 4.0"
@@ -70,7 +75,3 @@ group :test do
   gem "simplecov", require: false
   gem "timecop"
 end
-
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
