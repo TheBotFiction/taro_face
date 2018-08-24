@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Loaders
   class RecordLoader < GraphQL::Batch::Loader
     def initialize(model, column: model.primary_key, where: nil)

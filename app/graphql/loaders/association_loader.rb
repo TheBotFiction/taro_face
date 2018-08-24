@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Loaders
   class AssociationLoader < GraphQL::Batch::Loader
     def self.validate(model, association_name)

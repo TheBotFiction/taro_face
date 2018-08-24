@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # module Types
 #   RSpec.describe Term do
 #     # avail type definer in our tests

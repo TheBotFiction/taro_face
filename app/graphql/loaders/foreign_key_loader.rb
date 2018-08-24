@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Loaders
   class ForeignKeyLoader < GraphQL::Batch::Loader
     def initialize(model, foreign_key)

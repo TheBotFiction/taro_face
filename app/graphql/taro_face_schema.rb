@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TaroFaceSchema < GraphQL::Schema
   max_complexity 400
 
