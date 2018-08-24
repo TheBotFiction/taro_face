@@ -9,6 +9,7 @@ references:
           BUNDLE_WITHOUT: production:canary:staging:development
           RAILS_ENV: test
           RACK_ENV: test
+          JEST_JUNIT_OUTPUT: ~/test-results/jest-junit.xml
     working_directory: ~/app
 
   bundle_cache_key: &bundle_cache_key
@@ -50,7 +51,7 @@ jobs:
             --color
             --format RspecJunitFormatter
             --out ~/test-results/rspec-<%= Time.now.to_i %>.xml
-            ' > .rspec_parallel
+            ' > .rspec
       - persist_to_workspace:
           root: ~/
           paths:
@@ -70,14 +71,11 @@ jobs:
           key: *bundle_cache_key
           paths:
             - vendor/bundle
+      - run: bundle exec rubocop
+      - run: bundle exec rake db:create db:setup
       - run:
-          name: Setup databases
-          command: |
-            bundle exec rake db:create db:setup
-      - run:
-          name: RSPEC to app
-          command: |
-            bundle exec rspec
+          name: RSPEC to all
+          command: bundle exec rspec
       - store_test_results:
           path: ~/test-results
       - store_artifacts:
@@ -90,22 +88,34 @@ jobs:
     steps:
       - *attach_code
       - *restore_yarn
-      - run:
-          name: Yarn install
-          command: yarn install
+      - run: yarn install
       - save_cache:
           name: Store yarn cache
           key: *yarn_cache_key
           paths:
             - node_modules
-      - run:
-          name: yarn test
-          command: yarn test
+      - run: yarn flow
+      - run: 
+          name: JEST to all
+          command: yarn run react-scripts test --env=jsdom --reporters=jest-junit
       - store_test_results:
           path: ~/test-results
       - store_artifacts:
           path: ~/test-results
           destination: test-results
+
+  deploy:
+    docker:
+      - image: buildpack-deps:trusty
+    working_directory: ~/app
+    steps:
+      - *attach_code
+      - run:
+          name: Deploy `release` branch to Heroku
+          command: |
+            git push --force \
+              https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git \
+              {{ .Branch }}:master
 
 workflows:
   version: 2
@@ -118,3 +128,19 @@ workflows:
       - react-jest:
           requires:
             - checkout_code
+  verify-and-deploy:
+    jobs:
+      - checkout_code
+      - rails-rspec:
+          requires:
+            - checkout_code
+      - react-jest:
+          requires:
+            - checkout_code
+      - deploy:
+          requires:
+            - rails-rspec
+            - react-jest
+          filters:
+            branches:
+              only: release
