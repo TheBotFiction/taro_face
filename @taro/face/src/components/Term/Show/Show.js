@@ -3,9 +3,10 @@
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import type { TermType } from 'types'
 
 type Props = {
-  term: Object
+  term: TermType
 }
 type State = {}
 

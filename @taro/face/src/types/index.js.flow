@@ -1,0 +1,22 @@
+/**
+ * @flow
+ */
+
+type TermType = {
+  id?: number,
+  term: string,
+  meaning?: string,
+  reading?: string,
+  sample_phrases?: Array<SamplePhraseType>
+}
+
+type SamplePhraseType = {
+  id?: number,
+  phrase: string,
+  term?: TermType
+}
+
+export type {
+  TermType,
+  SamplePhraseType
+}
