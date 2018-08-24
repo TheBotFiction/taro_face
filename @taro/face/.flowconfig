@@ -8,6 +8,7 @@
 <PROJECT_ROOT>/node_modules/react
 <PROJECT_ROOT>/node_modules/prop-types
 <PROJECT_ROOT>/node_modules/fbjs/lib
+<PROJECT_ROOT>/node_modules/apollo-boost
 <PROJECT_ROOT>/node_modules/react-apollo
 <PROJECT_ROOT>/node_modules/graphql-tag
 <PROJECT_ROOT>/node_modules/immutable

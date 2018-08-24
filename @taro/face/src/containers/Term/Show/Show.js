@@ -2,8 +2,10 @@
  * @flow
  */
 import React, { Component } from 'react'
+import type { Node } from 'react'
+import type { TermType } from 'types'
 import PropTypes from 'prop-types'
-import { Query, graphql } from 'react-apollo'
+import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import { TermShow } from 'components/Term'
 
@@ -13,9 +15,16 @@ type Props = {
 
 type State = {}
 
+type QueryResult = {
+  loading: boolean,
+  data: {
+    term: TermType
+  }
+}
+
 const SHOW_TERM_QUERY = gql`
-  query showTerm {
-    term(id: 1) {
+  query showTerm($id: ID!) {
+    term(id: $id) {
       id
       term
       reading
@@ -26,16 +35,17 @@ const SHOW_TERM_QUERY = gql`
     }
   }
 `
-
 class TermShowContainer extends Component<Props, State> {
   static propTypes = {
     match: PropTypes.object.isRequired
   }
 
   render () {
+    const { id }:{ id: number } = this.props.match.params;
+
     return (
-      <Query query={SHOW_TERM_QUERY}>
-        {({loading, data: { term }}) => {
+      <Query query={SHOW_TERM_QUERY} variables={{ id }}>
+        {({loading, data: { term }}: QueryResult): Node => {
           if (loading) return <h2>Loading ...</h2>
           return (
             <TermShow term={term} />
