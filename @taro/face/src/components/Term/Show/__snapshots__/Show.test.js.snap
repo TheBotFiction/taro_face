@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component Term/Show renders as expected 1`] = `
+<div>
+  <h1>
+    TermShow here
+  </h1>
+  <p>
+    <textarea
+      cols="80"
+      readOnly={true}
+      rows="40"
+      value="{}"
+    />
+  </p>
+</div>
+`;

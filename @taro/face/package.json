@@ -21,6 +21,9 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "flow-bin": "^0.79.1"
+    "enzyme": "^3.4.4",
+    "enzyme-adapter-react-16": "^1.2.0",
+    "flow-bin": "^0.79.1",
+    "jest-junit": "^5.1.0"
   }
 }
