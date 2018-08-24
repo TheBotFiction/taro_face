@@ -1,24 +1,16 @@
-# README
+# Taro Face
+## Setup development
+```bash
+git clone git@github.com:TheBotFiction/taro_face.git
+cd taro_face
+bundle install
+rails db:create db:migrate db:seed
+```
+and go
+```bash
+rails server
+```
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Endpoint
+- GraphQL: http://localhost:3000/graphql
+- GraphIQL: http://localhost:3000/graphiql
