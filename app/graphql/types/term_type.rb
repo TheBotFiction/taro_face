@@ -4,8 +4,11 @@ module Types
     field :term, String, null: true
     field :reading, String, null: true
     field :meaning, String, null: true
-    field :sample_phrases, [SamplePhraseType], null: true, resolve: ->(obj, _args, _ctx) do
-      Loaders::AssociationLoader.for(Term, :sample_phrases).load(obj)
+    field :sample_phrases, [SamplePhraseType], null: true,
+      description: "List of sample phrase associated to term"
+
+    def sample_phrases
+      Loaders::AssociationLoader.for(Term, :sample_phrases).load(object)
     end
   end
 end

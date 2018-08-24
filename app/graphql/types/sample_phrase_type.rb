@@ -1,9 +1,11 @@
 module Types
   class SamplePhraseType < BaseObject
     field :id, ID, null: true
-    field :phrase, String, null: true
-    field :term, TermType, null: true, resolve: -> (obj, _args, _ctx) do
-      Loaders::RecordLoader.for(Term).load(obj.term_id)
+    field :phrase, String, null: true, description: "The phrase associated with Term"
+    field :term, TermType, null: true, description: "Associated Term"
+
+    def term
+      Loaders::RecordLoader.for(Term).load(object.term_id)
     end
   end
 end
