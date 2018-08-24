@@ -115,20 +115,11 @@ jobs:
           command: |
             git push --force \
               https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git \
-              {{ .Branch }}:master
+              release:master
 
 workflows:
   version: 2
   every-push-test:
-    jobs:
-      - checkout_code
-      - rails-rspec:
-          requires:
-            - checkout_code
-      - react-jest:
-          requires:
-            - checkout_code
-  verify-and-deploy:
     jobs:
       - checkout_code
       - rails-rspec:
