@@ -16,7 +16,7 @@
   "editor.renderWhitespace": "all",
   "eslint.packageManager": "yarn",
   // Support using flow through your node_modules folder, WARNING: Checking this box is a security risk. When you open a project we will immediately run code contained within it.
-  "flow.useNPMPackagedFlow": true,
+  "flow.useNPMPackagedFlow": false,
   "flow.pathToFlow": "${workspaceFolder}/node_modules/.bin/flow",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "javascript.validate.enable": false,

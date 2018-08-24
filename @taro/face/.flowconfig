@@ -22,6 +22,9 @@
 module.system=haste
 module.system.node.resolve_dirname=node_modules
 module.system.node.resolve_dirname=src
+module.name_mapper='^components\(.*\)$' -> '<PROJECT_ROOT>/src/components/\1'
+module.name_mapper='^containers\(.*\)$' -> '<PROJECT_ROOT>/src/containers/\1'
+module.name_mapper='^types\(.*\)$' -> '<PROJECT_ROOT>/src/types/\1'
 
 [strict]
 

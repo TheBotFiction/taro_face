@@ -10,9 +10,9 @@ import { ApolloProvider } from 'react-apollo'
 
 import './index.css'
 import App from './App'
-import { TermShowContainer } from './containers/Term'
+import { TermShowContainer } from 'containers/Term'
 
-import registerServiceWorker from './registerServiceWorker'
+import registerServiceWorker from 'registerServiceWorker'
 
 const client: ApolloClient = new ApolloClient({
   uri: 'http://localhost:3000/graphql'
