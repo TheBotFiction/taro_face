@@ -1,18 +1,18 @@
 [ignore]
-<PROJECT_ROOT>/node_modules/.*
-<PROJECT_ROOT>/dist/.*
-<PROJECT_ROOT>/src/stories/.*
-<PROJECT_ROOT>/.storybook/.*
+node_modules/.*
+dist/.*
+src/stories/.*
+.storybook/.*
 
 [include]
-<PROJECT_ROOT>/node_modules/react
-<PROJECT_ROOT>/node_modules/prop-types
-<PROJECT_ROOT>/node_modules/fbjs/lib
-<PROJECT_ROOT>/node_modules/apollo-boost
-<PROJECT_ROOT>/node_modules/react-apollo
-<PROJECT_ROOT>/node_modules/graphql-tag
-<PROJECT_ROOT>/node_modules/immutable
-<PROJECT_ROOT>/node_modules/@material-ui/core
+node_modules/react
+node_modules/prop-types
+node_modules/fbjs/lib
+node_modules/apollo-boost
+node_modules/react-apollo
+node_modules/graphql-tag
+node_modules/immutable
+node_modules/@material-ui/core
 
 [libs]
 
