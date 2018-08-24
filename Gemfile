@@ -28,6 +28,7 @@ gem "puma", "~> 3.11"
 gem "bootsnap", ">= 1.1.0", require: false
 
 gem "graphql", "~> 1.7", ">= 1.7.14"
+gem "graphql-batch"
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem "rack-cors"
@@ -35,7 +36,7 @@ gem "graphql", "~> 1.7", ">= 1.7.14"
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
-  # gem "graphiql-rails"
+  gem "graphiql-rails"
   gem "guard-bundler"
   gem "guard-rails"
   gem "guard-rspec"
