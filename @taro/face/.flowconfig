@@ -1,0 +1,32 @@
+[ignore]
+node_modules/.*
+dist/.*
+src/stories/.*
+.storybook/.*
+
+[include]
+node_modules/react
+node_modules/prop-types
+node_modules/fbjs/lib
+node_modules/apollo-boost
+node_modules/react-apollo
+node_modules/graphql-tag
+node_modules/immutable
+node_modules/@material-ui/core
+
+[libs]
+
+[lints]
+
+[options]
+module.system=haste
+module.system.node.resolve_dirname=node_modules
+module.system.node.resolve_dirname=src
+module.name_mapper='^components\(.*\)$' -> '<PROJECT_ROOT>/src/components/\1'
+module.name_mapper='^containers\(.*\)$' -> '<PROJECT_ROOT>/src/containers/\1'
+module.name_mapper='^types\(.*\)$' -> '<PROJECT_ROOT>/src/types/\1'
+
+[strict]
+
+[version]
+^0.79.0

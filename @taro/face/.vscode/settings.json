@@ -1,0 +1,25 @@
+{
+  // The number of spaces a tab is equal to. This setting is overriden
+  // based on the file contents when `editor.detectIndentation` is true.
+  "editor.tabSize": 2,
+
+  // Insert spaces when pressing Tab. This setting is overriden
+  // based on the file contents when `editor.detectIndentation` is true.
+  "editor.insertSpaces": true,
+
+  // When opening a file, `editor.tabSize` and `editor.insertSpaces`
+  // will be detected based on the file contents. Set to false to keep
+  // the values you've explicitly set, above.
+  "editor.detectIndentation": false,
+  // Render vertical rulers after a certain number of monospace characters. Use multiple values for multiple rulers. No rulers are drawn if array is empty
+  "editor.rulers": [80, 120],
+  "editor.renderWhitespace": "all",
+  "eslint.packageManager": "yarn",
+  // Support using flow through your node_modules folder, WARNING: Checking this box is a security risk. When you open a project we will immediately run code contained within it.
+  "flow.useNPMPackagedFlow": false,
+  "flow.pathToFlow": "${workspaceFolder}/node_modules/.bin/flow",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "javascript.validate.enable": false,
+  "typescript.validate.enable": false,
+  "workbench.editor.closeEmptyGroups": false
+}

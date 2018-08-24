@@ -31,7 +31,7 @@ gem "graphql", "~> 1.7", ">= 1.7.14"
 gem "graphql-batch"
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem "rack-cors"
+gem "rack-cors"
 
 group :development do
   gem "better_errors"

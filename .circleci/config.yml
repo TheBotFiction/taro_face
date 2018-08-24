@@ -1,0 +1,120 @@
+version: 2
+
+references:
+  container_base: &container_base
+    docker:
+      - image: circleci/ruby:2.5.1-node
+        environment:
+          BUNDLE_PATH: vendor/bundle
+          BUNDLE_WITHOUT: production:canary:staging:development
+          RAILS_ENV: test
+          RACK_ENV: test
+    working_directory: ~/app
+
+  bundle_cache_key: &bundle_cache_key
+    v0-bundle-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+  yarn_cache_key: &yarn_cache_key
+    v0-yarn-{{ .Branch }}-{{ checksum "yarn.lock" }}
+
+  attach_code: &attach_code
+    attach_workspace:
+      at: ~/
+  restore_bundle: &restore_bundle
+    restore_cache:
+      name: Restore bundle cache
+      keys:
+        - *bundle_cache_key
+        # Fallback to latest one
+        - v0-bundle-{{ .Branch }}-
+        - v0-bundle-
+  restore_yarn: &restore_yarn
+    restore_cache:
+      name: Restore yarn cache
+      keys:
+        - *yarn_cache_key
+        # Fallback to latest one
+        - v0-yarn-{{ .Branch }}-
+        - v0-yarn-
+
+jobs:
+  checkout_code:
+    <<: *container_base
+    steps:
+      - checkout:
+          path: ~/app
+      - run:
+          name: Setup environment
+          command: |
+            mkdir -p ~/test-results
+            echo '--format progress
+            --color
+            --format RspecJunitFormatter
+            --out ~/test-results/rspec-<%= Time.now.to_i %>.xml
+            ' > .rspec_parallel
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - app
+            - test-results
+
+  rails-rspec:
+    <<: *container_base
+    steps:
+      - *attach_code
+      - *restore_bundle
+      - run:
+          name: Bundle
+          command: bundle check || bundle install --jobs=4 --retry=3
+      - save_cache:
+          name: Store bundle cache
+          key: *bundle_cache_key
+          paths:
+            - vendor/bundle
+      - run:
+          name: Setup databases
+          command: |
+            bundle exec rake db:create db:setup
+      - run:
+          name: RSPEC to app
+          command: |
+            bundle exec rspec
+      - store_test_results:
+          path: ~/test-results
+      - store_artifacts:
+          path: ~/test-results
+          destination: test-results
+
+  react-jest:
+    <<: *container_base
+    working_directory: ~/app/@taro/face
+    steps:
+      - *attach_code
+      - *restore_yarn
+      - run:
+          name: Yarn install
+          command: yarn install
+      - save_cache:
+          name: Store yarn cache
+          key: *yarn_cache_key
+          paths:
+            - node_modules
+      - run:
+          name: yarn test
+          command: yarn test
+      - store_test_results:
+          path: ~/test-results
+      - store_artifacts:
+          path: ~/test-results
+          destination: test-results
+
+workflows:
+  version: 2
+  every-push-test:
+    jobs:
+      - checkout_code
+      - rails-rspec:
+          requires:
+            - checkout_code
+      - react-jest:
+          requires:
+            - checkout_code
