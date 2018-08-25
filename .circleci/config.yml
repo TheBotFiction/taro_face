@@ -84,7 +84,7 @@ jobs:
 
   react-jest:
     <<: *container_base
-    working_directory: ~/app/@taro/face
+    working_directory: ~/app/client
     steps:
       - *attach_code
       - *restore_yarn
