@@ -5,7 +5,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
-import Select from 'react-select'
+import AsyncSelect from 'react-select/lib/Async'
 import NoSsr from '@material-ui/core/NoSsr'
 
 import termSelectComponents from './TermSelect'
@@ -13,50 +13,11 @@ import termSelectComponents from './TermSelect'
 type Props = {}
 type State = {}
 
-const suggestions = [
-  { label: 'Afghanistan' },
-  { label: 'Aland Islands' },
-  { label: 'Albania' },
-  { label: 'Algeria' },
-  { label: 'American Samoa' },
-  { label: 'Andorra' },
-  { label: 'Angola' },
-  { label: 'Anguilla' },
-  { label: 'Antarctica' },
-  { label: 'Antigua and Barbuda' },
-  { label: 'Argentina' },
-  { label: 'Armenia' },
-  { label: 'Aruba' },
-  { label: 'Australia' },
-  { label: 'Austria' },
-  { label: 'Azerbaijan' },
-  { label: 'Bahamas' },
-  { label: 'Bahrain' },
-  { label: 'Bangladesh' },
-  { label: 'Barbados' },
-  { label: 'Belarus' },
-  { label: 'Belgium' },
-  { label: 'Belize' },
-  { label: 'Benin' },
-  { label: 'Bermuda' },
-  { label: 'Bhutan' },
-  { label: 'Bolivia, Plurinational State of' },
-  { label: 'Bonaire, Sint Eustatius and Saba' },
-  { label: 'Bosnia and Herzegovina' },
-  { label: 'Botswana' },
-  { label: 'Bouvet Island' },
-  { label: 'Brazil' },
-  { label: 'British Indian Ocean Territory' },
-  { label: 'Brunei Darussalam' }
-].map(suggestion => ({
-  value: suggestion.label,
-  label: suggestion.label,
-}))
-
 class New extends Component<Props, State> {
   static propTypes = {
     classes: PropTypes.object.isRequired,
     theme: PropTypes.object.isRequired,
+    loadOptions: PropTypes.func.isRequired
   }
 
   constructor (props) {
@@ -73,7 +34,7 @@ class New extends Component<Props, State> {
   }
 
   render() {
-    const { classes, theme } = this.props;
+    const { classes, theme, loadOptions } = this.props
 
     const selectStyles: Object = {
       input: base => ({
@@ -85,10 +46,12 @@ class New extends Component<Props, State> {
     return (
       <div className={classes.root}>
         <NoSsr>
-          <Select
+          <AsyncSelect
             classes={classes}
             styles={selectStyles}
-            options={suggestions}
+            cacheOptions
+            defaultOptions
+            loadOptions={loadOptions}
             components={termSelectComponents}
             value={this.state.selected}
             onChange={this.handleChange}
@@ -96,7 +59,7 @@ class New extends Component<Props, State> {
           />
         </NoSsr>
       </div>
-    );
+    )
   }
 }
 

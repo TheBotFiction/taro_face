@@ -4,18 +4,20 @@ import { shallow } from 'enzyme'
 
 import New from './New'
 
+const noop = () => {}
+
 describe('component Term/Show', () => {
   it('renders without crash', () => {
     shallow(
-      <New />
+      <New loadOptions={noop} />
     )
   })
 
   it('renders as expected', () => {
     const component = TestRenderer.create(
-      <New />
+      <New loadOptions={noop} />
     )
-    const json = component.toJSON();
-    expect(json).toMatchSnapshot();
+    const json = component.toJSON()
+    expect(json).toMatchSnapshot()
   })
 })
