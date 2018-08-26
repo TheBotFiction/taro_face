@@ -10,7 +10,10 @@ import { ApolloProvider } from 'react-apollo'
 
 import './index.css'
 import App from './App'
-import { TermShowContainer } from 'containers/Term'
+import {
+  TermShowContainer,
+  TermCreateContainer,
+} from 'containers/Term'
 
 import registerServiceWorker from 'registerServiceWorker'
 
@@ -25,6 +28,7 @@ ReactDOM.render(
     <Router history={browserHistory}>
       <Switch>
         <Route path='/' component={App} exact />
+        <Route path='/terms/new' component={TermCreateContainer} exact/>
         <Route path='/terms/:id' component={TermShowContainer} />
       </Switch>
     </Router>
