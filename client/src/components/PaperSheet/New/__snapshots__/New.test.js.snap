@@ -4,7 +4,13 @@ exports[`component Term/Show renders as expected 1`] = `
 Array [
   <div
     className="MuiGrid-container-5"
-/>,
+>
+    <div
+        className="MuiGrid-item-6 MuiGrid-grid-xs-true-33"
+    >
+        <span />
+    </div>
+</div>,
   <div
     className="MuiGrid-container-5 NewComponent-termSelectZone-4"
 >

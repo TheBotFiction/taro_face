@@ -3,6 +3,7 @@
  */
 
 import React, { Component, Fragment } from 'react'
+import type { Node } from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
@@ -15,7 +16,8 @@ import TermSelect from './TermSelect'
 type Props = {
   classes: Object<any>,
   loadOptions: Function,
-  onSelectTerm: Function
+  onSelectTerm: Function,
+  previewSlot: Node
 }
 
 type State = *
@@ -24,26 +26,35 @@ class NewComponent extends Component<Props, State> {
   static propTypes = {
     classes: PropTypes.object.isRequired,
     loadOptions: PropTypes.func.isRequired,
-    onSelectTerm: PropTypes.func.isRequired
+    onSelectTerm: PropTypes.func.isRequired,
+    previewSlot: PropTypes.node.isRequired
   }
 
   render() {
-    const { classes, loadOptions } = this.props
+    const { classes, loadOptions, previewSlot, onSelectTerm } = this.props
 
     return (
       <Fragment>
         <Grid container>
+          <Grid item xs>
+            {previewSlot}
+          </Grid>
         </Grid>
         <Grid container className={classes.termSelectZone}>
           <Grid item xs={9} zeroMinWidth>
             <TermSelect
               loadOptions={loadOptions}
-              onSelect={this.props.onSelectTerm}
+              onSelect={onSelectTerm}
             />
           </Grid>
           <Grid item>
             <FormControl>
-              <Button variant="contained" color="primary" size="small" className={classes.button}>
+              <Button
+                variant="contained"
+                color="primary"
+                size="small"
+                className={classes.button}
+              >
                 Add Term
                 <CloudUploadIcon className={classes.rightIcon} />
               </Button>

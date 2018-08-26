@@ -3,6 +3,7 @@
  */
 
 import React, { Component, Fragment } from 'react'
+import type { Node } from 'react'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import NewComponent from 'components/PaperSheet/New'
@@ -56,6 +57,9 @@ class NewContainer extends Component<Props, State> {
   }
 
   render () {
+    const { selectedTermId } = this.state
+    const previewSlot: Node = <PreviewContainer termId={selectedTermId} />
+
     return(
       <Query query={INDEX_TERM_QUERY}>
         {({loading, data: { terms }}: QueryResult): Node => {
@@ -66,8 +70,8 @@ class NewContainer extends Component<Props, State> {
               <NewComponent
                 loadOptions={loadOptions(suggestions)}
                 onSelectTerm={this.onSelectTerm}
+                previewSlot={previewSlot}
               />
-              <PreviewContainer termId={this.state.selectedTermId} />
             </Fragment>
           )
         }}
