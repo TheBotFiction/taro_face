@@ -11,6 +11,7 @@ import { ApolloProvider } from 'react-apollo'
 import './index.css'
 import App from './App'
 import { TermShowContainer } from 'containers/Term'
+import { PaperSheetNewContainer } from 'containers/PaperSheet'
 
 import registerServiceWorker from 'registerServiceWorker'
 
@@ -26,6 +27,7 @@ ReactDOM.render(
       <Switch>
         <Route path='/' component={App} exact />
         <Route path='/terms/:id' component={TermShowContainer} />
+        <Route path='/papersheets/new' component={PaperSheetNewContainer} />
       </Switch>
     </Router>
   </ApolloProvider>,
