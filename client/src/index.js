@@ -21,16 +21,20 @@ const client: ApolloClient = new ApolloClient({
 
 const browserHistory: any = createBrowserHistory()
 
-ReactDOM.render(
-  <ApolloProvider client={client}>
-    <Router history={browserHistory}>
-      <Switch>
-        <Route path='/' component={App} exact />
-        <Route path='/terms/:id' component={TermShowContainer} />
-        <Route path='/papersheets/new' component={PaperSheetNewContainer} />
-      </Switch>
-    </Router>
-  </ApolloProvider>,
-  document.getElementById('root')
-)
-registerServiceWorker()
+const rootElement: null | HTMLElement = document.getElementById('root')
+
+if (rootElement) {
+  ReactDOM.render(
+    <ApolloProvider client={client}>
+      <Router history={browserHistory}>
+        <Switch>
+          <Route path='/' component={App} exact />
+          <Route path='/terms/:id' component={TermShowContainer} />
+          <Route path='/papersheets/new' component={PaperSheetNewContainer} />
+        </Switch>
+      </Router>
+    </ApolloProvider>,
+    rootElement
+  )
+  registerServiceWorker()
+}

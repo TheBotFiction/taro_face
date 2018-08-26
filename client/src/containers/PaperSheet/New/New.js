@@ -4,6 +4,7 @@
 
 import React, { Component, Fragment } from 'react'
 import type { Node } from 'react'
+import type { TermType } from 'types'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import NewComponent from 'components/PaperSheet/New'
@@ -17,7 +18,7 @@ type State = {
 type QueryResult = {
   loading: boolean,
   data: {
-    term: TermType
+    terms: Array<TermType> | void
   }
 }
 
@@ -42,6 +43,8 @@ const loadOptions = (suggestions) => {
 }
 
 class NewContainer extends Component<Props, State> {
+  onSelectTerm: Function
+
   constructor (props) {
     super(props)
 
@@ -62,20 +65,30 @@ class NewContainer extends Component<Props, State> {
 
     return(
       <Query query={INDEX_TERM_QUERY}>
-        {({loading, data: { terms }}: QueryResult): Node => {
-          if (loading) return <h2>Loading ...</h2>
-          const suggestions: Array<Object> = terms.map(term => ({value: term.id, label: term.term}))
-          return (
-            <Fragment>
-              <NewComponent
-                loadOptions={loadOptions(suggestions)}
-                onSelectTerm={this.onSelectTerm}
-                previewSlot={previewSlot}
-              />
-            </Fragment>
-          )
-        }}
+        {this.renderQueriedNewComponent}
       </Query>
+    )
+  }
+
+  renderQueriedNewComponent ({loading, data}: QueryResult): Node {
+    if (loading) return <h2>Loading ...</h2>
+    if (!data) return null
+
+    const { selectedTermId } = this.state
+    const previewSlot: Node = <PreviewContainer termId={selectedTermId} />
+
+    let suggestions: Array<Object> = []
+    if (data.terms) {
+      suggestions = data.terms.map(term => ({value: term.id, label: term.term}))
+    }
+    return (
+      <Fragment>
+        <NewComponent
+          loadOptions={loadOptions(suggestions)}
+          onSelectTerm={this.onSelectTerm}
+          previewSlot={previewSlot}
+        />
+      </Fragment>
     )
   }
 }
