@@ -45,7 +45,7 @@ const suggestions = [
   { label: 'Brunei Darussalam' }
 ].map(suggestion => ({
   value: suggestion.label,
-  label: suggestion.label,
+  label: suggestion.label
 }))
 
 const loadOptions = (inputValue, callback) => {

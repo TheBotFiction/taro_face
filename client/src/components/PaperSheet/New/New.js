@@ -2,21 +2,23 @@
  * @flow
  */
 
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
-import AsyncSelect from 'react-select/lib/Async'
-import NoSsr from '@material-ui/core/NoSsr'
+import Paper from '@material-ui/core/Paper'
+import Grid from '@material-ui/core/Grid'
+import Button from '@material-ui/core/Button'
+import CloudUploadIcon from '@material-ui/icons/CloudUpload'
+import FormControl from '@material-ui/core/FormControl'
 
-import termSelectComponents from './TermSelect'
+import TermSelect from './TermSelect'
 
-type Props = {}
-type State = {}
+type Props = *
+type State = *
 
 class New extends Component<Props, State> {
   static propTypes = {
     classes: PropTypes.object.isRequired,
-    theme: PropTypes.object.isRequired,
     loadOptions: PropTypes.func.isRequired
   }
 
@@ -34,31 +36,26 @@ class New extends Component<Props, State> {
   }
 
   render() {
-    const { classes, theme, loadOptions } = this.props
-
-    const selectStyles: Object = {
-      input: base => ({
-        ...base,
-        color: theme.palette.text.primary
-      })
-    }
+    const { classes, loadOptions } = this.props
 
     return (
-      <div className={classes.root}>
-        <NoSsr>
-          <AsyncSelect
-            classes={classes}
-            styles={selectStyles}
-            cacheOptions
-            defaultOptions
-            loadOptions={loadOptions}
-            components={termSelectComponents}
-            value={this.state.selected}
-            onChange={this.handleChange}
-            placeholder="Search a country (start with a)"
-          />
-        </NoSsr>
-      </div>
+      <Fragment>
+        <Grid container>
+        </Grid>
+        <Grid container className={classes.termSelectZone}>
+          <Grid item xs={9} zeroMinWidth>
+            <TermSelect loadOptions={loadOptions} />
+          </Grid>
+          <Grid item>
+            <FormControl>
+              <Button variant="contained" color="primary" size="small" className={classes.button}>
+                Add Term
+                <CloudUploadIcon className={classes.rightIcon} />
+              </Button>
+            </FormControl>
+          </Grid>
+        </Grid>
+      </Fragment>
     )
   }
 }
@@ -67,7 +64,19 @@ const styles: Function = (theme): Object => ({
   root: {
     flexGrow: 1,
     height: 250
+  },
+  button: {
+    // margin: theme.spacing.unit,
+  },
+  rightIcon: {
+    marginLeft: theme.spacing.unit
+  },
+  termSelectZone: {
+    minHeight: 100,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-around'
   }
 })
 
-export default withStyles(styles, { withTheme: true })(New)
+export default withStyles(styles)(New)
