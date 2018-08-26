@@ -4,7 +4,7 @@ import { shallow } from 'enzyme'
 
 import New from './New'
 
-describe('component Term/Show', () => {
+xdescribe('component Term/Show', () => {
   it('renders without crash', () => {
     shallow(
       <New />
