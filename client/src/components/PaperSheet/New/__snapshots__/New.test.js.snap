@@ -3,13 +3,13 @@
 exports[`component Term/Show renders as expected 1`] = `
 Array [
   <div
-    className="MuiGrid-container-4"
+    className="MuiGrid-container-5"
 />,
   <div
-    className="MuiGrid-container-4"
+    className="MuiGrid-container-5 New-termSelectZone-4"
 >
     <div
-        className="MuiGrid-item-5 MuiGrid-zeroMinWidth-6 MuiGrid-grid-xs-9-41"
+        className="MuiGrid-item-6 MuiGrid-zeroMinWidth-7 MuiGrid-grid-xs-9-42"
     >
         <div
             className="css-10nd86i"
@@ -18,16 +18,16 @@ Array [
         >
             <div
                 aria-describedby={undefined}
-                className="MuiFormControl-root-102 MuiFormControl-fullWidth-105"
+                className="MuiFormControl-root-103 MuiFormControl-fullWidth-106"
             >
                 <div
-                    className="MuiInput-root-106 MuiInput-fullWidth-113 MuiInput-formControl-107 MuiInput-underline-110"
+                    className="MuiInput-root-107 MuiInput-fullWidth-114 MuiInput-formControl-108 MuiInput-underline-111"
                 >
                     <div
                         aria-invalid={false}
                         autoComplete={undefined}
                         autoFocus={undefined}
-                        className="MuiInput-input-114 Control-input-101"
+                        className="MuiInput-input-115 Control-input-102"
                         defaultValue={undefined}
                         disabled={false}
                         id={undefined}
@@ -47,10 +47,10 @@ Array [
                         value={undefined}
                     >
                         <div
-                            className="ValueContainer-valueContainer-119"
+                            className="ValueContainer-valueContainer-120"
                         >
                             <p
-                                className="MuiTypography-root-121 MuiTypography-body1-130 MuiTypography-colorTextSecondary-144 Placeholder-placeholder-120"
+                                className="MuiTypography-root-122 MuiTypography-body1-131 MuiTypography-colorTextSecondary-145 Placeholder-placeholder-121"
                             >
                                 Search a term
                             </p>
@@ -160,48 +160,52 @@ Array [
         </div>
     </div>
     <div
-        className="MuiGrid-item-5 MuiGrid-grid-xs-3-35"
+        className="MuiGrid-item-6"
     >
-        <button
-            className="MuiButtonBase-root-172 MuiButton-root-146 MuiButton-contained-157 MuiButton-raised-160 New-button-2"
-            disabled={false}
-            onBlur={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            onMouseDown={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            tabIndex="0"
-            type="button"
+        <div
+            className="MuiFormControl-root-103"
         >
-            <span
-                className="MuiButton-label-147"
+            <button
+                className="MuiButtonBase-root-173 MuiButton-root-147 MuiButton-contained-158 MuiButton-containedPrimary-159 MuiButton-raised-161 MuiButton-raisedPrimary-162 MuiButton-sizeSmall-170 New-button-2"
+                disabled={false}
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                onMouseDown={[Function]}
+                onMouseLeave={[Function]}
+                onMouseUp={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                tabIndex="0"
+                type="button"
             >
-                Upload
-                <svg
-                    aria-hidden="true"
-                    className="MuiSvgIcon-root-175 New-rightIcon-3"
-                    color={undefined}
-                    focusable="false"
-                    viewBox="0 0 24 24"
+                <span
+                    className="MuiButton-label-148"
                 >
-                    <path
-                        d="M0 0h24v24H0z"
-                        fill="none"
-                    />
-                    <path
-                        d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"
-                    />
-                </svg>
-            </span>
-            <span
-                className="MuiTouchRipple-root-182"
-            />
-        </button>
+                    Add Term
+                    <svg
+                        aria-hidden="true"
+                        className="MuiSvgIcon-root-176 New-rightIcon-3"
+                        color={undefined}
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            d="M0 0h24v24H0z"
+                            fill="none"
+                        />
+                        <path
+                            d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"
+                        />
+                    </svg>
+                </span>
+                <span
+                    className="MuiTouchRipple-root-183"
+                />
+            </button>
+        </div>
     </div>
 </div>,
 ]
