@@ -2,10 +2,11 @@
  * @flow
  */
 
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
-import PaperSheetNewComponent from 'components/PaperSheet/New'
+import NewComponent from 'components/PaperSheet/New'
+import PreviewContainer from './Preview'
 
 type Props = {}
 type State = {}
@@ -37,7 +38,7 @@ const loadOptions = (suggestions) => {
   }
 }
 
-class New extends Component<Props, State> {
+class NewContainer extends Component<Props, State> {
   render () {
     return(
       <Query query={INDEX_TERM_QUERY}>
@@ -45,7 +46,10 @@ class New extends Component<Props, State> {
           if (loading) return <h2>Loading ...</h2>
           const suggestions: Array<Object> = terms.map(term => ({value: term.id, label: term.term}))
           return (
-            <PaperSheetNewComponent loadOptions={loadOptions(suggestions)} />
+            <Fragment>
+              <NewComponent loadOptions={loadOptions(suggestions)} />
+              <PreviewContainer />
+            </Fragment>
           )
         }}
       </Query>
@@ -53,4 +57,4 @@ class New extends Component<Props, State> {
   }
 }
 
-export default New
+export default NewContainer

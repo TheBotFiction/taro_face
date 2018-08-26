@@ -15,7 +15,7 @@ import TermSelect from './TermSelect'
 type Props = *
 type State = *
 
-class New extends Component<Props, State> {
+class NewComponent extends Component<Props, State> {
   static propTypes = {
     classes: PropTypes.object.isRequired,
     loadOptions: PropTypes.func.isRequired
@@ -78,4 +78,4 @@ const styles: Function = (theme): Object => ({
   }
 })
 
-export default withStyles(styles)(New)
+export default withStyles(styles)(NewComponent)

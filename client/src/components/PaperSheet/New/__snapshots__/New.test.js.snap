@@ -6,7 +6,7 @@ Array [
     className="MuiGrid-container-5"
 />,
   <div
-    className="MuiGrid-container-5 New-termSelectZone-4"
+    className="MuiGrid-container-5 NewComponent-termSelectZone-4"
 >
     <div
         className="MuiGrid-item-6 MuiGrid-zeroMinWidth-7 MuiGrid-grid-xs-9-42"
@@ -166,7 +166,7 @@ Array [
             className="MuiFormControl-root-103"
         >
             <button
-                className="MuiButtonBase-root-173 MuiButton-root-147 MuiButton-contained-158 MuiButton-containedPrimary-159 MuiButton-raised-161 MuiButton-raisedPrimary-162 MuiButton-sizeSmall-170 New-button-2"
+                className="MuiButtonBase-root-173 MuiButton-root-147 MuiButton-contained-158 MuiButton-containedPrimary-159 MuiButton-raised-161 MuiButton-raisedPrimary-162 MuiButton-sizeSmall-170 NewComponent-button-2"
                 disabled={false}
                 onBlur={[Function]}
                 onFocus={[Function]}
@@ -187,7 +187,7 @@ Array [
                     Add Term
                     <svg
                         aria-hidden="true"
-                        className="MuiSvgIcon-root-176 New-rightIcon-3"
+                        className="MuiSvgIcon-root-176 NewComponent-rightIcon-3"
                         color={undefined}
                         focusable="false"
                         viewBox="0 0 24 24"

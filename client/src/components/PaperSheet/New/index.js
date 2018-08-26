@@ -1,3 +1,9 @@
-import PaperSheetNewComponent from './New'
+import NewComponent from './New'
+import PreviewComponent, { PreviewContext } from './Preview'
 
-export default PaperSheetNewComponent
+export {
+  PreviewComponent,
+  PreviewContext
+}
+
+export default NewComponent
