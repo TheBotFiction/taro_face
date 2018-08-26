@@ -10,7 +10,7 @@ import { ApolloProvider } from 'react-apollo'
 
 import './index.css'
 import App from './App'
-import { TermShowContainer } from 'containers/Term'
+import { TermShowContainer, TermListContainer } from 'containers/Term'
 
 import registerServiceWorker from 'registerServiceWorker'
 
@@ -20,15 +20,22 @@ const client: ApolloClient = new ApolloClient({
 
 const browserHistory: any = createBrowserHistory()
 
+const root = document.getElementById('root')
+
+if (root == null) {
+  throw new Error('No #root element')
+}
+
 ReactDOM.render(
   <ApolloProvider client={client}>
     <Router history={browserHistory}>
       <Switch>
         <Route path='/' component={App} exact />
+        <Route path='/terms' component={TermListContainer} exact />
         <Route path='/terms/:id' component={TermShowContainer} />
       </Switch>
     </Router>
   </ApolloProvider>,
-  document.getElementById('root')
+  root
 )
 registerServiceWorker()

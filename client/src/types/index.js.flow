@@ -7,7 +7,15 @@ type TermType = {
   term: string,
   meaning?: string,
   reading?: string,
-  sample_phrases?: Array<SamplePhraseType>
+  samplePhrases?: Array<SamplePhraseType>
+}
+
+type TermListItem = {
+  id: number,
+  term: string,
+  meaning: string,
+  reading?: string,
+  samplePhrases: Array<SamplePhraseType>
 }
 
 type SamplePhraseType = {
@@ -18,5 +26,6 @@ type SamplePhraseType = {
 
 export type {
   TermType,
+  TermListItem,
   SamplePhraseType
 }

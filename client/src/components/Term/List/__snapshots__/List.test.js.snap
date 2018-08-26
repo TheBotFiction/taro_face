@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component Term/List renders as expected 1`] = `
+<div
+  className="MuiPaper-root-1 MuiPaper-elevation2-5 MuiPaper-rounded-2"
+>
+  <table
+    className="MuiTable-root-28"
+  >
+    <thead
+      className="MuiTableHead-root-29"
+    >
+      <tr
+        className="MuiTableRow-root-30 MuiTableRow-head-33"
+      >
+        <th
+          aria-sort={null}
+          className="MuiTableCell-root-35 MuiTableCell-head-36"
+          scope="col"
+        >
+          Term
+        </th>
+        <th
+          aria-sort={null}
+          className="MuiTableCell-root-35 MuiTableCell-head-36"
+          scope="col"
+        >
+          Details
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      className="MuiTableBody-root-43"
+    />
+  </table>
+</div>
+`;
