@@ -1,15 +1,8 @@
 import React, { Component } from 'react'
-import Context from './Context'
 
 class PreviewComponent extends Component {
   render () {
-    return (
-      <Context.Consumer>
-        {context => (
-          <h1>{`Preview ${context}`}</h1>
-        )}
-      </Context.Consumer>
-    )
+    return <p>{JSON.stringify(this.props.term)}</p>
   }
 }
 

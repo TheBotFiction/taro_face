@@ -9,13 +9,13 @@ const noop = () => {}
 describe('component Term/Show', () => {
   it('renders without crash', () => {
     shallow(
-      <New loadOptions={noop} />
+      <New loadOptions={noop} onSelectTerm={noop} />
     )
   })
 
   it('renders as expected', () => {
     const component = TestRenderer.create(
-      <New loadOptions={noop} />
+      <New loadOptions={noop} onSelectTerm={noop} />
     )
     const json = component.toJSON()
     expect(json).toMatchSnapshot()

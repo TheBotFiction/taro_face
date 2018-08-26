@@ -12,26 +12,19 @@ import FormControl from '@material-ui/core/FormControl'
 
 import TermSelect from './TermSelect'
 
-type Props = *
+type Props = {
+  classes: Object<any>,
+  loadOptions: Function,
+  onSelectTerm: Function
+}
+
 type State = *
 
 class NewComponent extends Component<Props, State> {
   static propTypes = {
     classes: PropTypes.object.isRequired,
-    loadOptions: PropTypes.func.isRequired
-  }
-
-  constructor (props) {
-    super(props)
-    this.handleChange = this.handleChange.bind(this)
-  }
-
-  state = {
-    selected: null
-  }
-
-  handleChange (value) {
-    this.setState({ selected: value })
+    loadOptions: PropTypes.func.isRequired,
+    onSelectTerm: PropTypes.func.isRequired
   }
 
   render() {
@@ -43,7 +36,10 @@ class NewComponent extends Component<Props, State> {
         </Grid>
         <Grid container className={classes.termSelectZone}>
           <Grid item xs={9} zeroMinWidth>
-            <TermSelect loadOptions={loadOptions} />
+            <TermSelect
+              loadOptions={loadOptions}
+              onSelect={this.props.onSelectTerm}
+            />
           </Grid>
           <Grid item>
             <FormControl>
@@ -71,9 +67,8 @@ const styles: Function = (theme): Object => ({
     marginLeft: theme.spacing.unit
   },
   termSelectZone: {
-    minHeight: 100,
     display: 'flex',
-    alignItems: 'center',
+    alignItems: 'start',
     justifyContent: 'space-around'
   }
 })

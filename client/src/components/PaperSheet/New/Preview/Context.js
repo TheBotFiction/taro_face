@@ -1,5 +1,5 @@
 import React from 'react'
 
-const PaperSheetPreviewItemContext = React.createContext()
+const PreviewContext = React.createContext()
 
-export default PaperSheetPreviewItemContext
+export default PreviewContext

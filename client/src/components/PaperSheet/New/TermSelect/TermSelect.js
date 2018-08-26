@@ -27,13 +27,21 @@ const termSelectComponents: Object = {
   Menu
 }
 
+type SelectedValue = {
+  value: string | number,
+  label: string | number
+}
+
 type Props = {}
-type State = {}
+type State = {
+  selected: null | SelectedValue
+}
 
 class TermSelect extends Component<Props, State> {
   static propTypes = {
     theme: PropTypes.object.isRequired,
-    loadOptions: PropTypes.func.isRequired
+    loadOptions: PropTypes.func.isRequired,
+    onSelect: PropTypes.func.isRequired
   }
 
   constructor (props) {
@@ -46,7 +54,9 @@ class TermSelect extends Component<Props, State> {
   }
 
   handleChange (value) {
-    this.setState({ selected: value })
+    this.setState({ selected: value }, () => {
+      this.props.onSelect(value.value)
+    })
   }
 
   render() {

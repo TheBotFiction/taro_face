@@ -9,7 +9,9 @@ import NewComponent from 'components/PaperSheet/New'
 import PreviewContainer from './Preview'
 
 type Props = {}
-type State = {}
+type State = {
+  selectedTermId: null | number
+}
 
 type QueryResult = {
   loading: boolean,
@@ -39,6 +41,20 @@ const loadOptions = (suggestions) => {
 }
 
 class NewContainer extends Component<Props, State> {
+  constructor (props) {
+    super(props)
+
+    this.onSelectTerm = this.onSelectTerm.bind(this)
+  }
+
+  state = {
+    selectedTermId: null
+  }
+
+  onSelectTerm (termId: number): void {
+    this.setState({selectedTermId: termId})
+  }
+
   render () {
     return(
       <Query query={INDEX_TERM_QUERY}>
@@ -47,8 +63,11 @@ class NewContainer extends Component<Props, State> {
           const suggestions: Array<Object> = terms.map(term => ({value: term.id, label: term.term}))
           return (
             <Fragment>
-              <NewComponent loadOptions={loadOptions(suggestions)} />
-              <PreviewContainer />
+              <NewComponent
+                loadOptions={loadOptions(suggestions)}
+                onSelectTerm={this.onSelectTerm}
+              />
+              <PreviewContainer termId={this.state.selectedTermId} />
             </Fragment>
           )
         }}
