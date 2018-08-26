@@ -2,17 +2,13 @@
  * @flow
  */
 import React, { Component } from 'react'
+import type { Node } from 'react'
 import TextField from '@material-ui/core/TextField'
 import { withStyles } from '@material-ui/core/styles'
 
-class InputComponent extends Component {
-  render () {
-    const { inputRef, ...props } = this.props
-    return (
-      <div ref={inputRef} {...props} />
-    )
-  }
-}
+const inputComponent = ({inputRef, ...props}): Node => (
+  <div ref={inputRef} {...props} />
+)
 
 // Stateless component cannot access ref
 class Control extends Component {
@@ -22,7 +18,7 @@ class Control extends Component {
       <TextField
         fullWidth
         InputProps={{
-          InputComponent,
+          inputComponent,
           inputProps: {
             className: props.classes.input,
             inputRef: props.innerRef,
