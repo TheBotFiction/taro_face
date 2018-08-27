@@ -70,7 +70,7 @@ class NewContainer extends Component<Props, State> {
     if (!data) return null
 
     const { selectedTermId } = this.state
-    const previewSlot: Node = <PreviewContainer termId={selectedTermId} />
+    const previewSlot: Node = <PreviewContainer termId={selectedTermId || 1} />
 
     let suggestions: Array<Object> = []
     if (data.terms) {

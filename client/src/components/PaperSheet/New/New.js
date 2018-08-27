@@ -7,9 +7,6 @@ import type { Node } from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
-import Button from '@material-ui/core/Button'
-import CloudUploadIcon from '@material-ui/icons/CloudUpload'
-import FormControl from '@material-ui/core/FormControl'
 
 import TermSelect from './TermSelect'
 
@@ -35,30 +32,13 @@ class NewComponent extends Component<Props, State> {
 
     return (
       <Fragment>
-        <Grid container>
-          <Grid item xs>
-            {previewSlot}
-          </Grid>
-        </Grid>
+        {previewSlot}
         <Grid container className={classes.termSelectZone}>
           <Grid item xs={9} zeroMinWidth>
             <TermSelect
               loadOptions={loadOptions}
               onSelect={onSelectTerm}
             />
-          </Grid>
-          <Grid item>
-            <FormControl>
-              <Button
-                variant="contained"
-                color="primary"
-                size="small"
-                className={classes.button}
-              >
-                Add Term
-                <CloudUploadIcon className={classes.rightIcon} />
-              </Button>
-            </FormControl>
           </Grid>
         </Grid>
       </Fragment>
