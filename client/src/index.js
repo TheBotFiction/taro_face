@@ -11,6 +11,7 @@ import { ApolloProvider } from 'react-apollo'
 import './index.css'
 import App from './App'
 import { TermShowContainer } from 'containers/Term'
+import { PaperSheetNewContainer } from 'containers/PaperSheet'
 
 import registerServiceWorker from 'registerServiceWorker'
 
@@ -20,15 +21,20 @@ const client: ApolloClient = new ApolloClient({
 
 const browserHistory: any = createBrowserHistory()
 
-ReactDOM.render(
-  <ApolloProvider client={client}>
-    <Router history={browserHistory}>
-      <Switch>
-        <Route path='/' component={App} exact />
-        <Route path='/terms/:id' component={TermShowContainer} />
-      </Switch>
-    </Router>
-  </ApolloProvider>,
-  document.getElementById('root')
-)
-registerServiceWorker()
+const rootElement: null | HTMLElement = document.getElementById('root')
+
+if (rootElement) {
+  ReactDOM.render(
+    <ApolloProvider client={client}>
+      <Router history={browserHistory}>
+        <Switch>
+          <Route path='/' component={App} exact />
+          <Route path='/terms/:id' component={TermShowContainer} />
+          <Route path='/papersheets/new' component={PaperSheetNewContainer} />
+        </Switch>
+      </Router>
+    </ApolloProvider>,
+    rootElement
+  )
+  registerServiceWorker()
+}

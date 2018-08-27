@@ -15,11 +15,13 @@ type Props = {
 
 type State = {}
 
+type Response = {
+  term: TermType
+}
+
 type QueryResult = {
   loading: boolean,
-  data: {
-    term: TermType
-  }
+  data: Response | void
 }
 
 const SHOW_TERM_QUERY = gql`
@@ -35,6 +37,7 @@ const SHOW_TERM_QUERY = gql`
     }
   }
 `
+
 class TermShowContainer extends Component<Props, State> {
   static propTypes = {
     match: PropTypes.object.isRequired
@@ -45,13 +48,17 @@ class TermShowContainer extends Component<Props, State> {
 
     return (
       <Query query={SHOW_TERM_QUERY} variables={{ id }}>
-        {({loading, data: { term }}: QueryResult): Node => {
-          if (loading) return <h2>Loading ...</h2>
-          return (
-            <TermShow term={term} />
-          )
-        }}
+        {this.renderQueriedTermShow}
       </Query>
+    )
+  }
+
+  renderQueriedTermShow ({loading, data}: QueryResult): Node {
+    if (loading) return <h2>Loading ...</h2>
+    if (!data) return null
+
+    return (
+      <TermShow term={data.term} />
     )
   }
 }
