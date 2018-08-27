@@ -31,21 +31,19 @@ const INDEX_TERM_QUERY = gql`
   }
 `
 
-const loadOptions = (suggestions) => {
-  return (inputValue, callback) => {
-    setTimeout(() => {
-      const matchedSuggestions: Array<Object> = suggestions.filter((option): boolean => (
-        option.label.toLowerCase().indexOf(inputValue) >= 0
-      ))
-      callback(matchedSuggestions)
-    })
+const loadOptions: Function = (suggestions): Function => {
+  return (inputValue, callback): void => {
+    const matchedSuggestions: Array<Object> = suggestions.filter((option): boolean => (
+      option.label.toLowerCase().indexOf(inputValue) >= 0
+    ))
+    callback(matchedSuggestions)
   }
 }
 
 class NewContainer extends Component<Props, State> {
   onSelectTerm: Function
 
-  constructor (props) {
+  constructor (props: Props) {
     super(props)
 
     this.onSelectTerm = this.onSelectTerm.bind(this)
@@ -60,12 +58,9 @@ class NewContainer extends Component<Props, State> {
   }
 
   render () {
-    const { selectedTermId } = this.state
-    const previewSlot: Node = <PreviewContainer termId={selectedTermId} />
-
     return(
       <Query query={INDEX_TERM_QUERY}>
-        {this.renderQueriedNewComponent}
+        {(result: QueryResult): Node => (this.renderQueriedNewComponent(result))}
       </Query>
     )
   }

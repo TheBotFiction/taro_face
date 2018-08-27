@@ -6,6 +6,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import AsyncSelect from 'react-select/lib/Async'
+import type { ThemeOptions } from '@material-ui/core/styles/createMuiTheme'
 
 import NoOptionsMessage from './NoOptionsMessage'
 import Control from './Control'
@@ -32,7 +33,12 @@ type SelectedValue = {
   label: string | number
 }
 
-type Props = {}
+type Props = {
+  theme: ThemeOptions,
+  loadOptions: Function,
+  onSelect: Function
+
+}
 type State = {
   selected: null | SelectedValue
 }
@@ -43,6 +49,8 @@ class TermSelect extends Component<Props, State> {
     loadOptions: PropTypes.func.isRequired,
     onSelect: PropTypes.func.isRequired
   }
+
+  handleChange: Function
 
   constructor (props) {
     super(props)
@@ -60,12 +68,17 @@ class TermSelect extends Component<Props, State> {
   }
 
   render() {
-    const { theme, loadOptions } = this.props
+    type RenderableProps = { theme: ThemeOptions, loadOptions: Function }
+    const { theme, loadOptions }: RenderableProps = this.props
 
+    let inputColor: any = ''
+    if (theme.palette && theme.palette.text) {
+      inputColor = theme.palette.text.primary
+    }
     const selectStyles: Object = {
       input: base => ({
         ...base,
-        color: theme.palette.text.primary
+        color: inputColor
       })
     }
 

@@ -11,7 +11,9 @@ const inputComponent = ({inputRef, ...props}): Node => (
 )
 
 // Stateless component cannot access ref
-class Control extends Component {
+// this component is maintained internally by react-select, so that we don't
+// have to strictly check its props
+class Control extends Component<*, *> {
   render () {
     const props = this.props
     return (

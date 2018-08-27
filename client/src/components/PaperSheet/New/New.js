@@ -14,7 +14,7 @@ import FormControl from '@material-ui/core/FormControl'
 import TermSelect from './TermSelect'
 
 type Props = {
-  classes: Object<any>,
+  classes: Object,
   loadOptions: Function,
   onSelectTerm: Function,
   previewSlot: Node
