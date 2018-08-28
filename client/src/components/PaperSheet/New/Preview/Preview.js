@@ -4,7 +4,8 @@
 
 import React, { Component } from 'react'
 import type { Node } from 'react'
-import type { TermType } from 'types'
+import type { TermType, SamplePhraseType } from 'types'
+import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import _ from 'lodash'
 import Grid from '@material-ui/core/Grid'
@@ -21,18 +22,31 @@ type Props = {
   classes: Object
 }
 
-class PreviewComponent extends Component<*, *> {
+class PreviewComponent extends Component<Props, *> {
+  static propTypes = {
+    term: PropTypes.object.isRequired,
+    classes: PropTypes.object.isRequired
+  }
   render () {
-    const { term, classes } = this.props;
-    const answers: Array<string> = _.shuffle([term.term, 'AAA', 'BBB', 'CCC']);
-    const answerIndexes: Array<string> = ['A', 'B', 'C', 'D'];
+    const { term, classes } = this.props
+    const similars: Array<TermType> | void = term.similars
+    if (!similars) return null
+
+    const samplePhrase: SamplePhraseType | void = _.sample(term.samplePhrases)
+    if (!samplePhrase) return null
+
+    const terms: Array<TermType> = [
+      {id: term.id, term: term.term},
+      ...similars
+    ]
+    const answers: Array<TermType> = _.shuffle(terms)
     return (
       <Paper className={classes.root}>
         <Grid container spacing={16} direction="column">
           <Grid item container direction="column">
             <Grid item>
               <Typography variant="headline" component="h3">
-                {term.samplePhrases[0].phrase}
+                {samplePhrase.phrase}
               </Typography>
             </Grid>
             <Grid
@@ -41,12 +55,16 @@ class PreviewComponent extends Component<*, *> {
               spacing={40}
               justify="space-around"
             >
-              {answers.map((answer: string, index: number): Node => (
+              {answers.map((answer: TermType, index: number): Node => (
                 <Grid item xs key={index}>
                   <Chip
-                    color={answer === term.term ? 'secondary' : 'default'}
-                    avatar={<Avatar className={classes.avatar}>{answerIndexes[index]}</Avatar>}
-                    label={answer}
+                    color={answer.id === term.id ? 'secondary' : 'default'}
+                    avatar={
+                      <Avatar className={classes.avatar}>
+                        {String.fromCharCode(65 + index)}
+                      </Avatar>
+                    }
+                    label={answer.term}
                     clickable
                     onClick={() => alert('Not now')}
                   />
@@ -61,7 +79,7 @@ class PreviewComponent extends Component<*, *> {
               size="small"
               className={classes.button}
             >
-              Add Term
+              Add To Paper Sheet
               <CloudUploadIcon className={classes.rightIcon} />
             </Button>
           </Grid>

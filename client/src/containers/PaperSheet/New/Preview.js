@@ -22,6 +22,10 @@ const SHOW_TERM_QUERY = gql`
         id
         phrase
       }
+      similars {
+        id
+        term
+      }
     }
   }
 `

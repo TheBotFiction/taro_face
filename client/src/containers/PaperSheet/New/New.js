@@ -57,6 +57,10 @@ class NewContainer extends Component<Props, State> {
     this.setState({selectedTermId: termId})
   }
 
+  // onAddQuestion (term: TermType): void {
+
+  // }
+
   render () {
     return(
       <Query query={INDEX_TERM_QUERY}>
@@ -70,7 +74,7 @@ class NewContainer extends Component<Props, State> {
     if (!data) return null
 
     const { selectedTermId } = this.state
-    const previewSlot: Node = <PreviewContainer termId={selectedTermId || 1} />
+    const previewSlot: Node = <PreviewContainer termId={selectedTermId} />
 
     let suggestions: Array<Object> = []
     if (data.terms) {

@@ -7,7 +7,8 @@ type TermType = {
   term: string,
   meaning?: string,
   reading?: string,
-  sample_phrases?: Array<SamplePhraseType>
+  samplePhrases?: Array<SamplePhraseType>,
+  similars?: Array<TermType>
 }
 
 type SamplePhraseType = {
