@@ -1,9 +1,11 @@
 import NewComponent from './New'
 import PreviewComponent, { PreviewContext } from './Preview'
+import ChosenComponent from './Chosen'
 
 export {
   PreviewComponent,
-  PreviewContext
+  PreviewContext,
+  ChosenComponent
 }
 
 export default NewComponent

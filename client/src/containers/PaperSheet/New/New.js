@@ -9,6 +9,7 @@ import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import NewComponent from 'components/PaperSheet/New'
 import PreviewContainer from './Preview'
+import ChosenContainer from './Chosen'
 
 type Props = {}
 type State = {
@@ -76,6 +77,8 @@ class NewContainer extends Component<Props, State> {
     const { selectedTermId } = this.state
     const previewSlot: Node = <PreviewContainer termId={selectedTermId} />
 
+    const chosenSlot: Node = <ChosenContainer />
+
     let suggestions: Array<Object> = []
     if (data.terms) {
       suggestions = data.terms.map(term => ({value: term.id, label: term.term}))
@@ -86,6 +89,7 @@ class NewContainer extends Component<Props, State> {
           loadOptions={loadOptions(suggestions)}
           onSelectTerm={this.onSelectTerm}
           previewSlot={previewSlot}
+          chosenSlot={chosenSlot}
         />
       </Fragment>
     )

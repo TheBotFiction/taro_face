@@ -14,7 +14,8 @@ type Props = {
   classes: Object,
   loadOptions: Function,
   onSelectTerm: Function,
-  previewSlot: Node
+  previewSlot: Node,
+  chosenSlot: Node
 }
 
 type State = *
@@ -24,14 +25,22 @@ class NewComponent extends Component<Props, State> {
     classes: PropTypes.object.isRequired,
     loadOptions: PropTypes.func.isRequired,
     onSelectTerm: PropTypes.func.isRequired,
-    previewSlot: PropTypes.node.isRequired
+    previewSlot: PropTypes.node.isRequired,
+    chosenSlot: PropTypes.node.isRequired
   }
 
   render() {
-    const { classes, loadOptions, previewSlot, onSelectTerm } = this.props
+    const {
+      classes,
+      loadOptions,
+      previewSlot,
+      chosenSlot,
+      onSelectTerm
+    }: Props = this.props
 
     return (
       <Fragment>
+        {chosenSlot}
         {previewSlot}
         <Grid container className={classes.termSelectZone}>
           <Grid item xs={9} zeroMinWidth>

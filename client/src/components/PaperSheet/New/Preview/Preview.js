@@ -7,7 +7,6 @@ import type { Node } from 'react'
 import type { TermType, SamplePhraseType } from 'types'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
-import _ from 'lodash'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 import CloudUploadIcon from '@material-ui/icons/CloudUpload'
@@ -19,27 +18,40 @@ import deepPurple from '@material-ui/core/colors/deepPurple'
 
 type Props = {
   term: TermType,
-  classes: Object
+  answers: Array<TermType>,
+  samplePhrase: SamplePhraseType,
+  classes: Object,
+  chooseQuestion: Function
 }
 
 class PreviewComponent extends Component<Props, *> {
   static propTypes = {
     term: PropTypes.object.isRequired,
-    classes: PropTypes.object.isRequired
+    answers: PropTypes.array.isRequired,
+    samplePhrase: PropTypes.object.isRequired,
+    classes: PropTypes.object.isRequired,
+    chooseQuestion: PropTypes.func.isRequired
   }
+
+  chooseQuestion: Function
+
+  constructor (props: Props) {
+    super(props)
+    this.chooseQuestion = this.chooseQuestion.bind(this)
+  }
+
+  chooseQuestion () {
+    const { term, answers, samplePhrase }: Props = this.props
+    this.props.chooseQuestion({
+      term,
+      answers,
+      samplePhrase
+    })
+  }
+
   render () {
-    const { term, classes } = this.props
-    const similars: Array<TermType> | void = term.similars
-    if (!similars) return null
+    const { term, answers, samplePhrase, classes }: Props = this.props
 
-    const samplePhrase: SamplePhraseType | void = _.sample(term.samplePhrases)
-    if (!samplePhrase) return null
-
-    const terms: Array<TermType> = [
-      {id: term.id, term: term.term},
-      ...similars
-    ]
-    const answers: Array<TermType> = _.shuffle(terms)
     return (
       <Paper className={classes.root}>
         <Grid container spacing={16} direction="column">
@@ -78,6 +90,7 @@ class PreviewComponent extends Component<Props, *> {
               color="primary"
               size="small"
               className={classes.button}
+              onClick={this.chooseQuestion}
             >
               Add To Paper Sheet
               <CloudUploadIcon className={classes.rightIcon} />
