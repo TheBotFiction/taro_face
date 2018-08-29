@@ -17,7 +17,14 @@ type SamplePhraseType = {
   term?: TermType
 }
 
+type PaperSheetType$ChosenQuestion = {
+  term: TermType,
+  answers: Array<TermType>,
+  samplePhrase: SamplePhraseType
+}
+
 export type {
   TermType,
-  SamplePhraseType
+  SamplePhraseType,
+  PaperSheetType$ChosenQuestion
 }

@@ -2,13 +2,19 @@
  * @flow
  */
 import React, { Component } from 'react'
+import type { PaperSheetType$ChosenQuestion } from 'types'
 import { ChosenComponent } from 'components/PaperSheet/New'
 
-type Props = *
+type Props = {
+  questions: Array<PaperSheetType$ChosenQuestion>
+}
 
 class ChosenContainer extends Component<Props, *> {
   render () {
-    return <ChosenComponent />
+    const { questions }: Props = this.props
+    if (!questions) return null
+
+    return <ChosenComponent questions={questions} />
   }
 }
 

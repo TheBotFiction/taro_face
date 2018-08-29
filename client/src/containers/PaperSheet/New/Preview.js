@@ -1,5 +1,9 @@
+/**
+ * @flow
+ */
 import React, { Component } from 'react'
 import type { Node } from 'react'
+import type { TermType, SamplePhraseType, PaperSheetType$ChosenQuestion } from 'types'
 import _ from 'lodash'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
@@ -31,31 +35,18 @@ const SHOW_TERM_QUERY = gql`
   }
 `
 
-class PreviewContainer extends Component {
-  chooseQuestion: Function
+class PreviewContainer extends Component<*, *> {
+  onChooseQuestion: Function
   renderQueriedPreviewComponent: Function
 
-  constructor (props) {
+  constructor (props: *) {
     super(props)
-    this.chooseQuestion = this.chooseQuestion.bind(this)
+    this.onChooseQuestion = this.onChooseQuestion.bind(this)
     this.renderQueriedPreviewComponent = this.renderQueriedPreviewComponent.bind(this)
   }
 
-  // getDerivedStateFromProps (props, state): * {
-  //   const { term }: { term: TermType } = props
-  //   const samplePhrase: SamplePhraseType | void = _.sample(term.samplePhrases)
-  //   return {
-  //     term: {
-  //       id: term.id,
-  //       term: term.term
-  //     },
-  //     similars: term.similars,
-  //     samplePhrase
-  //   }
-  // }
-
-  chooseQuestion (payload): void {
-    console.log(payload)
+  onChooseQuestion (payload: PaperSheetType$ChosenQuestion): void {
+    this.props.onChooseQuestion(payload)
   }
 
   render () {
@@ -69,17 +60,25 @@ class PreviewContainer extends Component {
     )
   }
 
+  /**
+   * @todo Instead of return null, return an error panel with message
+   *
+   * @param {QueryResult} {loading, data}
+   * @returns {Node}
+   * @memberof PreviewContainer
+   */
   renderQueriedPreviewComponent ({loading, data}: QueryResult): Node {
     if (loading) return <h2>Loading ...</h2>
     if (!data) return null
 
     const { term }: { term: TermType } = data
     const samplePhrase: SamplePhraseType | void = _.sample(term.samplePhrases)
-
     if (!samplePhrase) return null
 
     const normalizedTerm: TermType = { id: term.id, term: term.term }
-    const similars: Array<TermType> = term.similars
+    const similars: Array<TermType> | void = term.similars
+    if (!similars) return null
+
     const answers: Array<TermType> = _.shuffle([ term, ...similars ])
 
     return (
@@ -87,7 +86,7 @@ class PreviewContainer extends Component {
         term={normalizedTerm}
         samplePhrase={samplePhrase}
         answers={answers}
-        chooseQuestion={this.chooseQuestion}
+        onChooseQuestion={this.onChooseQuestion}
       />
     )
   }

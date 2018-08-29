@@ -4,16 +4,17 @@
 
 import React, { Component, Fragment } from 'react'
 import type { Node } from 'react'
-import type { TermType } from 'types'
+import type { TermType, PaperSheetType$ChosenQuestion } from 'types'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import NewComponent from 'components/PaperSheet/New'
 import PreviewContainer from './Preview'
 import ChosenContainer from './Chosen'
 
-type Props = {}
+type Props = {| |}
 type State = {
-  selectedTermId: null | number
+  selectedTermId: null | number,
+  chosenQuestions: Array<PaperSheetType$ChosenQuestion>
 }
 
 type QueryResult = {
@@ -43,24 +44,34 @@ const loadOptions: Function = (suggestions): Function => {
 
 class NewContainer extends Component<Props, State> {
   onSelectTerm: Function
+  onChooseQuestion: Function
 
   constructor (props: Props) {
     super(props)
 
     this.onSelectTerm = this.onSelectTerm.bind(this)
+    this.onChooseQuestion = this.onChooseQuestion.bind(this)
   }
 
   state = {
-    selectedTermId: null
+    selectedTermId: null,
+    chosenQuestions: []
   }
 
   onSelectTerm (termId: number): void {
     this.setState({selectedTermId: termId})
   }
 
-  // onAddQuestion (term: TermType): void {
-
-  // }
+  onChooseQuestion (payload: Object): void {
+    console.log(payload)
+    this.setState({
+      chosenQuestions: [
+        ...this.state.chosenQuestions,
+        payload
+      ],
+      selectedTermId: null
+    })
+  }
 
   render () {
     return(
@@ -74,10 +85,15 @@ class NewContainer extends Component<Props, State> {
     if (loading) return <h2>Loading ...</h2>
     if (!data) return null
 
-    const { selectedTermId } = this.state
-    const previewSlot: Node = <PreviewContainer termId={selectedTermId} />
+    const { selectedTermId, chosenQuestions }: State = this.state
+    const previewSlot: Node = (
+      <PreviewContainer
+        termId={selectedTermId}
+        onChooseQuestion={this.onChooseQuestion}
+      />
+    )
 
-    const chosenSlot: Node = <ChosenContainer />
+    const chosenSlot: Node = <ChosenContainer questions={chosenQuestions} />
 
     let suggestions: Array<Object> = []
     if (data.terms) {
