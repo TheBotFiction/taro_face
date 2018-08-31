@@ -6,16 +6,21 @@ import type { Node } from 'react'
 import type { TermType, PaperSheetType$ChosenQuestion } from 'types'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
+import classNames from 'classnames'
 import { Grid, Typography, Avatar, Chip, Paper } from '@material-ui/core'
 import deepPurple from '@material-ui/core/colors/deepPurple'
 
 type Props = {
-  classes: Object
+  classes: Object,
+  isPreviewing?: boolean
 } & PaperSheetType$ChosenQuestion
 
-const ChosenQuestionItem: Function = ({classes, term, answers, samplePhrase}: Props): Node => (
+const ChosenQuestionItem: Function = ({classes, isPreviewing, term, answers, samplePhrase}: Props): Node => (
   <Grid item container direction="column">
-    <Paper className={classes.paper}>
+    <Paper
+      elevation={isPreviewing ? 5 : 1}
+      className={classNames(classes.paper, {[classes.previewing]: isPreviewing})}
+    >
       <Grid item>
         <Typography variant="headline" component="h3">
           {samplePhrase.phrase}
@@ -55,6 +60,9 @@ ChosenQuestionItem.propTypes = {
 }
 
 const styles: Function = (theme: any) => ({
+  previewing: {
+    backgroundColor: 'antiquewhite'
+  },
   avatar: {
     color: '#fff',
     backgroundColor: deepPurple[500]

@@ -1,9 +1,10 @@
 /**
  * @flow
  */
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import type { Node } from 'react'
-import type { TermType, SamplePhraseType, PaperSheetType$ChosenQuestion } from 'types'
+import type { TermType, SamplePhraseType } from 'types'
+import PropTypes from 'prop-types'
 import _ from 'lodash'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
@@ -14,6 +15,11 @@ type QueryResult = {
   data: {
     term: TermType
   } | void
+}
+
+type Props = {
+  termId: null | string | number,
+  onPreviewQuestion: Function
 }
 
 const SHOW_TERM_QUERY = gql`
@@ -35,18 +41,21 @@ const SHOW_TERM_QUERY = gql`
   }
 `
 
-class PreviewContainer extends Component<*, *> {
-  onChooseQuestion: Function
+/**
+ * This component is a good sample of usecase for PureComponent. The parent
+ * state change, but not related to the component -> it should not be re-rendered
+ */
+class PreviewContainer extends PureComponent<Props, *> {
+  static propTypes = {
+    termId: PropTypes.string,
+    onPreviewQuestion: PropTypes.func.isRequired
+  }
+
   renderQueriedPreviewComponent: Function
 
   constructor (props: *) {
     super(props)
-    this.onChooseQuestion = this.onChooseQuestion.bind(this)
     this.renderQueriedPreviewComponent = this.renderQueriedPreviewComponent.bind(this)
-  }
-
-  onChooseQuestion (payload: PaperSheetType$ChosenQuestion): void {
-    this.props.onChooseQuestion(payload)
   }
 
   render () {
@@ -80,13 +89,14 @@ class PreviewContainer extends Component<*, *> {
     if (!similars) return null
 
     const answers: Array<TermType> = _.shuffle([ term, ...similars ])
+    console.log({term, answers, samplePhrase})
 
     return (
       <PreviewComponent
         term={normalizedTerm}
         samplePhrase={samplePhrase}
         answers={answers}
-        onChooseQuestion={this.onChooseQuestion}
+        onPreviewQuestion={this.props.onPreviewQuestion}
       />
     )
   }

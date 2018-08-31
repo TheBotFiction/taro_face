@@ -6,14 +6,19 @@ import React, { Component, Fragment } from 'react'
 import type { Node } from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
-import Grid from '@material-ui/core/Grid'
+import { Grid, Button } from '@material-ui/core'
+import CloudUploadIcon from '@material-ui/icons/CloudUpload'
+import AddToQueueIcon from '@material-ui/icons/AddToQueue'
 
 import TermSelect from './TermSelect'
 
 type Props = {
   classes: Object,
+  hasPreview: boolean,
+  hasQuestion: boolean,
   loadOptions: Function,
   onSelectTerm: Function,
+  onChooseQuestion: Function,
   previewSlot: Node,
   chosenSlot: Node
 }
@@ -23,8 +28,11 @@ type State = *
 class NewComponent extends Component<Props, State> {
   static propTypes = {
     classes: PropTypes.object.isRequired,
+    hasPreview: PropTypes.bool,
+    hasQuestion: PropTypes.bool,
     loadOptions: PropTypes.func.isRequired,
     onSelectTerm: PropTypes.func.isRequired,
+    onChooseQuestion: PropTypes.func.isRequired,
     previewSlot: PropTypes.node.isRequired,
     chosenSlot: PropTypes.node.isRequired
   }
@@ -32,10 +40,13 @@ class NewComponent extends Component<Props, State> {
   render() {
     const {
       classes,
+      hasPreview,
+      hasQuestion,
       loadOptions,
       previewSlot,
       chosenSlot,
-      onSelectTerm
+      onSelectTerm,
+      onChooseQuestion
     }: Props = this.props
 
     return (
@@ -43,11 +54,37 @@ class NewComponent extends Component<Props, State> {
         {chosenSlot}
         {previewSlot}
         <Grid container className={classes.termSelectZone}>
-          <Grid item xs={9} zeroMinWidth>
+          <Grid item lg={8} xs={12}>
             <TermSelect
               loadOptions={loadOptions}
               onSelect={onSelectTerm}
             />
+          </Grid>
+          <Grid item lg={2} xs={6} className={classes.buttonContainer}>
+            <Button
+              variant="outlined"
+              color="primary"
+              size="small"
+              disabled={!hasPreview}
+              className={classes.button}
+              onClick={onChooseQuestion}
+            >
+              Add To PaperSheet
+              <AddToQueueIcon className={classes.rightIcon} />
+            </Button>
+          </Grid>
+          <Grid item lg={2} xs={6} className={classes.buttonContainer}>
+            <Button
+              variant="contained"
+              color="secondary"
+              size="small"
+              disabled={!hasQuestion}
+              className={classes.button}
+              onClick={() => {}}
+            >
+              Create PaperSheet
+              <CloudUploadIcon className={classes.rightIcon} />
+            </Button>
           </Grid>
         </Grid>
       </Fragment>
@@ -56,12 +93,8 @@ class NewComponent extends Component<Props, State> {
 }
 
 const styles: Function = (theme): Object => ({
-  root: {
-    flexGrow: 1,
-    height: 250
-  },
-  button: {
-    // margin: theme.spacing.unit,
+  buttonContainer: {
+    textAlign: 'center'
   },
   rightIcon: {
     marginLeft: theme.spacing.unit
@@ -69,7 +102,8 @@ const styles: Function = (theme): Object => ({
   termSelectZone: {
     display: 'flex',
     alignItems: 'start',
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
+    marginTop: 40
   }
 })
 

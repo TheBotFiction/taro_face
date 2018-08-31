@@ -5,6 +5,7 @@
 import React, { Component, Fragment } from 'react'
 import type { Node } from 'react'
 import type { TermType, PaperSheetType$ChosenQuestion } from 'types'
+import _ from 'lodash'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import NewComponent from 'components/PaperSheet/New'
@@ -13,7 +14,8 @@ import ChosenContainer from './Chosen'
 
 type Props = {| |}
 type State = {
-  selectedTermId: null | number,
+  selectedTermId: null | string | number,
+  previewingQuestion: null | PaperSheetType$ChosenQuestion,
   chosenQuestions: Array<PaperSheetType$ChosenQuestion>
 }
 
@@ -45,16 +47,19 @@ const loadOptions: Function = (suggestions): Function => {
 class NewContainer extends Component<Props, State> {
   onSelectTerm: Function
   onChooseQuestion: Function
+  onPreviewQuestion: Function
 
   constructor (props: Props) {
     super(props)
 
     this.onSelectTerm = this.onSelectTerm.bind(this)
     this.onChooseQuestion = this.onChooseQuestion.bind(this)
+    this.onPreviewQuestion = this.onPreviewQuestion.bind(this)
   }
 
   state = {
     selectedTermId: null,
+    previewingQuestion: null,
     chosenQuestions: []
   }
 
@@ -62,15 +67,27 @@ class NewContainer extends Component<Props, State> {
     this.setState({selectedTermId: termId})
   }
 
-  onChooseQuestion (payload: Object): void {
-    console.log(payload)
-    this.setState({
-      chosenQuestions: [
-        ...this.state.chosenQuestions,
-        payload
-      ],
-      selectedTermId: null
-    })
+  onPreviewQuestion (previewingQuestion: PaperSheetType$ChosenQuestion): void {
+    this.setState({ previewingQuestion })
+  }
+
+  onChooseQuestion (): void {
+    const {
+      previewingQuestion
+    }: {
+      previewingQuestion: null | PaperSheetType$ChosenQuestion
+    } = this.state
+
+    if (previewingQuestion) {
+      this.setState({
+        chosenQuestions: [
+          ...this.state.chosenQuestions,
+          previewingQuestion
+        ],
+        selectedTermId: null,
+        previewingQuestion: null
+      })
+    }
   }
 
   render () {
@@ -85,11 +102,14 @@ class NewContainer extends Component<Props, State> {
     if (loading) return <h2>Loading ...</h2>
     if (!data) return null
 
-    const { selectedTermId, chosenQuestions }: State = this.state
+    const { selectedTermId, previewingQuestion, chosenQuestions }: State = this.state
+    const hasPreview: boolean = !_.isEmpty(previewingQuestion)
+    const hasQuestion: boolean = !_.isEmpty(chosenQuestions)
+
     const previewSlot: Node = (
       <PreviewContainer
         termId={selectedTermId}
-        onChooseQuestion={this.onChooseQuestion}
+        onPreviewQuestion={this.onPreviewQuestion}
       />
     )
 
@@ -104,6 +124,9 @@ class NewContainer extends Component<Props, State> {
         <NewComponent
           loadOptions={loadOptions(suggestions)}
           onSelectTerm={this.onSelectTerm}
+          onChooseQuestion={this.onChooseQuestion}
+          hasPreview={hasPreview}
+          hasQuestion={hasQuestion}
           previewSlot={previewSlot}
           chosenSlot={chosenSlot}
         />
