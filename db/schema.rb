@@ -12,7 +12,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_23_091749) do
+ActiveRecord::Schema.define(version: 2018_08_31_080733) do
+
+  create_table "paper_sheets", force: :cascade do |t|
+    t.string "term", null: false
+    t.text "phrase", null: false
+    t.text "answers", null: false
+    t.text "raw_data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["term"], name: "index_paper_sheets_on_term"
+  end
 
   create_table "sample_phrases", force: :cascade do |t|
     t.text "phrase"
