@@ -7,7 +7,8 @@ type TermType = {
   term: string,
   meaning?: string,
   reading?: string,
-  sample_phrases?: Array<SamplePhraseType>
+  samplePhrases?: Array<SamplePhraseType>,
+  similars?: Array<TermType>
 }
 
 type SamplePhraseType = {
@@ -16,7 +17,14 @@ type SamplePhraseType = {
   term?: TermType
 }
 
+type PaperSheetType$ChosenQuestion = {
+  term: TermType,
+  answers: Array<TermType>,
+  samplePhrase: SamplePhraseType
+}
+
 export type {
   TermType,
-  SamplePhraseType
+  SamplePhraseType,
+  PaperSheetType$ChosenQuestion
 }

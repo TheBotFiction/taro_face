@@ -4,15 +4,19 @@
 
 import React, { Component, Fragment } from 'react'
 import type { Node } from 'react'
-import type { TermType } from 'types'
+import type { TermType, PaperSheetType$ChosenQuestion } from 'types'
+import _ from 'lodash'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import NewComponent from 'components/PaperSheet/New'
 import PreviewContainer from './Preview'
+import ChosenContainer from './Chosen'
 
-type Props = {}
+type Props = {| |}
 type State = {
-  selectedTermId: null | number
+  selectedTermId: null | string | number,
+  previewingQuestion: null | PaperSheetType$ChosenQuestion,
+  chosenQuestions: Array<PaperSheetType$ChosenQuestion>
 }
 
 type QueryResult = {
@@ -42,19 +46,48 @@ const loadOptions: Function = (suggestions): Function => {
 
 class NewContainer extends Component<Props, State> {
   onSelectTerm: Function
+  onChooseQuestion: Function
+  onPreviewQuestion: Function
 
   constructor (props: Props) {
     super(props)
 
     this.onSelectTerm = this.onSelectTerm.bind(this)
+    this.onChooseQuestion = this.onChooseQuestion.bind(this)
+    this.onPreviewQuestion = this.onPreviewQuestion.bind(this)
   }
 
   state = {
-    selectedTermId: null
+    selectedTermId: null,
+    previewingQuestion: null,
+    chosenQuestions: []
   }
 
   onSelectTerm (termId: number): void {
     this.setState({selectedTermId: termId})
+  }
+
+  onPreviewQuestion (previewingQuestion: PaperSheetType$ChosenQuestion): void {
+    this.setState({ previewingQuestion })
+  }
+
+  onChooseQuestion (): void {
+    const {
+      previewingQuestion
+    }: {
+      previewingQuestion: null | PaperSheetType$ChosenQuestion
+    } = this.state
+
+    if (previewingQuestion) {
+      this.setState({
+        chosenQuestions: [
+          ...this.state.chosenQuestions,
+          previewingQuestion
+        ],
+        selectedTermId: null,
+        previewingQuestion: null
+      })
+    }
   }
 
   render () {
@@ -69,8 +102,18 @@ class NewContainer extends Component<Props, State> {
     if (loading) return <h2>Loading ...</h2>
     if (!data) return null
 
-    const { selectedTermId } = this.state
-    const previewSlot: Node = <PreviewContainer termId={selectedTermId} />
+    const { selectedTermId, previewingQuestion, chosenQuestions }: State = this.state
+    const hasPreview: boolean = !_.isEmpty(previewingQuestion)
+    const hasQuestion: boolean = !_.isEmpty(chosenQuestions)
+
+    const previewSlot: Node = (
+      <PreviewContainer
+        termId={selectedTermId}
+        onPreviewQuestion={this.onPreviewQuestion}
+      />
+    )
+
+    const chosenSlot: Node = <ChosenContainer questions={chosenQuestions} />
 
     let suggestions: Array<Object> = []
     if (data.terms) {
@@ -81,7 +124,11 @@ class NewContainer extends Component<Props, State> {
         <NewComponent
           loadOptions={loadOptions(suggestions)}
           onSelectTerm={this.onSelectTerm}
+          onChooseQuestion={this.onChooseQuestion}
+          hasPreview={hasPreview}
+          hasQuestion={hasQuestion}
           previewSlot={previewSlot}
+          chosenSlot={chosenSlot}
         />
       </Fragment>
     )
