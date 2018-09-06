@@ -12,7 +12,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_23_091749) do
+ActiveRecord::Schema.define(version: 2018_09_06_142930) do
+
+  create_table "paper_sheets", force: :cascade do |t|
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.integer "paper_sheet_id"
+    t.string "term"
+    t.string "phrase"
+    t.text "answers"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["paper_sheet_id"], name: "index_questions_on_paper_sheet_id"
+  end
 
   create_table "sample_phrases", force: :cascade do |t|
     t.text "phrase"

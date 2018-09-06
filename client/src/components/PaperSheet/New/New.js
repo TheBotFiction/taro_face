@@ -19,6 +19,7 @@ type Props = {
   loadOptions: Function,
   onSelectTerm: Function,
   onChooseQuestion: Function,
+  onSubmit: Function,
   previewSlot: Node,
   chosenSlot: Node
 }
@@ -33,6 +34,7 @@ class NewComponent extends Component<Props, State> {
     loadOptions: PropTypes.func.isRequired,
     onSelectTerm: PropTypes.func.isRequired,
     onChooseQuestion: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
     previewSlot: PropTypes.node.isRequired,
     chosenSlot: PropTypes.node.isRequired
   }
@@ -46,7 +48,8 @@ class NewComponent extends Component<Props, State> {
       previewSlot,
       chosenSlot,
       onSelectTerm,
-      onChooseQuestion
+      onChooseQuestion,
+      onSubmit
     }: Props = this.props
 
     return (
@@ -80,7 +83,7 @@ class NewComponent extends Component<Props, State> {
               size="small"
               disabled={!hasQuestion}
               className={classes.button}
-              onClick={() => {}}
+              onClick={onSubmit}
             >
               Create PaperSheet
               <CloudUploadIcon className={classes.rightIcon} />

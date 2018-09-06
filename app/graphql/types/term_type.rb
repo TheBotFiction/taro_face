@@ -13,6 +13,9 @@ module Types
       argument :order, String, required: false,
         description: "DESC or ASC. Default is ASC"
     end
+    field :similars, [TermType], null: true do
+      description "Similar terms"
+    end
 
     def sample_phrases(limit: 5, order: nil)
       Loaders::AssociationLoader.for(
@@ -21,6 +24,24 @@ module Types
         limit: limit,
         order: order
       ).load(object)
+    end
+
+    def similars
+      term_count = Term.count
+      anchor = rand(1..term_count)
+      arel = Term.arel_table
+      if ["lt", "gt"].sample == "lt"
+        query = arel[:id].lteq(anchor)
+      else
+        query = arel[:id].gteq(anchor)
+      end
+      query = query.and(arel[:id].not_eq(object.id))
+
+      if ["first", "last"].sample == "first"
+        Term.where(query).first(3)
+      else
+        Term.where(query).last(3)
+      end
     end
   end
 end

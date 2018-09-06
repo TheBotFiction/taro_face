@@ -206,7 +206,7 @@ Array [
             className="MuiButtonBase-root-172 MuiButtonBase-disabled-173 MuiButton-root-146 MuiButton-contained-157 MuiButton-containedSecondary-159 MuiButton-raised-160 MuiButton-raisedSecondary-162 MuiButton-sizeSmall-169 MuiButton-disabled-166"
             disabled={true}
             onBlur={[Function]}
-            onClick={[Function]}
+            onClick={undefined}
             onFocus={[Function]}
             onKeyDown={[Function]}
             onKeyUp={[Function]}
