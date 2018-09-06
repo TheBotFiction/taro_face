@@ -5,14 +5,18 @@
 import React, { Component, Fragment } from 'react'
 import type { Node } from 'react'
 import type { TermType, PaperSheetType$ChosenQuestion } from 'types'
+import PropTypes from 'prop-types'
 import _ from 'lodash'
-import { Query } from 'react-apollo'
+import { Query, Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 import NewComponent from 'components/PaperSheet/New'
 import PreviewContainer from './Preview'
 import ChosenContainer from './Chosen'
 
-type Props = {| |}
+type Props = {
+  onCreatePaperSheet: Function
+}
+
 type State = {
   selectedTermId: null | string | number,
   previewingQuestion: null | PaperSheetType$ChosenQuestion,
@@ -24,6 +28,12 @@ type QueryResult = {
   data: {
     terms: Array<TermType> | void
   }
+}
+
+type QuestionInputObject = {
+  term: string,
+  phrase: string,
+  answers: Array<string>
 }
 
 const INDEX_TERM_QUERY = gql`
@@ -44,10 +54,14 @@ const loadOptions: Function = (suggestions): Function => {
   }
 }
 
-class NewContainer extends Component<Props, State> {
+class PaperSheetNewContainer extends Component<Props, State> {
+  static propTypes = {
+    onCreatePaperSheet: PropTypes.func.isRequired
+  }
   onSelectTerm: Function
   onChooseQuestion: Function
   onPreviewQuestion: Function
+  onCreatePaperSheet: Function
 
   constructor (props: Props) {
     super(props)
@@ -55,6 +69,7 @@ class NewContainer extends Component<Props, State> {
     this.onSelectTerm = this.onSelectTerm.bind(this)
     this.onChooseQuestion = this.onChooseQuestion.bind(this)
     this.onPreviewQuestion = this.onPreviewQuestion.bind(this)
+    this.onCreatePaperSheet = this.onCreatePaperSheet.bind(this)
   }
 
   state = {
@@ -88,6 +103,29 @@ class NewContainer extends Component<Props, State> {
         previewingQuestion: null
       })
     }
+  }
+
+  onCreatePaperSheet (e) {
+    const {
+      chosenQuestions
+    }: {
+      chosenQuestions: Array<PaperSheetType$ChosenQuestion>
+    } = this.state
+    if (!chosenQuestions) {
+      return
+    }
+
+    let payload: Array<QuestionInputObject> = []
+    chosenQuestions.forEach(question => {
+      const singleQuestion: QuestionInputObject = {
+        term: question.term.term,
+        phrase: question.samplePhrase.phrase,
+        answers: question.answers.map(a => a.term)
+      }
+      payload.push(singleQuestion)
+    })
+
+    this.props.onCreatePaperSheet(payload)
   }
 
   render () {
@@ -125,6 +163,7 @@ class NewContainer extends Component<Props, State> {
           loadOptions={loadOptions(suggestions)}
           onSelectTerm={this.onSelectTerm}
           onChooseQuestion={this.onChooseQuestion}
+          onSubmit={this.onCreatePaperSheet}
           hasPreview={hasPreview}
           hasQuestion={hasQuestion}
           previewSlot={previewSlot}
@@ -135,4 +174,28 @@ class NewContainer extends Component<Props, State> {
   }
 }
 
-export default NewContainer
+const CREATE_PAPER_SHEET_MUTATION: string = gql`
+mutation createPaperSheet($questions: [QuestionInputObject!]!) {
+  createPaperSheet(questions: $questions) {
+    paperSheet {
+      id
+    }
+    code
+    errors
+  }
+}
+`
+
+const MutablePaperSheetNewContainer: Function = (props: any): Node => (
+  <Mutation mutation={CREATE_PAPER_SHEET_MUTATION}>
+    {(createPaperSheet, { data }) => (
+      <PaperSheetNewContainer
+        onCreatePaperSheet={(payload: Array<QuestionInputObject>): void => {
+          createPaperSheet({variables: {questions: payload}})
+        }}
+      />
+    )}
+  </Mutation>
+)
+
+export default MutablePaperSheetNewContainer
