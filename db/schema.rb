@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,16 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_31_080733) do
+ActiveRecord::Schema.define(version: 2018_09_06_142930) do
 
   create_table "paper_sheets", force: :cascade do |t|
-    t.string "term", null: false
-    t.text "phrase", null: false
-    t.text "answers", null: false
-    t.text "raw_data"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.integer "paper_sheet_id"
+    t.string "term"
+    t.string "phrase"
+    t.text "answers"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["term"], name: "index_paper_sheets_on_term"
+    t.index ["paper_sheet_id"], name: "index_questions_on_paper_sheet_id"
   end
 
   create_table "sample_phrases", force: :cascade do |t|

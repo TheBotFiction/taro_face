@@ -3,8 +3,6 @@
 module Types
   class PaperSheetType < BaseObject
     field :id, ID, null: false
-    field :term, String, null: false
-    field :phrase, String, null: false
-    field :answers, [String], null: false
+    field :questions, [QuestionType], null: true
   end
 end
