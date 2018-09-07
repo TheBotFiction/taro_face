@@ -6,6 +6,7 @@ module Mutations
     argument :reading, String, required: false
     argument :meaning, String, required: false
 
+    field :code, Integer, null: false
     field :term, Types::TermType, null: true
     field :errors, [String], null: false
 
@@ -13,12 +14,13 @@ module Mutations
       term = Term.new(term: term, reading: reading, meaning: meaning)
       if term.save
         {
+          code: 201,
           term: term,
           errors: []
         }
       else
         {
-          term: nil,
+          code: 422,
           errors: term.errors.full_messages
         }
       end

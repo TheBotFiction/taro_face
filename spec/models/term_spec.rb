@@ -7,13 +7,7 @@ RSpec.describe Term, type: :model do
     expect(build(:term)).to be_valid
   end
 
-  let(:attributes) do
-    {
-      term: "term",
-      reading: "reading",
-      meaning: "meaning"
-    }
-  end
+  let(:attributes) { attributes_for :term }
 
   let(:term) { create(:term, **attributes) }
 
