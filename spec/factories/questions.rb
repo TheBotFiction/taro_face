@@ -5,6 +5,6 @@ FactoryBot.define do
     paper_sheet
     term { "MyString" }
     phrase { "MyString" }
-    answers { "MyText" }
+    answers { ["MyText"] }
   end
 end

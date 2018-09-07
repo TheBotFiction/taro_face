@@ -2,15 +2,20 @@
 
 module Mutations
   class CreatePaperSheet < BaseMutation
-    argument :questions, [Types::QuestionInputObject], required: true do
-      description "Array of questions belong to the papersheet"
-    end
+    argument :questions,
+      [Types::QuestionInputObject],
+      "Array of questions belong to the papersheet",
+      required: true
 
     field :paper_sheet, Types::PaperSheetType, null: true
     field :errors, [String], null: false
     field :code, Int, null: false
 
     def resolve(questions:)
+      # TODO: improve
+      if questions.blank?
+        raise GraphQL::ExecutionError, "Variable question of type [QuestionInputObject!]! was provided invalid value"
+      end
       sheet = PaperSheet.new
       questions.each do |question|
         sheet.questions.build(question.to_h)

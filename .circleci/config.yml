@@ -49,6 +49,7 @@ jobs:
             mkdir -p ~/test-results
             echo '--format progress
             --color
+            --require rails_helper
             --format RspecJunitFormatter
             --out ~/test-results/rspec-<%= Time.now.to_i %>.xml
             ' > .rspec
