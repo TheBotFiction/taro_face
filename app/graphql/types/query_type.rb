@@ -11,12 +11,21 @@ module Types
       description "List all Term"
     end
 
+    field :paper_sheet, PaperSheetType, null: true do
+      description "Find a PaperSheet by ID"
+      argument :id, ID, required: true
+    end
+
     def term(id:)
       Term.find id
     end
 
     def terms
       Term.all
+    end
+
+    def paper_sheet(id:)
+      PaperSheet.find id
     end
   end
 end
