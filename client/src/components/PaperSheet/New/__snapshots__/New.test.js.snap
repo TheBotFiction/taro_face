@@ -4,10 +4,10 @@ exports[`component Term/Show renders as expected 1`] = `
 Array [
   <span />,
   <div
-    className="MuiGrid-container-4 NewComponent-termSelectZone-3"
+    className="MuiGrid-container-5 NewComponent-termSelectZone-4"
 >
     <div
-        className="MuiGrid-item-5 MuiGrid-grid-xs-12-44 MuiGrid-grid-lg-8-82"
+        className="MuiGrid-item-6 MuiGrid-grid-xs-8-41 MuiGrid-grid-lg-8-83"
     >
         <div
             className="css-10nd86i"
@@ -16,16 +16,16 @@ Array [
         >
             <div
                 aria-describedby={undefined}
-                className="MuiFormControl-root-102 MuiFormControl-fullWidth-105"
+                className="MuiFormControl-root-103 MuiFormControl-fullWidth-106"
             >
                 <div
-                    className="MuiInput-root-106 MuiInput-fullWidth-113 MuiInput-formControl-107 MuiInput-underline-110"
+                    className="MuiInput-root-107 MuiInput-fullWidth-114 MuiInput-formControl-108 MuiInput-underline-111"
                 >
                     <div
                         aria-invalid={false}
                         autoComplete={undefined}
                         autoFocus={undefined}
-                        className="MuiInput-input-114 Control-input-101"
+                        className="MuiInput-input-115 Control-input-102"
                         defaultValue={undefined}
                         disabled={false}
                         id={undefined}
@@ -45,10 +45,10 @@ Array [
                         value={undefined}
                     >
                         <div
-                            className="ValueContainer-valueContainer-119"
+                            className="ValueContainer-valueContainer-120"
                         >
                             <p
-                                className="MuiTypography-root-121 MuiTypography-body1-130 MuiTypography-colorTextSecondary-144 Placeholder-placeholder-120"
+                                className="MuiTypography-root-122 MuiTypography-body1-131 MuiTypography-colorTextSecondary-145 Placeholder-placeholder-121"
                             >
                                 Search a term
                             </p>
@@ -158,10 +158,10 @@ Array [
         </div>
     </div>
     <div
-        className="MuiGrid-item-5 MuiGrid-grid-xs-6-38 MuiGrid-grid-lg-2-76 NewComponent-buttonContainer-1"
+        className="MuiGrid-item-6 MuiGrid-grid-xs-4-37 MuiGrid-grid-lg-2-77 NewComponent-buttonContainer-1"
     >
         <button
-            className="MuiButtonBase-root-172 MuiButtonBase-disabled-173 MuiButton-root-146 MuiButton-text-148 MuiButton-textPrimary-149 MuiButton-outlined-154 MuiButton-outlinedPrimary-155 MuiButton-sizeSmall-169 MuiButton-disabled-166"
+            className="MuiButtonBase-root-173 MuiButtonBase-disabled-174 MuiButton-root-147 MuiButton-text-149 MuiButton-textPrimary-150 MuiButton-outlined-155 MuiButton-outlinedPrimary-156 MuiButton-sizeSmall-170 MuiButton-disabled-167"
             disabled={true}
             onBlur={[Function]}
             onClick={undefined}
@@ -178,12 +178,12 @@ Array [
             type="button"
         >
             <span
-                className="MuiButton-label-147"
+                className="MuiButton-label-148"
             >
                 Add To PaperSheet
                 <svg
                     aria-hidden="true"
-                    className="MuiSvgIcon-root-175 NewComponent-rightIcon-2"
+                    className="MuiSvgIcon-root-176 NewComponent-rightIcon-2"
                     color={undefined}
                     focusable="false"
                     viewBox="0 0 24 24"
@@ -199,11 +199,21 @@ Array [
             </span>
         </button>
     </div>
+</div>,
+  <hr
+    className="MuiDivider-root-183 NewComponent-divider-3"
+/>,
+  <div
+    className="MuiGrid-container-5"
+>
     <div
-        className="MuiGrid-item-5 MuiGrid-grid-xs-6-38 MuiGrid-grid-lg-2-76 NewComponent-buttonContainer-1"
+        className="MuiGrid-item-6 MuiGrid-grid-xs-8-41 MuiGrid-grid-lg-10-85"
+    />
+    <div
+        className="MuiGrid-item-6 MuiGrid-grid-xs-4-37 MuiGrid-grid-lg-2-77 NewComponent-buttonContainer-1"
     >
         <button
-            className="MuiButtonBase-root-172 MuiButtonBase-disabled-173 MuiButton-root-146 MuiButton-contained-157 MuiButton-containedSecondary-159 MuiButton-raised-160 MuiButton-raisedSecondary-162 MuiButton-sizeSmall-169 MuiButton-disabled-166"
+            className="MuiButtonBase-root-173 MuiButtonBase-disabled-174 MuiButton-root-147 MuiButton-contained-158 MuiButton-containedSecondary-160 MuiButton-raised-161 MuiButton-raisedSecondary-163 MuiButton-sizeSmall-170 MuiButton-disabled-167"
             disabled={true}
             onBlur={[Function]}
             onClick={undefined}
@@ -220,12 +230,12 @@ Array [
             type="button"
         >
             <span
-                className="MuiButton-label-147"
+                className="MuiButton-label-148"
             >
                 Create PaperSheet
                 <svg
                     aria-hidden="true"
-                    className="MuiSvgIcon-root-175 NewComponent-rightIcon-2"
+                    className="MuiSvgIcon-root-176 NewComponent-rightIcon-2"
                     color={undefined}
                     focusable="false"
                     viewBox="0 0 24 24"
