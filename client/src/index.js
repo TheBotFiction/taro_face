@@ -10,6 +10,7 @@ import { ApolloProvider } from 'react-apollo'
 
 import './index.css'
 import App from './App'
+import Layout from 'components/Layout'
 import { TermShowContainer } from 'containers/Term'
 import {
   PaperSheetNewContainer,
@@ -31,10 +32,12 @@ if (rootElement) {
     <ApolloProvider client={client}>
       <Router history={browserHistory}>
         <Switch>
-          <Route path='/' component={App} exact />
-          <Route path='/terms/:id' component={TermShowContainer} />
-          <Route path='/papersheets/new' component={PaperSheetNewContainer} />
-          <Route path='/papersheets/:id' component={PaperSheetShowContainer} />
+          <Layout>
+            <Route path='/' component={App} exact />
+            <Route path='/terms/:id' component={TermShowContainer} />
+            <Route path='/papersheets/new' component={PaperSheetNewContainer} exact />
+            <Route path='/papersheets/:id' component={PaperSheetShowContainer} />
+          </Layout>
         </Switch>
       </Router>
     </ApolloProvider>,
