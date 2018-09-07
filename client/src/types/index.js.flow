@@ -23,8 +23,22 @@ type PaperSheetType$ChosenQuestion = {
   samplePhrase: SamplePhraseType
 }
 
+type QuestionType = {
+  id?: number,
+  term: string,
+  phrase: string,
+  answers: Array<string>
+}
+
+type PaperSheetType = {
+  id?: number,
+  questions: Array<QuestionType>
+}
+
 export type {
   TermType,
   SamplePhraseType,
-  PaperSheetType$ChosenQuestion
+  PaperSheetType$ChosenQuestion,
+  QuestionType,
+  PaperSheetType
 }
