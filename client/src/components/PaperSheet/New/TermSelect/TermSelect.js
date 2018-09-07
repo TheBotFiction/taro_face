@@ -15,7 +15,6 @@ import Placeholder from './Placeholder'
 import SingleValue from './SingleValue'
 import ValueContainer from './ValueContainer'
 import MultiValue from './MultiValue'
-import Menu from './Menu'
 
 const termSelectComponents: Object = {
   NoOptionsMessage,
@@ -24,8 +23,7 @@ const termSelectComponents: Object = {
   Placeholder,
   SingleValue,
   ValueContainer,
-  MultiValue,
-  Menu
+  MultiValue
 }
 
 type SelectedValue = {

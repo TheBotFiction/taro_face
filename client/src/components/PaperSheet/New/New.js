@@ -6,7 +6,7 @@ import React, { Component, Fragment } from 'react'
 import type { Node } from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
-import { Grid, Button } from '@material-ui/core'
+import { Grid, Button, Divider } from '@material-ui/core'
 import CloudUploadIcon from '@material-ui/icons/CloudUpload'
 import AddToQueueIcon from '@material-ui/icons/AddToQueue'
 
@@ -57,13 +57,13 @@ class NewComponent extends Component<Props, State> {
         {chosenSlot}
         {previewSlot}
         <Grid container className={classes.termSelectZone}>
-          <Grid item lg={8} xs={12}>
+          <Grid item lg={8} xs={8}>
             <TermSelect
               loadOptions={loadOptions}
               onSelect={onSelectTerm}
             />
           </Grid>
-          <Grid item lg={2} xs={6} className={classes.buttonContainer}>
+          <Grid item lg={2} xs={4} className={classes.buttonContainer}>
             <Button
               variant="outlined"
               color="primary"
@@ -76,7 +76,11 @@ class NewComponent extends Component<Props, State> {
               <AddToQueueIcon className={classes.rightIcon} />
             </Button>
           </Grid>
-          <Grid item lg={2} xs={6} className={classes.buttonContainer}>
+        </Grid>
+        <Divider className={classes.divider} />
+        <Grid container>
+          <Grid item lg={10} xs={8} />
+          <Grid item lg={2} xs={4} className={classes.buttonContainer}>
             <Button
               variant="contained"
               color="secondary"
@@ -101,6 +105,10 @@ const styles: Function = (theme): Object => ({
   },
   rightIcon: {
     marginLeft: theme.spacing.unit
+  },
+  divider: {
+    marginTop: theme.spacing.unit * 3,
+    marginBottom: theme.spacing.unit * 3
   },
   termSelectZone: {
     display: 'flex',

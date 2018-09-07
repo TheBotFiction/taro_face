@@ -1,5 +1,7 @@
 /**
  * @flow
+ * @todo there is a trouble with the overlay styles, so still using the original
+ * menu
  */
 import React from 'react'
 import type { Node } from 'react'

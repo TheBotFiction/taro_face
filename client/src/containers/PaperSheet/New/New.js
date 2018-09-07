@@ -2,13 +2,14 @@
  * @flow
  */
 
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import type { Node } from 'react'
 import type { TermType, PaperSheetType$ChosenQuestion } from 'types'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
 import { Query, Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
+import { Redirect } from 'react-router-dom'
 import NewComponent from 'components/PaperSheet/New'
 import PreviewContainer from './Preview'
 import ChosenContainer from './Chosen'
@@ -158,18 +159,16 @@ class PaperSheetNewContainer extends Component<Props, State> {
       suggestions = data.terms.map(term => ({value: term.id, label: term.term}))
     }
     return (
-      <Fragment>
-        <NewComponent
-          loadOptions={loadOptions(suggestions)}
-          onSelectTerm={this.onSelectTerm}
-          onChooseQuestion={this.onChooseQuestion}
-          onSubmit={this.onCreatePaperSheet}
-          hasPreview={hasPreview}
-          hasQuestion={hasQuestion}
-          previewSlot={previewSlot}
-          chosenSlot={chosenSlot}
-        />
-      </Fragment>
+      <NewComponent
+        loadOptions={loadOptions(suggestions)}
+        onSelectTerm={this.onSelectTerm}
+        onChooseQuestion={this.onChooseQuestion}
+        onSubmit={this.onCreatePaperSheet}
+        hasPreview={hasPreview}
+        hasQuestion={hasQuestion}
+        previewSlot={previewSlot}
+        chosenSlot={chosenSlot}
+      />
     )
   }
 }
@@ -188,13 +187,23 @@ mutation createPaperSheet($questions: [QuestionInputObject!]!) {
 
 const MutablePaperSheetNewContainer: Function = (props: any): Node => (
   <Mutation mutation={CREATE_PAPER_SHEET_MUTATION}>
-    {(createPaperSheet, { data }) => (
-      <PaperSheetNewContainer
-        onCreatePaperSheet={(payload: Array<QuestionInputObject>): void => {
-          createPaperSheet({variables: {questions: payload}})
-        }}
-      />
-    )}
+    {(createPaperSheet, { called, data }): Node => {
+      if (called && data) {
+        const id: string | number = _.get(data, 'createPaperSheet.paperSheet.id')
+        return <Redirect to={`/papersheets/${id}`} />
+      }
+      const _onCreatePaperSheet: Function = (
+        payload: Array<QuestionInputObject>
+      ): Node => {
+        createPaperSheet({variables: {questions: payload}})
+      }
+      return (
+        <PaperSheetNewContainer
+          {...props}
+          onCreatePaperSheet={_onCreatePaperSheet}
+        />
+      )
+    }}
   </Mutation>
 )
 
