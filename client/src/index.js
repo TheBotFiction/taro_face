@@ -31,14 +31,14 @@ if (rootElement) {
   ReactDOM.render(
     <ApolloProvider client={client}>
       <Router history={browserHistory}>
-        <Switch>
-          <Layout>
+        <Layout>
+          <Switch>
             <Route path='/' component={App} exact />
             <Route path='/terms/:id' component={TermShowContainer} />
             <Route path='/papersheets/new' component={PaperSheetNewContainer} exact />
             <Route path='/papersheets/:id' component={PaperSheetShowContainer} />
-          </Layout>
-        </Switch>
+          </Switch>
+        </Layout>
       </Router>
     </ApolloProvider>,
     rootElement

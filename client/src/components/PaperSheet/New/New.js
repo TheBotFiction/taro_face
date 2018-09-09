@@ -2,7 +2,7 @@
  * @flow
  */
 
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import type { Node } from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
@@ -53,7 +53,7 @@ class NewComponent extends Component<Props, State> {
     }: Props = this.props
 
     return (
-      <Fragment>
+      <main className={classes.root}>
         {chosenSlot}
         {previewSlot}
         <Grid container className={classes.termSelectZone}>
@@ -63,7 +63,7 @@ class NewComponent extends Component<Props, State> {
               onSelect={onSelectTerm}
             />
           </Grid>
-          <Grid item lg={2} xs={4} className={classes.buttonContainer}>
+          <Grid item lg={4} xs={4} className={classes.buttonContainer}>
             <Button
               variant="outlined"
               color="primary"
@@ -79,8 +79,8 @@ class NewComponent extends Component<Props, State> {
         </Grid>
         <Divider className={classes.divider} />
         <Grid container>
-          <Grid item lg={10} xs={8} />
-          <Grid item lg={2} xs={4} className={classes.buttonContainer}>
+          <Grid item lg={8} xs={8} />
+          <Grid item lg={4} xs={4} className={classes.buttonContainer}>
             <Button
               variant="contained"
               color="secondary"
@@ -94,12 +94,19 @@ class NewComponent extends Component<Props, State> {
             </Button>
           </Grid>
         </Grid>
-      </Fragment>
+      </main>
     )
   }
 }
 
 const styles: Function = (theme): Object => ({
+  root: {
+    paddingTop: theme.spacing.unit * 5,
+    paddingBottom: theme.spacing.unit * 16,
+    maxWidth: theme.breakpoints.values.md,
+    marginLeft: 'auto',
+    marginRight: 'auto'
+  },
   buttonContainer: {
     textAlign: 'center'
   },
@@ -108,7 +115,7 @@ const styles: Function = (theme): Object => ({
   },
   divider: {
     marginTop: theme.spacing.unit * 3,
-    marginBottom: theme.spacing.unit * 3
+    marginBottom: theme.spacing.unit * 16
   },
   termSelectZone: {
     display: 'flex',
