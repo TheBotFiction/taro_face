@@ -6,10 +6,15 @@ import type { PaperSheetType, QuestionType } from 'types'
 import PropTypes from 'prop-types'
 import withStyles from '@material-ui/core/styles/withStyles'
 import Questions from './Questions'
+import Layout from 'components/Layout'
 
 type Props = {
   data: PaperSheetType,
   classes: Object
+}
+
+const paralax: Object = {
+  image: require('assets/img/bg7.jpg')
 }
 
 export class PaperSheetShowComponent extends Component<Props, {| |}> {
@@ -22,9 +27,11 @@ export class PaperSheetShowComponent extends Component<Props, {| |}> {
     const { data, classes }: { data: PaperSheetType, classes: Object } = this.props
     const { questions }: { questions: Array<QuestionType> } = data
     return (
-      <main className={classes.root}>
-        <Questions questions={questions} />
-      </main>
+      <Layout paralax={paralax}>
+        <main className={classes.root}>
+          <Questions questions={questions} />
+        </main>
+      </Layout>
     )
   }
 }
