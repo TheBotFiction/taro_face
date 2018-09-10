@@ -9,13 +9,13 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import { Grid } from '@material-ui/core'
 // @material-ui/icons
 // core components
-import Header from "./Header/Header.jsx";
-import HeaderLinks from "./Header/HeaderLinks.jsx";
-import Parallax from "./Parallax/Parallax.jsx";
-import Footer from "./Footer/Footer.jsx";
+import Header from "./Header/Header";
+import HeaderLinks from "./Header/HeaderLinks";
+import Parallax from "./Parallax/Parallax";
+import Footer from "./Footer/Footer";
 // sections for this page
 
-import componentsStyle from "assets/jss/material-kit-react/views/components.jsx";
+import componentsStyle from "assets/jss/material-kit-react/views/components";
 
 class Layout extends Component {
   static propTypes = {
