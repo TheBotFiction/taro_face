@@ -107,7 +107,8 @@ jobs:
 
   deploy:
     docker:
-      - image: buildpack-deps:trusty
+      # - image: buildpack-deps:trusty
+      - image: circleci/ruby:2.5.1-node
     working_directory: ~/app
     steps:
       - *attach_code
