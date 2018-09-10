@@ -7,7 +7,7 @@ import type { TermType } from 'types'
 import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
-import { TermShow } from 'components/Term'
+import { TermShowComponent } from 'components/Term'
 
 type Props = {
   match: Object
@@ -58,7 +58,7 @@ class TermShowContainer extends Component<Props, State> {
     if (!data) return null
 
     return (
-      <TermShow term={data.term} />
+      <TermShowComponent term={data.term} />
     )
   }
 }

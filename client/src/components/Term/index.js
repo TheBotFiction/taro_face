@@ -1,5 +1,7 @@
-import TermShow from './Show';
+import TermShowComponent from './Show'
+import TermNewComponent from './New'
 
 export {
-  TermShow
+  TermShowComponent,
+  TermNewComponent
 }

@@ -7,16 +7,33 @@ import { Router, Route, Switch } from 'react-router-dom'
 import createBrowserHistory from 'history/createBrowserHistory'
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
+import Loadable from 'react-loadable'
 
 import './index.css'
-import App from './App'
-import { TermShowContainer } from 'containers/Term'
-import {
-  PaperSheetNewContainer,
-  PaperSheetShowContainer
-} from 'containers/PaperSheet'
+import PageLoadingComponent from 'components/PageLoadingComponent'
 
 import registerServiceWorker from 'registerServiceWorker'
+
+const App = Loadable({
+  loader: () => import('./App'),
+  loading: PageLoadingComponent
+})
+const TermNewContainer = Loadable({
+  loader: () => import('containers/Term/New'),
+  loading: PageLoadingComponent
+})
+const TermShowContainer = Loadable({
+  loader: () => import('containers/Term/Show'),
+  loading: PageLoadingComponent
+})
+const PaperSheetNewContainer = Loadable({
+  loader: () => import('containers/PaperSheet/New'),
+  loading: PageLoadingComponent
+})
+const PaperSheetShowContainer = Loadable({
+  loader: () => import('containers/PaperSheet/Show'),
+  loading: PageLoadingComponent
+})
 
 const client: ApolloClient = new ApolloClient({
   uri: 'http://localhost:3000/graphql'
@@ -32,6 +49,7 @@ if (rootElement) {
       <Router history={browserHistory}>
         <Switch>
           <Route path='/' component={App} exact />
+          <Route path='/terms/new' component={TermNewContainer} exact />
           <Route path='/terms/:id' component={TermShowContainer} />
           <Route path='/papersheets/new' component={PaperSheetNewContainer} exact />
           <Route path='/papersheets/:id' component={PaperSheetShowContainer} />
