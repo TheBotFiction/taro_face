@@ -33,7 +33,7 @@ if (rootElement) {
         <Switch>
           <Route path='/' component={App} exact />
           <Route path='/terms/:id' component={TermShowContainer} />
-          <Route path='/papersheets/new' component={PaperSheetNewContainer} />
+          <Route path='/papersheets/new' component={PaperSheetNewContainer} exact />
           <Route path='/papersheets/:id' component={PaperSheetShowContainer} />
         </Switch>
       </Router>

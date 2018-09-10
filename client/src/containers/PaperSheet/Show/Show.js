@@ -12,7 +12,7 @@ export class PaperSheetShowContainer extends Component {
     data: PropTypes.object
   }
 
-  render() {
+  render () {
     const { data, loading }: { data: Object, loading: boolean } = this.props
     if (loading) return 'Loading...'
     const { paperSheet }: { paperSheet: PaperSheetType } = data
