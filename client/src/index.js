@@ -2,24 +2,23 @@
  * @flow
  */
 import React from 'react'
+import type { Node } from 'react'
 import ReactDOM from 'react-dom'
 import { Router, Route, Switch } from 'react-router-dom'
 import createBrowserHistory from 'history/createBrowserHistory'
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
 
+import asyncComponent from 'components/AsyncComponent'
 import './index.css'
-import App from './App'
-import {
-  TermNewContainer,
-  TermShowContainer
-} from 'containers/Term'
-import {
-  PaperSheetNewContainer,
-  PaperSheetShowContainer
-} from 'containers/PaperSheet'
 
 import registerServiceWorker from 'registerServiceWorker'
+
+const App: Node = asyncComponent(() => import('./App'))
+const PaperSheetNewContainer: Node = asyncComponent(() => import('containers/PaperSheet/New'))
+const PaperSheetShowContainer: Node = asyncComponent(() => import('containers/PaperSheet/Show'))
+const TermNewContainer: Node = asyncComponent(() => import('containers/Term/New'))
+const TermShowContainer: Node = asyncComponent(() => import('containers/Term/Show'))
 
 const client: ApolloClient = new ApolloClient({
   uri: 'http://localhost:3000/graphql'
