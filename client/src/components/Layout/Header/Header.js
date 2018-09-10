@@ -5,14 +5,16 @@ import classNames from "classnames";
 import PropTypes from "prop-types";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-import Button from "@material-ui/core/Button";
-import Hidden from "@material-ui/core/Hidden";
-import Drawer from "@material-ui/core/Drawer";
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Button,
+  Hidden,
+  Drawer
+} from '@material-ui/core'
 // @material-ui/icons
-import Menu from "@material-ui/icons/Menu";
+import MenuIcon from "@material-ui/icons/Menu";
 // core components
 import headerStyle from "assets/jss/material-kit-react/components/headerStyle";
 
@@ -96,7 +98,7 @@ class Header extends React.Component {
               aria-label="open drawer"
               onClick={this.handleDrawerToggle}
             >
-              <Menu />
+              <MenuIcon />
             </IconButton>
           </Hidden>
         </Toolbar>
