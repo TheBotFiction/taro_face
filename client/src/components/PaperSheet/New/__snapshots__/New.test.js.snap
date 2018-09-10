@@ -2,255 +2,643 @@
 
 exports[`component Term/Show renders as expected 1`] = `
 Array [
-  <span />,
-  <div
-    className="MuiGrid-container-5 NewComponent-termSelectZone-4"
+  <header
+    className="MuiPaper-root-39 MuiPaper-elevation4-45 MuiAppBar-root-31 MuiAppBar-positionFixed-32 MuiAppBar-colorPrimary-37 mui-fixed Header-appBar-14 Header-transparent-27 Header-fixed-16"
 >
     <div
-        className="MuiGrid-item-6 MuiGrid-grid-xs-8-41 MuiGrid-grid-lg-8-83"
+        className="MuiToolbar-root-66 MuiToolbar-regular-68 MuiToolbar-gutters-67 Header-container-17"
     >
         <div
-            className="css-10nd86i"
-            id={undefined}
-            onKeyDown={[Function]}
+            className="Header-flex-18"
+        >
+            <button
+                className="MuiButtonBase-root-96 MuiButton-root-70 MuiButton-text-72 MuiButton-flat-75 Header-title-19"
+                disabled={false}
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                onMouseDown={[Function]}
+                onMouseLeave={[Function]}
+                onMouseUp={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                tabIndex="0"
+                type="button"
+            >
+                <span
+                    className="MuiButton-label-71"
+                >
+                    Taro's Face
+                </span>
+                <span
+                    className="MuiTouchRipple-root-99"
+                />
+            </button>
+        </div>
+        <div
+            className="HiddenCss-smDown-111"
+        >
+            <ul
+                className="MuiList-root-133 MuiList-padding-134 HeaderLinks-list-121"
+            >
+                <li
+                    className="MuiListItem-root-137 MuiListItem-default-140 MuiListItem-gutters-144 HeaderLinks-listItem-122"
+                    disabled={false}
+                >
+                    <div>
+                        <div>
+                            <button
+                                aria-haspopup="true"
+                                aria-label="Notifications"
+                                aria-owns={null}
+                                className="MuiButtonBase-root-96 MuiButton-root-70 MuiButton-text-72 MuiButton-flat-75 RegularButton-button-167 RegularButton-transparent-181 HeaderLinks-navLink-124"
+                                disabled={false}
+                                onBlur={[Function]}
+                                onClick={[Function]}
+                                onFocus={[Function]}
+                                onKeyDown={[Function]}
+                                onKeyUp={[Function]}
+                                onMouseDown={[Function]}
+                                onMouseLeave={[Function]}
+                                onMouseUp={[Function]}
+                                onTouchEnd={[Function]}
+                                onTouchMove={[Function]}
+                                onTouchStart={[Function]}
+                                tabIndex="0"
+                                type="button"
+                            >
+                                <span
+                                    className="MuiButton-label-71"
+                                >
+                                    <svg
+                                        aria-hidden="true"
+                                        className="MuiSvgIcon-root-189 CustomDropdown-buttonIcon-161"
+                                        color={undefined}
+                                        focusable="false"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"
+                                        />
+                                        <path
+                                            d="M0 0h24v24H0z"
+                                            fill="none"
+                                        />
+                                    </svg>
+                                    Learn
+                                    <b
+                                        className="CustomDropdown-caret-162"
+                                    />
+                                </span>
+                                <span
+                                    className="MuiTouchRipple-root-99"
+                                />
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <li
+                    className="MuiListItem-root-137 MuiListItem-default-140 MuiListItem-gutters-144 HeaderLinks-listItem-122"
+                    disabled={false}
+                >
+                    <a
+                        className="MuiButtonBase-root-96 MuiButton-root-70 MuiButton-text-72 MuiButton-flat-75 RegularButton-button-167 RegularButton-transparent-181 HeaderLinks-navLink-124"
+                        href="#"
+                        onBlur={[Function]}
+                        onFocus={[Function]}
+                        onKeyDown={[Function]}
+                        onKeyUp={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseLeave={[Function]}
+                        onMouseUp={[Function]}
+                        onTouchEnd={[Function]}
+                        onTouchMove={[Function]}
+                        onTouchStart={[Function]}
+                        role="button"
+                        tabIndex="0"
+                        target="_blank"
+                    >
+                        <span
+                            className="MuiButton-label-71"
+                        >
+                            <svg
+                                aria-hidden="true"
+                                className="MuiSvgIcon-root-189 HeaderLinks-icons-128"
+                                color={undefined}
+                                focusable="false"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    d="M0 0h24v24H0z"
+                                    fill="none"
+                                />
+                                <path
+                                    d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"
+                                />
+                            </svg>
+                             Take Exam
+                        </span>
+                        <span
+                            className="MuiTouchRipple-root-99"
+                        />
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div
+        className="HiddenCss-mdUp-113"
+    />
+</header>,
+  <div
+    className="Parallax-parallax-209"
+    style={
+        Object {
+            "backgroundImage": "url(bg.jpg)",
+            "transform": "translate3d(0,0px,0)",
+          }
+    }
+>
+    <div
+        className="Layout-container-6"
+    >
+        <div
+            className="MuiGrid-container-212"
         >
             <div
-                aria-describedby={undefined}
-                className="MuiFormControl-root-103 MuiFormControl-fullWidth-106"
+                className="MuiGrid-item-213"
             >
                 <div
-                    className="MuiInput-root-107 MuiInput-fullWidth-114 MuiInput-formControl-108 MuiInput-underline-111"
+                    className="Layout-brand-7"
+                >
+                    <h1
+                        className="Layout-title-8"
+                    >
+                        New Paper Sheet
+                    </h1>
+                    <h3
+                        className="Layout-subtitle-9"
+                    />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>,
+  <div
+    className="Layout-main-10 Layout-mainRaised-11"
+>
+    <main
+        className="NewComponent-root-1"
+    >
+        <span />
+        <div
+            className="MuiGrid-container-212 NewComponent-termSelectZone-5"
+        >
+            <div
+                className="MuiGrid-item-213 MuiGrid-grid-xs-8-248 MuiGrid-grid-lg-8-290"
+            >
+                <div
+                    className="css-10nd86i"
+                    id={undefined}
+                    onKeyDown={[Function]}
                 >
                     <div
-                        aria-invalid={false}
-                        autoComplete={undefined}
-                        autoFocus={undefined}
-                        className="MuiInput-input-115 Control-input-102"
-                        defaultValue={undefined}
-                        disabled={false}
-                        id={undefined}
-                        name={undefined}
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        onFocus={[Function]}
-                        onKeyDown={undefined}
-                        onKeyUp={undefined}
-                        onMouseDown={[Function]}
-                        onTouchEnd={[Function]}
-                        placeholder={undefined}
-                        readOnly={undefined}
-                        required={false}
-                        rows={undefined}
-                        type="text"
-                        value={undefined}
+                        aria-describedby={undefined}
+                        className="MuiFormControl-root-310 MuiFormControl-fullWidth-313"
                     >
                         <div
-                            className="ValueContainer-valueContainer-120"
-                        >
-                            <p
-                                className="MuiTypography-root-122 MuiTypography-body1-131 MuiTypography-colorTextSecondary-145 Placeholder-placeholder-121"
-                            >
-                                Search a term
-                            </p>
-                            <div
-                                className="css-1hrkh7z"
-                            >
-                                <div
-                                    className=""
-                                    style={
-                                        Object {
-                                            "display": "inline-block",
-                                          }
-                                    }
-                                >
-                                    <input
-                                        aria-autocomplete="list"
-                                        aria-label={undefined}
-                                        aria-labelledby={undefined}
-                                        autoCapitalize="none"
-                                        autoComplete="off"
-                                        autoCorrect="off"
-                                        className={undefined}
-                                        disabled={false}
-                                        id="react-select-2-input"
-                                        onBlur={[Function]}
-                                        onChange={[Function]}
-                                        onFocus={[Function]}
-                                        spellCheck="false"
-                                        style={
-                                            Object {
-                                                "background": 0,
-                                                "border": 0,
-                                                "boxSizing": "content-box",
-                                                "color": "inherit",
-                                                "fontSize": "inherit",
-                                                "opacity": 1,
-                                                "outline": 0,
-                                                "padding": 0,
-                                                "width": "1px",
-                                              }
-                                        }
-                                        tabIndex="0"
-                                        type="text"
-                                        value=""
-                                    />
-                                    <div
-                                        style={
-                                            Object {
-                                                "height": 0,
-                                                "left": 0,
-                                                "overflow": "scroll",
-                                                "position": "absolute",
-                                                "top": 0,
-                                                "visibility": "hidden",
-                                                "whiteSpace": "pre",
-                                              }
-                                        }
-                                    >
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            className="css-1wy0on6"
+                            className="MuiInput-root-314 MuiInput-fullWidth-321 MuiInput-formControl-315 MuiInput-underline-318"
                         >
                             <div
-                                aria-hidden="true"
-                                className="css-fraxkc"
-                            >
-                                <span
-                                    className="css-pujnn1"
-                                />
-                                <span
-                                    className="css-gji98i"
-                                />
-                                <span
-                                    className="css-1frpy8x"
-                                />
-                            </div>
-                            <span
-                                className="css-d8oujb"
-                            />
-                            <div
-                                aria-hidden="true"
-                                className="css-1ep9fjw"
+                                aria-invalid={false}
+                                autoComplete={undefined}
+                                autoFocus={undefined}
+                                className="MuiInput-input-322 Control-input-309"
+                                defaultValue={undefined}
+                                disabled={false}
+                                id={undefined}
+                                name={undefined}
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onFocus={[Function]}
+                                onKeyDown={undefined}
+                                onKeyUp={undefined}
                                 onMouseDown={[Function]}
                                 onTouchEnd={[Function]}
+                                placeholder={undefined}
+                                readOnly={undefined}
+                                required={false}
+                                rows={undefined}
+                                type="text"
+                                value={undefined}
                             >
-                                <svg
-                                    aria-hidden="true"
-                                    className="css-19bqh2r"
-                                    focusable="false"
-                                    height={20}
-                                    viewBox="0 0 20 20"
-                                    width={20}
+                                <div
+                                    className="ValueContainer-valueContainer-327"
                                 >
-                                    <path
-                                        d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                                    <p
+                                        className="MuiTypography-root-329 MuiTypography-body1-338 MuiTypography-colorTextSecondary-352 Placeholder-placeholder-328"
+                                    >
+                                        Search a term
+                                    </p>
+                                    <div
+                                        className="css-1hrkh7z"
+                                    >
+                                        <div
+                                            className=""
+                                            style={
+                                                Object {
+                                                    "display": "inline-block",
+                                                  }
+                                            }
+                                        >
+                                            <input
+                                                aria-autocomplete="list"
+                                                aria-label={undefined}
+                                                aria-labelledby={undefined}
+                                                autoCapitalize="none"
+                                                autoComplete="off"
+                                                autoCorrect="off"
+                                                className={undefined}
+                                                disabled={false}
+                                                id="react-select-2-input"
+                                                onBlur={[Function]}
+                                                onChange={[Function]}
+                                                onFocus={[Function]}
+                                                spellCheck="false"
+                                                style={
+                                                    Object {
+                                                        "background": 0,
+                                                        "border": 0,
+                                                        "boxSizing": "content-box",
+                                                        "color": "inherit",
+                                                        "fontSize": "inherit",
+                                                        "opacity": 1,
+                                                        "outline": 0,
+                                                        "padding": 0,
+                                                        "width": "1px",
+                                                      }
+                                                }
+                                                tabIndex="0"
+                                                type="text"
+                                                value=""
+                                            />
+                                            <div
+                                                style={
+                                                    Object {
+                                                        "height": 0,
+                                                        "left": 0,
+                                                        "overflow": "scroll",
+                                                        "position": "absolute",
+                                                        "top": 0,
+                                                        "visibility": "hidden",
+                                                        "whiteSpace": "pre",
+                                                      }
+                                                }
+                                            >
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    className="css-1wy0on6"
+                                >
+                                    <div
+                                        aria-hidden="true"
+                                        className="css-fraxkc"
+                                    >
+                                        <span
+                                            className="css-pujnn1"
+                                        />
+                                        <span
+                                            className="css-gji98i"
+                                        />
+                                        <span
+                                            className="css-1frpy8x"
+                                        />
+                                    </div>
+                                    <span
+                                        className="css-d8oujb"
                                     />
-                                </svg>
+                                    <div
+                                        aria-hidden="true"
+                                        className="css-1ep9fjw"
+                                        onMouseDown={[Function]}
+                                        onTouchEnd={[Function]}
+                                    >
+                                        <svg
+                                            aria-hidden="true"
+                                            className="css-19bqh2r"
+                                            focusable="false"
+                                            height={20}
+                                            viewBox="0 0 20 20"
+                                            width={20}
+                                        >
+                                            <path
+                                                d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                                            />
+                                        </svg>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div
-        className="MuiGrid-item-6 MuiGrid-grid-xs-4-37 MuiGrid-grid-lg-2-77 NewComponent-buttonContainer-1"
-    >
-        <button
-            className="MuiButtonBase-root-173 MuiButtonBase-disabled-174 MuiButton-root-147 MuiButton-text-149 MuiButton-textPrimary-150 MuiButton-outlined-155 MuiButton-outlinedPrimary-156 MuiButton-sizeSmall-170 MuiButton-disabled-167"
-            disabled={true}
-            onBlur={[Function]}
-            onClick={undefined}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            onMouseDown={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            tabIndex="-1"
-            type="button"
-        >
-            <span
-                className="MuiButton-label-148"
+            <div
+                className="MuiGrid-item-213 MuiGrid-grid-xs-4-244 MuiGrid-grid-lg-4-286 NewComponent-buttonContainer-2"
             >
-                Add To PaperSheet
-                <svg
-                    aria-hidden="true"
-                    className="MuiSvgIcon-root-176 NewComponent-rightIcon-2"
-                    color={undefined}
-                    focusable="false"
-                    viewBox="0 0 24 24"
+                <button
+                    className="MuiButtonBase-root-96 MuiButtonBase-disabled-97 MuiButton-root-70 MuiButton-text-72 MuiButton-textPrimary-73 MuiButton-outlined-78 MuiButton-outlinedPrimary-79 MuiButton-sizeSmall-93 MuiButton-disabled-90"
+                    disabled={true}
+                    onBlur={[Function]}
+                    onClick={undefined}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    onKeyUp={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseLeave={[Function]}
+                    onMouseUp={[Function]}
+                    onTouchEnd={[Function]}
+                    onTouchMove={[Function]}
+                    onTouchStart={[Function]}
+                    tabIndex="-1"
+                    type="button"
                 >
-                    <path
-                        d="M0 0h24v24H0V0z"
-                        fill="none"
-                    />
-                    <path
-                        d="M21 3H3c-1.11 0-2 .89-2 2v12c0 1.1.89 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.11-.9-2-2-2zm0 14H3V5h18v12zm-5-7v2h-3v3h-2v-3H8v-2h3V7h2v3h3z"
-                    />
-                </svg>
-            </span>
-        </button>
-    </div>
+                    <span
+                        className="MuiButton-label-71"
+                    >
+                        Add To PaperSheet
+                        <svg
+                            aria-hidden="true"
+                            className="MuiSvgIcon-root-189 NewComponent-rightIcon-3"
+                            color={undefined}
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                d="M0 0h24v24H0V0z"
+                                fill="none"
+                            />
+                            <path
+                                d="M21 3H3c-1.11 0-2 .89-2 2v12c0 1.1.89 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.11-.9-2-2-2zm0 14H3V5h18v12zm-5-7v2h-3v3h-2v-3H8v-2h3V7h2v3h3z"
+                            />
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+        <hr
+            className="MuiDivider-root-354 NewComponent-divider-4"
+        />
+        <div
+            className="MuiGrid-container-212"
+        >
+            <div
+                className="MuiGrid-item-213 MuiGrid-grid-xs-8-248 MuiGrid-grid-lg-8-290"
+            />
+            <div
+                className="MuiGrid-item-213 MuiGrid-grid-xs-4-244 MuiGrid-grid-lg-4-286 NewComponent-buttonContainer-2"
+            >
+                <button
+                    className="MuiButtonBase-root-96 MuiButtonBase-disabled-97 MuiButton-root-70 MuiButton-contained-81 MuiButton-containedSecondary-83 MuiButton-raised-84 MuiButton-raisedSecondary-86 MuiButton-sizeSmall-93 MuiButton-disabled-90"
+                    disabled={true}
+                    onBlur={[Function]}
+                    onClick={undefined}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    onKeyUp={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseLeave={[Function]}
+                    onMouseUp={[Function]}
+                    onTouchEnd={[Function]}
+                    onTouchMove={[Function]}
+                    onTouchStart={[Function]}
+                    tabIndex="-1"
+                    type="button"
+                >
+                    <span
+                        className="MuiButton-label-71"
+                    >
+                        Create PaperSheet
+                        <svg
+                            aria-hidden="true"
+                            className="MuiSvgIcon-root-189 NewComponent-rightIcon-3"
+                            color={undefined}
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                d="M0 0h24v24H0z"
+                                fill="none"
+                            />
+                            <path
+                                d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"
+                            />
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </main>
 </div>,
-  <hr
-    className="MuiDivider-root-183 NewComponent-divider-3"
-/>,
   <div
-    className="MuiGrid-container-5"
+    align="center"
+    className="MuiGrid-container-212 MuiGrid-justify-xs-center-229 AdditionalInfo-root-358"
 >
     <div
-        className="MuiGrid-item-6 MuiGrid-grid-xs-8-41 MuiGrid-grid-lg-10-85"
-    />
-    <div
-        className="MuiGrid-item-6 MuiGrid-grid-xs-4-37 MuiGrid-grid-lg-2-77 NewComponent-buttonContainer-1"
+        className="MuiGrid-item-213 MuiGrid-grid-xs-12-252"
     >
-        <button
-            className="MuiButtonBase-root-173 MuiButtonBase-disabled-174 MuiButton-root-147 MuiButton-contained-158 MuiButton-containedSecondary-160 MuiButton-raised-161 MuiButton-raisedSecondary-163 MuiButton-sizeSmall-170 MuiButton-disabled-167"
-            disabled={true}
-            onBlur={[Function]}
-            onClick={undefined}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            onMouseDown={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            tabIndex="-1"
-            type="button"
+        <h1
+            className="MuiTypography-root-329 MuiTypography-headline-334 MuiTypography-alignCenter-342"
         >
-            <span
-                className="MuiButton-label-148"
+            Frequently Asked Questions
+        </h1>
+    </div>
+    <div
+        className="MuiGrid-container-212 MuiGrid-item-213 MuiGrid-grid-xs-12-252 AdditionalInfo-content-359"
+    >
+        <div
+            className="MuiGrid-container-212 MuiGrid-item-213 MuiGrid-grid-xs-12-252 MuiGrid-grid-sm-6-260"
+        >
+            <div
+                className="MuiGrid-item-213 MuiGrid-grid-xs-1-241"
+            />
+            <div
+                className="MuiGrid-container-212 MuiGrid-item-213 MuiGrid-grid-xs-11-251"
             >
-                Create PaperSheet
-                <svg
-                    aria-hidden="true"
-                    className="MuiSvgIcon-root-176 NewComponent-rightIcon-2"
-                    color={undefined}
-                    focusable="false"
-                    viewBox="0 0 24 24"
+                <div
+                    className="MuiGrid-item-213 MuiGrid-grid-xs-12-252"
                 >
-                    <path
-                        d="M0 0h24v24H0z"
-                        fill="none"
-                    />
-                    <path
-                        d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"
-                    />
-                </svg>
-            </span>
-        </button>
+                    <h3
+                        className="MuiTypography-root-329 MuiTypography-subheading-336"
+                    >
+                        How to add question to sheet?
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div
+            className="MuiGrid-container-212 MuiGrid-item-213 MuiGrid-grid-xs-12-252 MuiGrid-grid-sm-6-260"
+        >
+            <div
+                className="MuiGrid-item-213 MuiGrid-grid-xs-1-241"
+            />
+            <div
+                className="MuiGrid-container-212 MuiGrid-item-213 MuiGrid-grid-xs-11-251"
+            >
+                <div
+                    className="MuiGrid-item-213 MuiGrid-grid-xs-12-252"
+                >
+                    <h3
+                        className="MuiTypography-root-329 MuiTypography-subheading-336"
+                    >
+                        How to finish the sheet?
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div
+            className="MuiGrid-container-212 MuiGrid-item-213 MuiGrid-grid-xs-12-252 MuiGrid-grid-sm-6-260"
+        >
+            <div
+                className="MuiGrid-item-213 MuiGrid-grid-xs-1-241"
+            />
+            <div
+                className="MuiGrid-container-212 MuiGrid-item-213 MuiGrid-grid-xs-11-251"
+            >
+                <div
+                    className="MuiGrid-item-213 MuiGrid-grid-xs-12-252"
+                >
+                    <h3
+                        className="MuiTypography-root-329 MuiTypography-subheading-336"
+                    >
+                        How will the sheet look like?
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div
+            className="MuiGrid-container-212 MuiGrid-item-213 MuiGrid-grid-xs-12-252 MuiGrid-grid-sm-6-260"
+        >
+            <div
+                className="MuiGrid-item-213 MuiGrid-grid-xs-1-241"
+            />
+            <div
+                className="MuiGrid-container-212 MuiGrid-item-213 MuiGrid-grid-xs-11-251"
+            >
+                <div
+                    className="MuiGrid-item-213 MuiGrid-grid-xs-12-252"
+                >
+                    <h3
+                        className="MuiTypography-root-329 MuiTypography-subheading-336"
+                    >
+                        How to edit the sheet?
+                    </h3>
+                </div>
+            </div>
+        </div>
     </div>
 </div>,
+  <footer
+    className="Footer-footer-363"
+>
+    <div
+        className="Footer-container-366"
+    >
+        <div
+            className="Footer-left-361"
+        >
+            <ul
+                className="MuiList-root-133 MuiList-padding-134 Footer-list-367"
+            >
+                <li
+                    className="MuiListItem-root-137 MuiListItem-default-140 MuiListItem-gutters-144 Footer-inlineBlock-368"
+                    disabled={false}
+                >
+                    <a
+                        className="Footer-block-360"
+                        href="#"
+                        target="_blank"
+                    >
+                        Taro's Face
+                    </a>
+                </li>
+                <li
+                    className="MuiListItem-root-137 MuiListItem-default-140 MuiListItem-gutters-144 Footer-inlineBlock-368"
+                    disabled={false}
+                >
+                    <a
+                        className="Footer-block-360"
+                        href="#"
+                        target="_blank"
+                    >
+                        About us
+                    </a>
+                </li>
+                <li
+                    className="MuiListItem-root-137 MuiListItem-default-140 MuiListItem-gutters-144 Footer-inlineBlock-368"
+                    disabled={false}
+                >
+                    <a
+                        className="Footer-block-360"
+                        href="#"
+                        target="_blank"
+                    >
+                        Blog
+                    </a>
+                </li>
+                <li
+                    className="MuiListItem-root-137 MuiListItem-default-140 MuiListItem-gutters-144 Footer-inlineBlock-368"
+                    disabled={false}
+                >
+                    <a
+                        className="Footer-block-360"
+                        href="#"
+                        target="_blank"
+                    >
+                        Licenses
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div
+            className="Footer-right-362"
+        >
+            © 
+            2018
+             , made with
+             
+            <svg
+                aria-hidden="true"
+                className="MuiSvgIcon-root-189 Footer-icon-369"
+                color={undefined}
+                focusable="false"
+                viewBox="0 0 24 24"
+            >
+                <path
+                    d="M0 0h24v24H0z"
+                    fill="none"
+                />
+                <path
+                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                />
+            </svg>
+             by
+             
+            <a
+                className="Footer-a-364"
+                href="#"
+                target="_blank"
+            >
+                Taro's Face
+            </a>
+             
+            for a better learning environment.
+        </div>
+    </div>
+</footer>,
 ]
 `;
