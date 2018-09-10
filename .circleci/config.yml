@@ -112,6 +112,16 @@ jobs:
     steps:
       - *attach_code
       - run:
+          name: Build front-end
+          command: |
+            cd client && yarn install && yarn build && \
+              mv build/* ../public
+      - run:
+          name: Release commit
+          command: |
+            git add -A && \
+            git commit -am "release: on `date +'%Y-%m-%d %H:%M:%S'`"
+      - run:
           name: Deploy `release` branch to Heroku
           command: |
             git push --force \
