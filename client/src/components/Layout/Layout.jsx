@@ -27,7 +27,8 @@ class Layout extends Component {
       image: PropTypes.string,
       title: PropTypes.string,
       subtitle: PropTypes.string
-    })
+    }),
+    additionalInfoSlot: PropTypes.node
   }
 
   static defaultProps = {
@@ -47,6 +48,7 @@ class Layout extends Component {
       classes,
       header,
       paralax,
+      additionalInfoSlot,
       ...rest
     } = this.props;
 
@@ -81,6 +83,7 @@ class Layout extends Component {
         <div className={classNames(classes.main, classes.mainRaised)}>
           {this.props.children}
         </div>
+        {additionalInfoSlot}
         <Footer />
       </Fragment>
     );

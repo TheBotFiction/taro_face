@@ -12,6 +12,7 @@ import AddToQueueIcon from '@material-ui/icons/AddToQueue'
 import Layout from 'components/Layout'
 
 import TermSelect from './TermSelect'
+import AdditionalInfo from './AdditionalInfo'
 
 type Props = {
   classes: Object,
@@ -64,7 +65,11 @@ class NewComponent extends Component<Props, State> {
     }: Props = this.props
 
     return (
-      <Layout paralax={paralax} header={header}>
+      <Layout
+        paralax={paralax}
+        header={header}
+        additionalInfoSlot={<AdditionalInfo />}
+      >
         <main className={classes.root}>
           {chosenSlot}
           {previewSlot}
