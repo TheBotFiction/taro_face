@@ -5,6 +5,7 @@ references:
     docker:
       - image: circleci/ruby:2.5.1-node
         environment:
+          SECRET_KEY_BASE: very_secure_and_randomized_string
           BUNDLE_PATH: vendor/bundle
           BUNDLE_WITHOUT: production:canary:staging:development
           RAILS_ENV: test
@@ -116,12 +117,14 @@ jobs:
           name: Build front-end
           command: |
             cd client && yarn install && yarn build && \
-              mv build/* ../public
+              mv build/* ../public/
       - run:
           name: Release commit
           command: |
-            git add -A && \
-            git commit -am "release: on `date +'%Y-%m-%d %H:%M:%S'`"
+            git config --global user.email "taro@circleci.com"
+            git config --global user.name "Taro at CircleCI"
+            git add public/ && \
+              git commit -am "release: on `date +'%Y-%m-%d %H:%M:%S'`"
       - run:
           name: Deploy `release` branch to Heroku
           command: |
