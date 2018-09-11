@@ -5,6 +5,7 @@ references:
     docker:
       - image: circleci/ruby:2.5.1-node
         environment:
+          SECRET_KEY_BASE: very_secure_and_randomized_string
           BUNDLE_PATH: vendor/bundle
           BUNDLE_WITHOUT: production:canary:staging:development
           RAILS_ENV: test

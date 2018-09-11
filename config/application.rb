@@ -24,6 +24,8 @@ module TaroFace
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
+    # Disable Rails credentials since we use Chamber to manage multi environments
+    config.require_master_key = false
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
