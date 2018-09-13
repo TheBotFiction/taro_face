@@ -1,4 +1,5 @@
 import { container } from "assets/jss/material-kit-react";
+import mainBackground from "assets/img/channel-background.jpg";
 
 const componentsStyle = {
   container,
@@ -19,6 +20,9 @@ const componentsStyle = {
   },
   main: {
     background: "#FFFFFF",
+    backgroundImage: `url(${mainBackground})`,
+    backgroundSize: 500,
+    minHeight: 420,
     position: "relative",
     zIndex: "3"
   },
