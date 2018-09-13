@@ -16,6 +16,11 @@ module Types
       argument :id, ID, required: true
     end
 
+    field :analyzed_terms, [TermType], null: true do
+      description "Get the analyzed tems from given text"
+      argument :q, String, required: true
+    end
+
     def term(id:)
       Term.find id
     end
@@ -26,6 +31,14 @@ module Types
 
     def paper_sheet(id:)
       PaperSheet.find id
+    end
+
+    def analyzed_terms(q:)
+      analyzer = PhraseAnalyzer.new(q)
+      data = analyzer.call
+      data.map do |d|
+        Term.new term: d[:term], reading: d[:reading]
+      end
     end
   end
 end
