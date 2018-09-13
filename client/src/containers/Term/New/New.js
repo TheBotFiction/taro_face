@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import { TermNewComponent } from 'components/Term'
@@ -15,9 +15,6 @@ const ANALYZE_PHRASE = gql`
 `
 
 export class TermNewContainer extends Component {
-  static propTypes = {
-
-  }
 
   constructor (props) {
     super(props)
