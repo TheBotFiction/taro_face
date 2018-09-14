@@ -18,6 +18,10 @@ const App = Loadable({
   loader: () => import('./App'),
   loading: PageLoadingComponent
 })
+const SigninContainer = Loadable({
+  loader: () => import('containers/Signin'),
+  loading: PageLoadingComponent
+})
 const TermNewContainer = Loadable({
   loader: () => import('containers/Term/New'),
   loading: PageLoadingComponent
@@ -49,6 +53,7 @@ if (rootElement) {
       <Router history={browserHistory}>
         <Switch>
           <Route path='/' component={App} exact />
+          <Route path='/sign-in' component={SigninContainer} exact />
           <Route path='/terms/new' component={TermNewContainer} exact />
           <Route path='/terms/:id' component={TermShowContainer} />
           <Route path='/papersheets/new' component={PaperSheetNewContainer} exact />
