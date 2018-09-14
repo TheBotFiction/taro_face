@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`component Term/Show renders as expected 1`] = `
+exports[`component Term/New renders as expected 1`] = `
 Array [
   <header
     className="MuiPaper-root-39 MuiPaper-elevation4-45 MuiAppBar-root-31 MuiAppBar-positionFixed-32 MuiAppBar-colorPrimary-37 mui-fixed Header-appBar-14 Header-transparent-27 Header-fixed-16"
@@ -190,11 +190,12 @@ Array [
     className="Layout-main-10 Layout-mainRaised-11"
 >
     <main
-        className="NewComponent-root-1"
+        className="PaperSheetNewComponent-root-1"
     >
         <span />
+        <span />
         <div
-            className="MuiGrid-container-212 NewComponent-termSelectZone-5"
+            className="MuiGrid-container-212 PaperSheetNewComponent-termSelectZone-5"
         >
             <div
                 className="MuiGrid-item-213 MuiGrid-grid-xs-8-248 MuiGrid-grid-lg-8-290"
@@ -348,13 +349,13 @@ Array [
                 </div>
             </div>
             <div
-                className="MuiGrid-item-213 MuiGrid-grid-xs-4-244 MuiGrid-grid-lg-4-286 NewComponent-buttonContainer-2"
+                className="MuiGrid-item-213 MuiGrid-grid-xs-4-244 MuiGrid-grid-lg-4-286 PaperSheetNewComponent-buttonContainer-2"
             >
                 <button
                     className="MuiButtonBase-root-96 MuiButtonBase-disabled-97 MuiButton-root-70 MuiButton-text-72 MuiButton-textPrimary-73 MuiButton-outlined-78 MuiButton-outlinedPrimary-79 MuiButton-sizeSmall-93 MuiButton-disabled-90"
                     disabled={true}
                     onBlur={[Function]}
-                    onClick={undefined}
+                    onClick={[Function]}
                     onFocus={[Function]}
                     onKeyDown={[Function]}
                     onKeyUp={[Function]}
@@ -373,7 +374,7 @@ Array [
                         Add To PaperSheet
                         <svg
                             aria-hidden="true"
-                            className="MuiSvgIcon-root-189 NewComponent-rightIcon-3"
+                            className="MuiSvgIcon-root-189 PaperSheetNewComponent-rightIcon-3"
                             color={undefined}
                             focusable="false"
                             viewBox="0 0 24 24"
@@ -391,7 +392,7 @@ Array [
             </div>
         </div>
         <hr
-            className="MuiDivider-root-354 NewComponent-divider-4"
+            className="MuiDivider-root-354 PaperSheetNewComponent-divider-4"
         />
         <div
             className="MuiGrid-container-212"
@@ -400,13 +401,13 @@ Array [
                 className="MuiGrid-item-213 MuiGrid-grid-xs-8-248 MuiGrid-grid-lg-8-290"
             />
             <div
-                className="MuiGrid-item-213 MuiGrid-grid-xs-4-244 MuiGrid-grid-lg-4-286 NewComponent-buttonContainer-2"
+                className="MuiGrid-item-213 MuiGrid-grid-xs-4-244 MuiGrid-grid-lg-4-286 PaperSheetNewComponent-buttonContainer-2"
             >
                 <button
                     className="MuiButtonBase-root-96 MuiButtonBase-disabled-97 MuiButton-root-70 MuiButton-contained-81 MuiButton-containedSecondary-83 MuiButton-raised-84 MuiButton-raisedSecondary-86 MuiButton-sizeSmall-93 MuiButton-disabled-90"
                     disabled={true}
                     onBlur={[Function]}
-                    onClick={undefined}
+                    onClick={[Function]}
                     onFocus={[Function]}
                     onKeyDown={[Function]}
                     onKeyUp={[Function]}
@@ -425,7 +426,7 @@ Array [
                         Create PaperSheet
                         <svg
                             aria-hidden="true"
-                            className="MuiSvgIcon-root-189 NewComponent-rightIcon-3"
+                            className="MuiSvgIcon-root-189 PaperSheetNewComponent-rightIcon-3"
                             color={undefined}
                             focusable="false"
                             viewBox="0 0 24 24"
