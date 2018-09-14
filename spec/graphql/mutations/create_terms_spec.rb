@@ -49,7 +49,7 @@ module Mutations
       end
 
       describe "missing required field `term'" do
-        let(:invalid_params) {(1..3).map { attributes_for :term, term: nil } }
+        let(:invalid_params) { (1..3).map { attributes_for :term, term: nil } }
         let(:variables) { { terms: invalid_params } }
         subject { result.dig("errors").map { |e| e["message"] } }
 
