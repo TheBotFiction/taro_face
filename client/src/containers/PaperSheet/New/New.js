@@ -4,7 +4,7 @@
 
 import React, { Component } from 'react'
 import type { Node } from 'react'
-import type { TermType, PaperSheetType$ChosenQuestion } from 'types'
+import type { TermType, PaperSheetType$ChosenQuestion, QuestionInputObject } from 'types'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
 import { Query, Mutation } from 'react-apollo'
@@ -29,12 +29,6 @@ type QueryResult = {
   data: {
     terms: Array<TermType> | void
   }
-}
-
-type QuestionInputObject = {
-  term: string,
-  phrase: string,
-  answers: Array<string>
 }
 
 const INDEX_TERM_QUERY = gql`
