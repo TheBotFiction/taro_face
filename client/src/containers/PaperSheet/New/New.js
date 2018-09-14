@@ -119,7 +119,7 @@ class PaperSheetNewContainer extends Component<Props, State> {
   render () {
     return(
       <Query query={INDEX_TERM_QUERY}>
-        {(result: QueryResult): Node => (this.renderQueriedNewComponent(result))}
+        {this.renderQueriedNewComponent}
       </Query>
     )
   }
