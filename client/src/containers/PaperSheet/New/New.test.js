@@ -1,19 +1,62 @@
 import React from 'react'
 import TestRenderer from 'react-test-renderer'
 import { shallow } from 'enzyme'
+import { MockedProvider } from 'react-apollo/test-utils'
+import * as queries from 'constants/queries'
 
 import New from './New'
 
-xdescribe('component Term/Show', () => {
+const mocks = [
+  {
+    request: {
+      query: queries.INDEX_TERM_QUERY
+    },
+    result: {
+      data: {
+        terms: {
+          id: 1,
+          term: 'Fake term 1',
+          meaning: 'Fake meaning 1',
+          reading: 'Fake reading 1'
+        }
+      }
+    }
+  },
+  {
+    request: {
+      query: queries.CREATE_PAPER_SHEET_MUTATION,
+      variables: {
+        questions: [
+          {
+            term: 'Fake term 2',
+            phrase: 'Fake phrase 2',
+            answers: [
+              'Fake term 1',
+              'Fake term 2',
+              'Fake term 3',
+              'Fake term 4'
+            ]
+          }
+        ]
+      }
+    }
+  }
+]
+
+describe('component Term/New', () => {
   it('renders without crash', () => {
     shallow(
-      <New />
+      <MockedProvider mocks={mocks}>
+        <New />
+      </MockedProvider>
     )
   })
 
   it('renders as expected', () => {
     const component = TestRenderer.create(
-      <New />
+      <MockedProvider mocks={mocks}>
+        <New />
+      </MockedProvider>
     )
     const json = component.toJSON();
     expect(json).toMatchSnapshot();

@@ -8,9 +8,9 @@ import type { TermType, PaperSheetType$ChosenQuestion, QuestionInputObject } fro
 import PropTypes from 'prop-types'
 import _ from 'lodash'
 import { Query, Mutation } from 'react-apollo'
-import gql from 'graphql-tag'
 import { Redirect } from 'react-router-dom'
-import NewComponent from 'components/PaperSheet/New'
+import { PaperSheetNewComponent } from 'components/PaperSheet'
+import { INDEX_TERM_QUERY, CREATE_PAPER_SHEET_MUTATION } from 'constants/queries'
 import PreviewContainer from './Preview'
 import ChosenContainer from './Chosen'
 
@@ -31,15 +31,6 @@ type QueryResult = {
   }
 }
 
-const INDEX_TERM_QUERY = gql`
-  query indexTerms {
-    terms {
-      id
-      term
-    }
-  }
-`
-
 const loadOptions: Function = (suggestions): Function => {
   return (inputValue, callback): void => {
     const matchedSuggestions: Array<Object> = suggestions.filter((option): boolean => (
@@ -57,6 +48,7 @@ class PaperSheetNewContainer extends Component<Props, State> {
   onChooseQuestion: Function
   onPreviewQuestion: Function
   onCreatePaperSheet: Function
+  renderQueriedNewComponent: Function
 
   constructor (props: Props) {
     super(props)
@@ -65,6 +57,7 @@ class PaperSheetNewContainer extends Component<Props, State> {
     this.onChooseQuestion = this.onChooseQuestion.bind(this)
     this.onPreviewQuestion = this.onPreviewQuestion.bind(this)
     this.onCreatePaperSheet = this.onCreatePaperSheet.bind(this)
+    this.renderQueriedNewComponent = this.renderQueriedNewComponent.bind(this)
   }
 
   state = {
@@ -146,14 +139,14 @@ class PaperSheetNewContainer extends Component<Props, State> {
       />
     )
 
-    const chosenSlot: Node = <ChosenContainer questions={chosenQuestions} />
+    const chosenSlot: Node = (<ChosenContainer questions={chosenQuestions} />)
 
     let suggestions: Array<Object> = []
     if (data.terms) {
       suggestions = data.terms.map(term => ({value: term.id, label: term.term}))
     }
     return (
-      <NewComponent
+      <PaperSheetNewComponent
         loadOptions={loadOptions(suggestions)}
         onSelectTerm={this.onSelectTerm}
         onChooseQuestion={this.onChooseQuestion}
@@ -166,18 +159,6 @@ class PaperSheetNewContainer extends Component<Props, State> {
     )
   }
 }
-
-const CREATE_PAPER_SHEET_MUTATION: string = gql`
-mutation createPaperSheet($questions: [QuestionInputObject!]!) {
-  createPaperSheet(questions: $questions) {
-    paperSheet {
-      id
-    }
-    code
-    errors
-  }
-}
-`
 
 const MutablePaperSheetNewContainer: Function = (props: any): Node => (
   <Mutation mutation={CREATE_PAPER_SHEET_MUTATION}>

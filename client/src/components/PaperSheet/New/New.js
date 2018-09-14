@@ -38,7 +38,7 @@ const paralax: Object = {
   title: 'New Paper Sheet'
 }
 
-class NewComponent extends Component<Props, State> {
+class PaperSheetNewComponent extends Component<Props, State> {
   static propTypes = {
     classes: PropTypes.object.isRequired,
     hasPreview: PropTypes.bool,
@@ -143,4 +143,4 @@ const styles: Function = (theme): Object => ({
   }
 })
 
-export default withStyles(styles)(NewComponent)
+export default withStyles(styles)(PaperSheetNewComponent)
