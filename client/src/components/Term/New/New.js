@@ -91,6 +91,7 @@ export class TermNewComponent extends Component<Props, *> {
                       type={showPhraseInput ? 'submit' : 'button'}
                       onClick={this.togglePhraseInput}
                       disabled={submitting || invalid}
+                      fullWidth
                     >
                       Analyze Phrase to Terms
                       <FastfoodIcon className={classes.rightIcon} />
@@ -130,6 +131,7 @@ export class TermNewComponent extends Component<Props, *> {
                       type="submit"
                       disabled={terms.length <= 0 || submitting}
                       className={classes.button}
+                      fullWidth
                     >
                       Create Terms
                       <CloudUploadIcon className={classes.rightIcon} />
