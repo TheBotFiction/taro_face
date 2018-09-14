@@ -35,10 +35,17 @@ type PaperSheetType = {
   questions: Array<QuestionType>
 }
 
+type TermInputObject = {
+  term: string,
+  meaning?: string,
+  reading?: string
+}
+
 export type {
   TermType,
   SamplePhraseType,
   PaperSheetType$ChosenQuestion,
   QuestionType,
-  PaperSheetType
+  PaperSheetType,
+  TermInputObject
 }

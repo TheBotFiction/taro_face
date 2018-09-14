@@ -1,7 +1,7 @@
 import { container } from "assets/jss/material-kit-react";
 import mainBackground from "assets/img/channel-background.jpg";
 
-const componentsStyle = {
+const componentsStyle = (theme) => ({
   container,
   brand: {
     color: "#FFFFFF",
@@ -23,11 +23,12 @@ const componentsStyle = {
     backgroundImage: `url(${mainBackground})`,
     backgroundSize: 500,
     minHeight: 420,
+    maxWidth: theme.breakpoints.values.lg,
     position: "relative",
     zIndex: "3"
   },
   mainRaised: {
-    margin: "-60px 30px 0px",
+    margin: "-60px auto 0px",
     borderRadius: "6px",
     boxShadow:
       "0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)"
@@ -38,6 +39,6 @@ const componentsStyle = {
   textCenter: {
     textAlign: "center"
   }
-};
+});
 
 export default componentsStyle;
