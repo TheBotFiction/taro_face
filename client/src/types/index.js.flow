@@ -35,6 +35,12 @@ type PaperSheetType = {
   questions: Array<QuestionType>
 }
 
+type QuestionInputObject = {
+  term: string,
+  phrase: string,
+  answers: Array<string>
+}
+
 type TermInputObject = {
   term: string,
   meaning?: string,
@@ -47,5 +53,6 @@ export type {
   PaperSheetType$ChosenQuestion,
   QuestionType,
   PaperSheetType,
-  TermInputObject
+  TermInputObject,
+  QuestionInputObject
 }
