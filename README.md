@@ -56,3 +56,12 @@ $ rails generate devise User
 ```bash
 $ rails db:migrate --trace
 ```
+- Implement `User.from_firebase` method to `app/models/user.rb`
+```diff
++  class << self
++    def from_firebase(auth_hash)
++      user = User.find_or_create_by(email: auth_hash["email"])
++      user
++    end
++  end
+```
