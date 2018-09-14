@@ -54,6 +54,8 @@ jobs:
             --format RspecJunitFormatter
             --out ~/test-results/rspec-<%= Time.now.to_i %>.xml
             ' > .rspec
+            echo $CHAMBER_KEY_BASE64 | base64 --decode 2> null > .chamber.pem
+            chmod 0600 .chamber.pem
       - persist_to_workspace:
           root: ~/
           paths:
