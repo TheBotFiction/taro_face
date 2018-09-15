@@ -15,6 +15,7 @@ module.name_mapper='^types\(.*\)$' -> '<PROJECT_ROOT>/src/types/\1'
 module.name_mapper='^components\(.*\)$' -> '<PROJECT_ROOT>/src/components/\1'
 module.name_mapper='^containers\(.*\)$' -> '<PROJECT_ROOT>/src/containers/\1'
 module.name_mapper='^constants\(.*\)$' -> '<PROJECT_ROOT>/src/constants/\1'
+module.name_mapper='^Auth\(.*\)$' -> '<PROJECT_ROOT>/src/Auth/\1'
 module.name_mapper='^assets\(.*\)$' -> '<PROJECT_ROOT>/src/assets/\1'
 module.name_mapper='registerServiceWorker' -> '<PROJECT_ROOT>/src/registerServiceWorker'
 module.system.node.resolve_dirname=./node_modules
