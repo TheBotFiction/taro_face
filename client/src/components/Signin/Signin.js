@@ -13,19 +13,33 @@ import CardBody from 'components/UIKit/Card/CardBody'
 import CardHeader from 'components/UIKit/Card/CardHeader'
 import CardFooter from 'components/UIKit/Card/CardFooter'
 
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
+import firebase from '../../firebase'
+
 import loginPageStyle from 'assets/jss/material-kit-react/views/loginPage'
 
 import image from 'assets/img/bg7.jpg'
 
+const uiConfig = {
+  signInFlow: 'popup',
+  signInOptions: [
+    firebase.auth.GoogleAuthProvider.PROVIDER_ID
+  ],
+  callbacks: {
+    // Avoid redirects after sign-in.
+    signInSuccessWithAuthResult: () => false
+  }
+}
+
 class SigninComponent extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     // we use this to make the card to appear after the page has been rendered
     this.state = {
       cardAnimaton: 'cardHidden'
     }
   }
-  componentDidMount() {
+  componentDidMount () {
     // we add a hidden class to the card and after 700 ms we delete it and the transition appears
     setTimeout(
       function() {
@@ -65,6 +79,7 @@ class SigninComponent extends Component {
                     </CardHeader>
                     <p className={classes.divider}>Get started with</p>
                     <CardBody>
+                      <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
                     </CardBody>
                     <CardFooter className={classes.cardFooter}>
                       <Button simple color="primary" size="lg">
