@@ -3,78 +3,60 @@
 exports[`component Term/New renders as expected 1`] = `
 Array [
   <header
-    className="MuiPaper-root-39 MuiPaper-elevation4-45 MuiAppBar-root-31 MuiAppBar-positionFixed-32 MuiAppBar-colorPrimary-37 mui-fixed Header-appBar-14 Header-transparent-27 Header-fixed-16"
+    className="MuiPaper-root-040 MuiPaper-elevation4-046 MuiAppBar-root-031 MuiAppBar-positionFixed-032 MuiAppBar-colorPrimary-038 mui-fixed Header-appBar-014 Header-transparent-027 Header-fixed-016"
 >
     <div
-        className="MuiToolbar-root-66 MuiToolbar-regular-68 MuiToolbar-gutters-67 Header-container-17"
+        className="MuiToolbar-root-067 MuiToolbar-regular-069 MuiToolbar-gutters-068 Header-container-017"
     >
         <div
-            className="Header-flex-18"
+            className="Header-flex-018"
         >
-            <button
-                className="MuiButtonBase-root-96 MuiButton-root-70 MuiButton-text-72 MuiButton-flat-75 Header-title-19"
+            <MockedButtonBase
+                className="MuiButton-root-071 MuiButton-text-073 MuiButton-flat-076 Header-title-019"
+                component="button"
                 disabled={false}
-                onBlur={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onKeyUp={[Function]}
-                onMouseDown={[Function]}
-                onMouseLeave={[Function]}
-                onMouseUp={[Function]}
-                onTouchEnd={[Function]}
-                onTouchMove={[Function]}
-                onTouchStart={[Function]}
-                tabIndex="0"
+                focusRipple={true}
+                focusVisibleClassName="MuiButton-focusVisible-090"
                 type="button"
             >
                 <span
-                    className="MuiButton-label-71"
+                    className="MuiButton-label-072"
                 >
                     Taro's Face
                 </span>
-                <span
-                    className="MuiTouchRipple-root-99"
-                />
-            </button>
+            </MockedButtonBase>
         </div>
         <div
-            className="HiddenCss-smDown-111"
+            className="HiddenCss-smDown-0102"
         >
             <ul
-                className="MuiList-root-133 MuiList-padding-134 HeaderLinks-list-121"
+                className="MuiList-root-0124 MuiList-padding-0125 HeaderLinks-list-0112"
             >
                 <li
-                    className="MuiListItem-root-137 MuiListItem-default-140 MuiListItem-gutters-144 HeaderLinks-listItem-122"
+                    className="MuiListItem-root-0128 MuiListItem-default-0131 MuiListItem-gutters-0135 HeaderLinks-listItem-0113"
                     disabled={false}
                 >
                     <div>
                         <div>
-                            <button
+                            <MockedButtonBase
                                 aria-haspopup="true"
                                 aria-label="Notifications"
                                 aria-owns={null}
-                                className="MuiButtonBase-root-96 MuiButton-root-70 MuiButton-text-72 MuiButton-flat-75 RegularButton-button-167 RegularButton-transparent-181 HeaderLinks-navLink-124"
+                                buttonRef={[Function]}
+                                className="MuiButton-root-071 MuiButton-text-073 MuiButton-flat-076 RegularButton-button-0159 RegularButton-transparent-0173 HeaderLinks-navLink-0115"
+                                component="button"
                                 disabled={false}
-                                onBlur={[Function]}
+                                focusRipple={true}
+                                focusVisibleClassName="MuiButton-focusVisible-090"
                                 onClick={[Function]}
-                                onFocus={[Function]}
-                                onKeyDown={[Function]}
-                                onKeyUp={[Function]}
-                                onMouseDown={[Function]}
-                                onMouseLeave={[Function]}
-                                onMouseUp={[Function]}
-                                onTouchEnd={[Function]}
-                                onTouchMove={[Function]}
-                                onTouchStart={[Function]}
-                                tabIndex="0"
                                 type="button"
                             >
                                 <span
-                                    className="MuiButton-label-71"
+                                    className="MuiButton-label-072"
                                 >
                                     <svg
                                         aria-hidden="true"
-                                        className="MuiSvgIcon-root-189 CustomDropdown-buttonIcon-161"
+                                        className="MuiSvgIcon-root-0181 CustomDropdown-buttonIcon-0153"
                                         color={undefined}
                                         focusable="false"
                                         viewBox="0 0 24 24"
@@ -89,43 +71,33 @@ Array [
                                     </svg>
                                     Learn
                                     <b
-                                        className="CustomDropdown-caret-162"
+                                        className="CustomDropdown-caret-0154"
                                     />
                                 </span>
-                                <span
-                                    className="MuiTouchRipple-root-99"
-                                />
-                            </button>
+                            </MockedButtonBase>
                         </div>
                     </div>
                 </li>
                 <li
-                    className="MuiListItem-root-137 MuiListItem-default-140 MuiListItem-gutters-144 HeaderLinks-listItem-122"
+                    className="MuiListItem-root-0128 MuiListItem-default-0131 MuiListItem-gutters-0135 HeaderLinks-listItem-0113"
                     disabled={false}
                 >
-                    <a
-                        className="MuiButtonBase-root-96 MuiButton-root-70 MuiButton-text-72 MuiButton-flat-75 RegularButton-button-167 RegularButton-transparent-181 HeaderLinks-navLink-124"
+                    <MockedButtonBase
+                        className="MuiButton-root-071 MuiButton-text-073 MuiButton-flat-076 RegularButton-button-0159 RegularButton-transparent-0173 HeaderLinks-navLink-0115"
+                        component="button"
+                        disabled={false}
+                        focusRipple={true}
+                        focusVisibleClassName="MuiButton-focusVisible-090"
                         href="#"
-                        onBlur={[Function]}
-                        onFocus={[Function]}
-                        onKeyDown={[Function]}
-                        onKeyUp={[Function]}
-                        onMouseDown={[Function]}
-                        onMouseLeave={[Function]}
-                        onMouseUp={[Function]}
-                        onTouchEnd={[Function]}
-                        onTouchMove={[Function]}
-                        onTouchStart={[Function]}
-                        role="button"
-                        tabIndex="0"
                         target="_blank"
+                        type="button"
                     >
                         <span
-                            className="MuiButton-label-71"
+                            className="MuiButton-label-072"
                         >
                             <svg
                                 aria-hidden="true"
-                                className="MuiSvgIcon-root-189 HeaderLinks-icons-128"
+                                className="MuiSvgIcon-root-0181 HeaderLinks-icons-0119"
                                 color={undefined}
                                 focusable="false"
                                 viewBox="0 0 24 24"
@@ -140,20 +112,17 @@ Array [
                             </svg>
                              Take Exam
                         </span>
-                        <span
-                            className="MuiTouchRipple-root-99"
-                        />
-                    </a>
+                    </MockedButtonBase>
                 </li>
             </ul>
         </div>
     </div>
     <div
-        className="HiddenCss-mdUp-113"
+        className="HiddenCss-mdUp-0104"
     />
 </header>,
   <div
-    className="Parallax-parallax-209"
+    className="Parallax-parallax-0201"
     style={
         Object {
             "backgroundImage": "url(bg.jpg)",
@@ -162,24 +131,24 @@ Array [
     }
 >
     <div
-        className="Layout-container-6"
+        className="Layout-container-06"
     >
         <div
-            className="MuiGrid-container-212"
+            className="MuiGrid-container-0204"
         >
             <div
-                className="MuiGrid-item-213"
+                className="MuiGrid-item-0205"
             >
                 <div
-                    className="Layout-brand-7"
+                    className="Layout-brand-07"
                 >
                     <h1
-                        className="Layout-title-8"
+                        className="Layout-title-08"
                     >
                         New Paper Sheet
                     </h1>
                     <h3
-                        className="Layout-subtitle-9"
+                        className="Layout-subtitle-09"
                     />
                 </div>
             </div>
@@ -187,16 +156,16 @@ Array [
     </div>
 </div>,
   <div
-    className="Layout-main-10 Layout-mainRaised-11"
+    className="Layout-main-010 Layout-mainRaised-011"
 >
     <main
-        className="PaperSheetNewComponent-root-1"
+        className="PaperSheetNewComponent-root-01"
     >
         <div
-            className="MuiGrid-container-212 PaperSheetNewComponent-termSelectZone-5"
+            className="MuiGrid-container-0204 PaperSheetNewComponent-termSelectZone-05"
         >
             <div
-                className="MuiGrid-item-213 MuiGrid-grid-xs-8-248 MuiGrid-grid-lg-8-290"
+                className="MuiGrid-item-0205 MuiGrid-grid-xs-8-0240 MuiGrid-grid-lg-8-0282"
             >
                 <div
                     className="css-10nd86i"
@@ -205,16 +174,16 @@ Array [
                 >
                     <div
                         aria-describedby={undefined}
-                        className="MuiFormControl-root-310 MuiFormControl-fullWidth-313"
+                        className="MuiFormControl-root-0302 MuiFormControl-fullWidth-0305"
                     >
                         <div
-                            className="MuiInput-root-314 MuiInput-fullWidth-321 MuiInput-formControl-315 MuiInput-underline-318"
+                            className="MuiInput-root-0306 MuiInput-fullWidth-0313 MuiInput-formControl-0307 MuiInput-underline-0310"
                         >
                             <div
                                 aria-invalid={false}
                                 autoComplete={undefined}
                                 autoFocus={undefined}
-                                className="MuiInput-input-322 Control-input-309"
+                                className="MuiInput-input-0314 Control-input-0301"
                                 defaultValue={undefined}
                                 disabled={false}
                                 id={undefined}
@@ -234,10 +203,10 @@ Array [
                                 value={undefined}
                             >
                                 <div
-                                    className="ValueContainer-valueContainer-327"
+                                    className="ValueContainer-valueContainer-0319"
                                 >
                                     <p
-                                        className="MuiTypography-root-329 MuiTypography-body1-338 MuiTypography-colorTextSecondary-352 Placeholder-placeholder-328"
+                                        className="MuiTypography-root-0321 MuiTypography-body1-0330 MuiTypography-colorTextSecondary-0344 Placeholder-placeholder-0320"
                                     >
                                         Search a term
                                     </p>
@@ -333,32 +302,24 @@ Array [
                 </div>
             </div>
             <div
-                className="MuiGrid-item-213 MuiGrid-grid-xs-4-244 MuiGrid-grid-lg-4-286 PaperSheetNewComponent-buttonContainer-2"
+                className="MuiGrid-item-0205 MuiGrid-grid-xs-4-0236 MuiGrid-grid-lg-4-0278 PaperSheetNewComponent-buttonContainer-02"
             >
-                <button
-                    className="MuiButtonBase-root-96 MuiButtonBase-disabled-97 MuiButton-root-70 MuiButton-text-72 MuiButton-textPrimary-73 MuiButton-outlined-78 MuiButton-outlinedPrimary-79 MuiButton-sizeSmall-93 MuiButton-disabled-90"
+                <MockedButtonBase
+                    className="MuiButton-root-071 MuiButton-text-073 MuiButton-textPrimary-074 MuiButton-outlined-079 MuiButton-outlinedPrimary-080 MuiButton-sizeSmall-094 MuiButton-disabled-091"
+                    component="button"
                     disabled={true}
-                    onBlur={[Function]}
+                    focusRipple={true}
+                    focusVisibleClassName="MuiButton-focusVisible-090"
                     onClick={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyUp={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    tabIndex="-1"
                     type="button"
                 >
                     <span
-                        className="MuiButton-label-71"
+                        className="MuiButton-label-072"
                     >
                         Add To PaperSheet
                         <svg
                             aria-hidden="true"
-                            className="MuiSvgIcon-root-189 PaperSheetNewComponent-rightIcon-3"
+                            className="MuiSvgIcon-root-0181 PaperSheetNewComponent-rightIcon-03"
                             color={undefined}
                             focusable="false"
                             viewBox="0 0 24 24"
@@ -372,45 +333,37 @@ Array [
                             />
                         </svg>
                     </span>
-                </button>
+                </MockedButtonBase>
             </div>
         </div>
         <hr
-            className="MuiDivider-root-354 PaperSheetNewComponent-divider-4"
+            className="MuiDivider-root-0346 PaperSheetNewComponent-divider-04"
         />
         <div
-            className="MuiGrid-container-212"
+            className="MuiGrid-container-0204"
         >
             <div
-                className="MuiGrid-item-213 MuiGrid-grid-xs-8-248 MuiGrid-grid-lg-8-290"
+                className="MuiGrid-item-0205 MuiGrid-grid-xs-8-0240 MuiGrid-grid-lg-8-0282"
             />
             <div
-                className="MuiGrid-item-213 MuiGrid-grid-xs-4-244 MuiGrid-grid-lg-4-286 PaperSheetNewComponent-buttonContainer-2"
+                className="MuiGrid-item-0205 MuiGrid-grid-xs-4-0236 MuiGrid-grid-lg-4-0278 PaperSheetNewComponent-buttonContainer-02"
             >
-                <button
-                    className="MuiButtonBase-root-96 MuiButtonBase-disabled-97 MuiButton-root-70 MuiButton-contained-81 MuiButton-containedSecondary-83 MuiButton-raised-84 MuiButton-raisedSecondary-86 MuiButton-sizeSmall-93 MuiButton-disabled-90"
+                <MockedButtonBase
+                    className="MuiButton-root-071 MuiButton-contained-082 MuiButton-containedSecondary-084 MuiButton-raised-085 MuiButton-raisedSecondary-087 MuiButton-sizeSmall-094 MuiButton-disabled-091"
+                    component="button"
                     disabled={true}
-                    onBlur={[Function]}
+                    focusRipple={true}
+                    focusVisibleClassName="MuiButton-focusVisible-090"
                     onClick={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyUp={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    tabIndex="-1"
                     type="button"
                 >
                     <span
-                        className="MuiButton-label-71"
+                        className="MuiButton-label-072"
                     >
                         Create PaperSheet
                         <svg
                             aria-hidden="true"
-                            className="MuiSvgIcon-root-189 PaperSheetNewComponent-rightIcon-3"
+                            className="MuiSvgIcon-root-0181 PaperSheetNewComponent-rightIcon-03"
                             color={undefined}
                             focusable="false"
                             viewBox="0 0 24 24"
@@ -424,41 +377,41 @@ Array [
                             />
                         </svg>
                     </span>
-                </button>
+                </MockedButtonBase>
             </div>
         </div>
     </main>
 </div>,
   <div
     align="center"
-    className="MuiGrid-container-212 MuiGrid-justify-xs-center-229 AdditionalInfo-root-358"
+    className="MuiGrid-container-0204 MuiGrid-justify-xs-center-0221 AdditionalInfo-root-0350"
 >
     <div
-        className="MuiGrid-item-213 MuiGrid-grid-xs-12-252"
+        className="MuiGrid-item-0205 MuiGrid-grid-xs-12-0244"
     >
         <h1
-            className="MuiTypography-root-329 MuiTypography-headline-334 MuiTypography-alignCenter-342"
+            className="MuiTypography-root-0321 MuiTypography-headline-0326 MuiTypography-alignCenter-0334"
         >
             Frequently Asked Questions
         </h1>
     </div>
     <div
-        className="MuiGrid-container-212 MuiGrid-item-213 MuiGrid-grid-xs-12-252 AdditionalInfo-content-359"
+        className="MuiGrid-container-0204 MuiGrid-item-0205 MuiGrid-grid-xs-12-0244 AdditionalInfo-content-0351"
     >
         <div
-            className="MuiGrid-container-212 MuiGrid-item-213 MuiGrid-grid-xs-12-252 MuiGrid-grid-sm-6-260"
+            className="MuiGrid-container-0204 MuiGrid-item-0205 MuiGrid-grid-xs-12-0244 MuiGrid-grid-sm-6-0252"
         >
             <div
-                className="MuiGrid-item-213 MuiGrid-grid-xs-1-241"
+                className="MuiGrid-item-0205 MuiGrid-grid-xs-1-0233"
             />
             <div
-                className="MuiGrid-container-212 MuiGrid-item-213 MuiGrid-grid-xs-11-251"
+                className="MuiGrid-container-0204 MuiGrid-item-0205 MuiGrid-grid-xs-11-0243"
             >
                 <div
-                    className="MuiGrid-item-213 MuiGrid-grid-xs-12-252"
+                    className="MuiGrid-item-0205 MuiGrid-grid-xs-12-0244"
                 >
                     <h3
-                        className="MuiTypography-root-329 MuiTypography-subheading-336"
+                        className="MuiTypography-root-0321 MuiTypography-subheading-0328"
                     >
                         How to add question to sheet?
                     </h3>
@@ -466,19 +419,19 @@ Array [
             </div>
         </div>
         <div
-            className="MuiGrid-container-212 MuiGrid-item-213 MuiGrid-grid-xs-12-252 MuiGrid-grid-sm-6-260"
+            className="MuiGrid-container-0204 MuiGrid-item-0205 MuiGrid-grid-xs-12-0244 MuiGrid-grid-sm-6-0252"
         >
             <div
-                className="MuiGrid-item-213 MuiGrid-grid-xs-1-241"
+                className="MuiGrid-item-0205 MuiGrid-grid-xs-1-0233"
             />
             <div
-                className="MuiGrid-container-212 MuiGrid-item-213 MuiGrid-grid-xs-11-251"
+                className="MuiGrid-container-0204 MuiGrid-item-0205 MuiGrid-grid-xs-11-0243"
             >
                 <div
-                    className="MuiGrid-item-213 MuiGrid-grid-xs-12-252"
+                    className="MuiGrid-item-0205 MuiGrid-grid-xs-12-0244"
                 >
                     <h3
-                        className="MuiTypography-root-329 MuiTypography-subheading-336"
+                        className="MuiTypography-root-0321 MuiTypography-subheading-0328"
                     >
                         How to finish the sheet?
                     </h3>
@@ -486,19 +439,19 @@ Array [
             </div>
         </div>
         <div
-            className="MuiGrid-container-212 MuiGrid-item-213 MuiGrid-grid-xs-12-252 MuiGrid-grid-sm-6-260"
+            className="MuiGrid-container-0204 MuiGrid-item-0205 MuiGrid-grid-xs-12-0244 MuiGrid-grid-sm-6-0252"
         >
             <div
-                className="MuiGrid-item-213 MuiGrid-grid-xs-1-241"
+                className="MuiGrid-item-0205 MuiGrid-grid-xs-1-0233"
             />
             <div
-                className="MuiGrid-container-212 MuiGrid-item-213 MuiGrid-grid-xs-11-251"
+                className="MuiGrid-container-0204 MuiGrid-item-0205 MuiGrid-grid-xs-11-0243"
             >
                 <div
-                    className="MuiGrid-item-213 MuiGrid-grid-xs-12-252"
+                    className="MuiGrid-item-0205 MuiGrid-grid-xs-12-0244"
                 >
                     <h3
-                        className="MuiTypography-root-329 MuiTypography-subheading-336"
+                        className="MuiTypography-root-0321 MuiTypography-subheading-0328"
                     >
                         How will the sheet look like?
                     </h3>
@@ -506,19 +459,19 @@ Array [
             </div>
         </div>
         <div
-            className="MuiGrid-container-212 MuiGrid-item-213 MuiGrid-grid-xs-12-252 MuiGrid-grid-sm-6-260"
+            className="MuiGrid-container-0204 MuiGrid-item-0205 MuiGrid-grid-xs-12-0244 MuiGrid-grid-sm-6-0252"
         >
             <div
-                className="MuiGrid-item-213 MuiGrid-grid-xs-1-241"
+                className="MuiGrid-item-0205 MuiGrid-grid-xs-1-0233"
             />
             <div
-                className="MuiGrid-container-212 MuiGrid-item-213 MuiGrid-grid-xs-11-251"
+                className="MuiGrid-container-0204 MuiGrid-item-0205 MuiGrid-grid-xs-11-0243"
             >
                 <div
-                    className="MuiGrid-item-213 MuiGrid-grid-xs-12-252"
+                    className="MuiGrid-item-0205 MuiGrid-grid-xs-12-0244"
                 >
                     <h3
-                        className="MuiTypography-root-329 MuiTypography-subheading-336"
+                        className="MuiTypography-root-0321 MuiTypography-subheading-0328"
                     >
                         How to edit the sheet?
                     </h3>
@@ -528,23 +481,23 @@ Array [
     </div>
 </div>,
   <footer
-    className="Footer-footer-363"
+    className="Footer-footer-0355"
 >
     <div
-        className="Footer-container-366"
+        className="Footer-container-0358"
     >
         <div
-            className="Footer-left-361"
+            className="Footer-left-0353"
         >
             <ul
-                className="MuiList-root-133 MuiList-padding-134 Footer-list-367"
+                className="MuiList-root-0124 MuiList-padding-0125 Footer-list-0359"
             >
                 <li
-                    className="MuiListItem-root-137 MuiListItem-default-140 MuiListItem-gutters-144 Footer-inlineBlock-368"
+                    className="MuiListItem-root-0128 MuiListItem-default-0131 MuiListItem-gutters-0135 Footer-inlineBlock-0360"
                     disabled={false}
                 >
                     <a
-                        className="Footer-block-360"
+                        className="Footer-block-0352"
                         href="#"
                         target="_blank"
                     >
@@ -552,11 +505,11 @@ Array [
                     </a>
                 </li>
                 <li
-                    className="MuiListItem-root-137 MuiListItem-default-140 MuiListItem-gutters-144 Footer-inlineBlock-368"
+                    className="MuiListItem-root-0128 MuiListItem-default-0131 MuiListItem-gutters-0135 Footer-inlineBlock-0360"
                     disabled={false}
                 >
                     <a
-                        className="Footer-block-360"
+                        className="Footer-block-0352"
                         href="#"
                         target="_blank"
                     >
@@ -564,11 +517,11 @@ Array [
                     </a>
                 </li>
                 <li
-                    className="MuiListItem-root-137 MuiListItem-default-140 MuiListItem-gutters-144 Footer-inlineBlock-368"
+                    className="MuiListItem-root-0128 MuiListItem-default-0131 MuiListItem-gutters-0135 Footer-inlineBlock-0360"
                     disabled={false}
                 >
                     <a
-                        className="Footer-block-360"
+                        className="Footer-block-0352"
                         href="#"
                         target="_blank"
                     >
@@ -576,11 +529,11 @@ Array [
                     </a>
                 </li>
                 <li
-                    className="MuiListItem-root-137 MuiListItem-default-140 MuiListItem-gutters-144 Footer-inlineBlock-368"
+                    className="MuiListItem-root-0128 MuiListItem-default-0131 MuiListItem-gutters-0135 Footer-inlineBlock-0360"
                     disabled={false}
                 >
                     <a
-                        className="Footer-block-360"
+                        className="Footer-block-0352"
                         href="#"
                         target="_blank"
                     >
@@ -590,7 +543,7 @@ Array [
             </ul>
         </div>
         <div
-            className="Footer-right-362"
+            className="Footer-right-0354"
         >
             © 
             2018
@@ -598,7 +551,7 @@ Array [
              
             <svg
                 aria-hidden="true"
-                className="MuiSvgIcon-root-189 Footer-icon-369"
+                className="MuiSvgIcon-root-0181 Footer-icon-0361"
                 color={undefined}
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -614,7 +567,7 @@ Array [
              by
              
             <a
-                className="Footer-a-364"
+                className="Footer-a-0356"
                 href="#"
                 target="_blank"
             >

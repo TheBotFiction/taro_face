@@ -20,5 +20,7 @@
   "flow.pathToFlow": "${workspaceFolder}/node_modules/.bin/flow",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "javascript.validate.enable": false,
-  "workbench.editor.closeEmptyGroups": false
+  "workbench.editor.closeEmptyGroups": false,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true
 }

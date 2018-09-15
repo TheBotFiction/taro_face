@@ -13,13 +13,13 @@ class AuthProvider extends Component {
   }
 
   state = {
-    currentUser: null,
+    currentUser: firebase.auth().currentUser,
     authLoaded: false
   }
 
   componentDidMount () {
-    firebase.auth().onAuthStateChanged(currentUser => {
-      this.setState({ currentUser, authLoaded: true })
+    firebase.auth().onAuthStateChanged(user => {
+      this.setState({ currentUser: user, authLoaded: true })
     })
   }
 
