@@ -47,9 +47,9 @@ const rootElement: null | HTMLElement = document.getElementById('root')
 
 if (rootElement) {
   ReactDOM.render(
-    <AuthProvider>
-      <ApolloProvider client={graphClient}>
-        <Router history={browserHistory}>
+    <Router history={browserHistory}>
+      <AuthProvider>
+        <ApolloProvider client={graphClient}>
           <Switch>
             <Route path='/' component={App} exact />
             <Route path='/sign-in' component={SigninContainer} exact />
@@ -58,9 +58,9 @@ if (rootElement) {
             <ProtectedRoute path='/papersheets/new' component={PaperSheetNewContainer} />
             <ProtectedRoute path='/papersheets/:id' component={PaperSheetShowContainer} />
           </Switch>
-        </Router>
-      </ApolloProvider>
-    </AuthProvider>,
+        </ApolloProvider>
+      </AuthProvider>
+    </Router>,
     rootElement
   )
   registerServiceWorker()
