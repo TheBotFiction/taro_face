@@ -2,5 +2,6 @@
 
 module Types
   class BaseObject < GraphQL::Schema::Object
+    include ContextAuthenticatable
   end
 end

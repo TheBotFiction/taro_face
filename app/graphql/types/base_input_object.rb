@@ -2,5 +2,6 @@
 
 module Types
   class BaseInputObject < GraphQL::Schema::InputObject
+    include ContextAuthenticatable
   end
 end

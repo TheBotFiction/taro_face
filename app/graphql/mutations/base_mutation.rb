@@ -2,14 +2,6 @@
 
 module Mutations
   class BaseMutation < GraphQL::Schema::Mutation
-    protected
-
-    # NOTE:
-    # Try to authenticate at high level
-    def authenticate_user!
-      unless context[:current_user]
-        raise GraphQL::ExecutionError, "Unauthenticated"
-      end
-    end
+    include ContextAuthenticatable
   end
 end

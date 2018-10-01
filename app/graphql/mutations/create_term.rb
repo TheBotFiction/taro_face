@@ -11,7 +11,9 @@ module Mutations
     field :errors, [String], null: false
 
     def resolve(term:, reading: nil, meaning: nil)
+      authenticate_user!
       term = Term.new(term: term, reading: reading, meaning: meaning)
+      term.user = context[:current_user]
       if term.save
         {
           code: 201,
