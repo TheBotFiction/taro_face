@@ -19,5 +19,6 @@ RSpec.describe Term, type: :model do
 
   describe "model associations" do
     it { expect(term).to have_many(:sample_phrases) }
+    it { expect(term).to belong_to(:user) }
   end
 end

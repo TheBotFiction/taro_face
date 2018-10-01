@@ -2,7 +2,7 @@
 
 module Mutations
   RSpec.describe CreateTerm do
-    let(:context) { {} }
+    let(:context) { { current_user: create(:user) } }
     let(:variables) { {} }
     let(:query_string) {
       %|

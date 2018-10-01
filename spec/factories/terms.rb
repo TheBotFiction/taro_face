@@ -2,6 +2,7 @@
 
 FactoryBot.define do
   factory :term do
+    user
     sequence(:term) { |i| "term#{i}" }
     reading { "term-reading" }
     meaning { "term-meaning" }
