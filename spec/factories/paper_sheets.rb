@@ -2,5 +2,6 @@
 
 FactoryBot.define do
   factory :paper_sheet do
+    user
   end
 end

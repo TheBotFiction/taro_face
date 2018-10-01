@@ -10,9 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_01_163245) do
+ActiveRecord::Schema.define(version: 2018_10_01_170606) do
 
   create_table "paper_sheets", force: :cascade do |t|
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_paper_sheets_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|
