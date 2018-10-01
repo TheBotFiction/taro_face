@@ -13,7 +13,7 @@ module Mutations
     def resolve(term:, reading: nil, meaning: nil)
       authenticate_user!
       term = Term.new(term: term, reading: reading, meaning: meaning)
-      term.user = context[:current_user]
+      term.user = current_user
       if term.save
         {
           code: 201,

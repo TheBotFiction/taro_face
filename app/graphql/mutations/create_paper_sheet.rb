@@ -12,11 +12,13 @@ module Mutations
     field :code, Int, null: false
 
     def resolve(questions:)
+      authenticate_user!
       # TODO: improve
       if questions.blank?
         raise GraphQL::ExecutionError, "Variable question of type [QuestionInputObject!]! was provided invalid value"
       end
       sheet = PaperSheet.new
+      sheet.user = current_user
       questions.each do |question|
         sheet.questions.build(question.to_h)
       end

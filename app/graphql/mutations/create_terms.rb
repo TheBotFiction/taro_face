@@ -23,7 +23,7 @@ module Mutations
       errors = []
       terms.each do |term_attributes|
         term = Term.new term_attributes.to_h
-        term.user = context[:current_user]
+        term.user = current_user
         if term.save
           created_terms.push term
         else
