@@ -60,6 +60,7 @@ Devise.setup do |config|
   config.strip_whitespace_keys = [:email, :id_token]
   config.fireauth do |c|
     c.api_key = Chamber.env.firebase.api_key
+    c.project_id = Chamber.env.firebase.project_id
   end
 
   # Tell if authentication through request.params is enabled. True by default.

@@ -1,11 +1,12 @@
 PATH
   remote: ../Prototypes/devise-fireauth
   specs:
-    devise-fireauth (0.0.1)
+    devise-fireauth (0.1.0.rc1)
       activesupport (>= 4)
       devise (~> 4.0)
       dry-configurable
-      httparty
+      jwt (>= 1)
+      warden
 
 GEM
   remote: https://rubygems.org/
@@ -139,14 +140,13 @@ GEM
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
     hashie (3.6.0)
-    httparty (0.16.2)
-      multi_xml (>= 0.5.2)
     i18n (1.1.0)
       concurrent-ruby (~> 1.0)
     interception (0.5)
     io-like (0.3.0)
     jaro_winkler (1.5.1)
     json (2.1.0)
+    jwt (2.1.0)
     launchy (2.4.3)
       addressable (~> 2.3)
     listen (3.1.5)
@@ -167,7 +167,6 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.11.3)
     msgpack (1.2.4)
-    multi_xml (0.6.0)
     nenv (0.3.0)
     nio4r (2.3.1)
     nokogiri (1.8.4)
