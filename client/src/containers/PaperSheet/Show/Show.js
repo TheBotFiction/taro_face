@@ -15,6 +15,7 @@ export class PaperSheetShowContainer extends Component {
   render () {
     const { data, loading }: { data: Object, loading: boolean } = this.props
     if (loading) return 'Loading...'
+    if (!data) return null
     const { paperSheet }: { paperSheet: PaperSheetType } = data
     return (
       <PaperSheetShowComponent data={paperSheet} />

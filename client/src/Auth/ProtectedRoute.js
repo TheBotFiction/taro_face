@@ -12,12 +12,15 @@ export class ProtectedRoute extends Component {
     const { component: Component, ...rest } = this.props
     return (
       <Route
-        {...rest} 
+        {...rest}
         component={(props) => (
           <AuthContext.Consumer>
             {({currentUser, authLoaded}) => {
               if (authLoaded && !currentUser) {
                 return <Redirect to="/" />
+              }
+              if (!authLoaded) {
+                return 'Authenticating...'
               }
               return <Component {...props} />
             }}
