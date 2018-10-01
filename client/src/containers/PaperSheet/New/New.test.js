@@ -61,7 +61,7 @@ describe('component Term/New', () => {
       </MockedProvider>
     )
 
-    await wait(0)
+    await wait(1000)
 
     const json = component.toJSON();
     expect(json).toMatchSnapshot();

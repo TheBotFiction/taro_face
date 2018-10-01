@@ -31,6 +31,8 @@ gem "graphql-batch"
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem "chamber"
+gem "devise"
+gem "devise-fireauth", "~> 0.1.0.rc1"
 gem "rack-cors"
 gem "yahoo-japanese-analysis", "~> 0.1.2"
 

@@ -14,6 +14,8 @@ module Mutations
     field :code, Int, null: false
 
     def resolve(terms:)
+      authenticate_user!
+
       if terms.blank?
         raise GraphQL::ExecutionError, "Variable terms of type [TermInputObject!]! was provided invalid value"
       end

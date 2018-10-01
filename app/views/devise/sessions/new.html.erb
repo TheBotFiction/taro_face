@@ -1,0 +1,71 @@
+<script
+  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+  crossorigin="anonymous"></script>
+
+<script src="https://www.gstatic.com/firebasejs/5.5.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.0/firebase-auth.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCoIfpUCKUmhJ5pA9-yaYljmmBfC0SaPWU",
+    authDomain: "ums-auth-kit.firebaseapp.com",
+    projectId: "ums-auth-kit"
+  };
+  firebase.initializeApp(config);
+</script>
+<%= javascript_include_tag "https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js" %>
+<%= stylesheet_link_tag "https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" %>
+
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <h2>Log in</h2>
+  <div id="firebaseui-auth-container"></div>
+  <%= f.hidden_field :id_token %>
+<% end %>
+
+<%= render "devise/shared/links" %>
+<script>
+  $(function _load () {
+    // FirebaseUI config.
+    var uiConfig = {
+      // signInSuccessUrl: '/',
+      signInOptions: [
+        // Leave the lines as is for the providers you want to offer your users.
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      ],
+      // tosUrl and privacyPolicyUrl accept either url string or a callback
+      // function.
+      // Terms of service url/callback.
+      tosUrl: '#',
+      // Privacy policy url/callback.
+      privacyPolicyUrl: function() {
+        window.location.assign('#');
+      },
+      // callbacks: {
+      //   signInSuccessWithAuthResult: function (authResult, _redirectUrl) {
+      //     var idToken = await firebase.auth().currentUser.getIdToken()
+      //     $('input[name="user[id_token]"').val(authResult.user.qa)
+      //     setTimeout(function () {
+      //       $("form#new_user").submit();
+      //     }, 500)
+      //     return
+      //   }
+      // }
+    };
+    firebase.auth().onAuthStateChanged(async function (user) {
+      if (user) {
+        var idToken = await user.getIdToken();
+        $('input[name="user[id_token]"').val(idToken)
+        setTimeout(function () {
+          $("form#new_user").submit();
+        }, 500)
+      }
+    })
+
+    // Initialize the FirebaseUI Widget using Firebase.
+    var ui = new firebaseui.auth.AuthUI(firebase.auth());
+    // The start method will wait until the DOM is loaded.
+    ui.start('#firebaseui-auth-container', uiConfig);
+  })
+</script>

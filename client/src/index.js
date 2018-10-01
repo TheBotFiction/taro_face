@@ -5,9 +5,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Router, Route, Switch } from 'react-router-dom'
 import createBrowserHistory from 'history/createBrowserHistory'
-import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
 import Loadable from 'react-loadable'
+import { AuthProvider, ProtectedRoute } from 'Auth'
+import graphClient from './graph'
 
 import './index.css'
 import PageLoadingComponent from 'components/PageLoadingComponent'
@@ -16,6 +17,10 @@ import registerServiceWorker from 'registerServiceWorker'
 
 const App = Loadable({
   loader: () => import('./App'),
+  loading: PageLoadingComponent
+})
+const SigninContainer = Loadable({
+  loader: () => import('containers/Signin'),
   loading: PageLoadingComponent
 })
 const TermNewContainer = Loadable({
@@ -35,9 +40,6 @@ const PaperSheetShowContainer = Loadable({
   loading: PageLoadingComponent
 })
 
-const client: ApolloClient = new ApolloClient({
-  uri: 'http://localhost:3000/graphql'
-})
 
 const browserHistory: any = createBrowserHistory()
 
@@ -45,17 +47,20 @@ const rootElement: null | HTMLElement = document.getElementById('root')
 
 if (rootElement) {
   ReactDOM.render(
-    <ApolloProvider client={client}>
-      <Router history={browserHistory}>
-        <Switch>
-          <Route path='/' component={App} exact />
-          <Route path='/terms/new' component={TermNewContainer} exact />
-          <Route path='/terms/:id' component={TermShowContainer} />
-          <Route path='/papersheets/new' component={PaperSheetNewContainer} exact />
-          <Route path='/papersheets/:id' component={PaperSheetShowContainer} />
-        </Switch>
-      </Router>
-    </ApolloProvider>,
+    <Router history={browserHistory}>
+      <AuthProvider>
+        <ApolloProvider client={graphClient}>
+          <Switch>
+            <Route path='/' component={App} exact />
+            <Route path='/sign-in' component={SigninContainer} exact />
+            <ProtectedRoute path='/terms/new' component={TermNewContainer} />
+            <ProtectedRoute path='/terms/:id' component={TermShowContainer} />
+            <ProtectedRoute path='/papersheets/new' component={PaperSheetNewContainer} />
+            <ProtectedRoute path='/papersheets/:id' component={PaperSheetShowContainer} />
+          </Switch>
+        </ApolloProvider>
+      </AuthProvider>
+    </Router>,
     rootElement
   )
   registerServiceWorker()
