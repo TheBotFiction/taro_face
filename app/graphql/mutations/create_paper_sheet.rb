@@ -2,6 +2,8 @@
 
 module Mutations
   class CreatePaperSheet < BaseMutation
+    include ContextAuthenticatable
+
     argument :questions,
       [Types::QuestionInputObject],
       "Array of questions belong to the papersheet",
