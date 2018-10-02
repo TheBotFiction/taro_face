@@ -8,7 +8,8 @@ module Types
     # it { is_expected.to have_field(:questions).that_returns(QuestionType) }
 
     context "queries" do
-      let(:context) { {} }
+      let(:user) { create :user }
+      let(:context) { { current_user: user } }
       let(:variables) { {} }
       let(:result) {
         res = TaroFaceSchema.execute(
@@ -27,7 +28,7 @@ module Types
             }
           |
         }
-        let(:record) { create :paper_sheet }
+        let(:record) { create :paper_sheet, user: user }
         let(:variables) { {id: record.id} }
 
         subject { result.dig("data", "paperSheet") }
@@ -36,6 +37,13 @@ module Types
           is_expected.to have_key("id")
           is_expected.to have_key("questions")
           expect(subject["id"]).to eq(record.id.to_s)
+        end
+
+        context "when no logged-in user" do
+          let(:context) { { } }
+
+          # FIXME: class level authorized? message
+          it { is_expected.to be_nil }
         end
       end
     end

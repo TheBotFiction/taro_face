@@ -13,7 +13,7 @@ module ContextAuthenticatable
     context[:current_user]
   end
 
-  # TODO: watch this bug https://github.com/rmosolgo/graphql-ruby/issues/1853
+  # FIXME: watch this bug https://github.com/rmosolgo/graphql-ruby/issues/1853
   # - Class level authorized? still has bug
   # - Class level -> instance level -> resolver
   # module ClassMethods
