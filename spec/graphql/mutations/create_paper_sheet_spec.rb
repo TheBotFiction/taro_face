@@ -27,7 +27,7 @@ module Mutations
     }
 
     it_behaves_like "unauthenticated GraphQL request" do
-      let(:params) { [ attributes_for(:question) ] }
+      let(:params) { [attributes_for(:question)] }
       let(:variables) { { questions: params } }
     end
 
