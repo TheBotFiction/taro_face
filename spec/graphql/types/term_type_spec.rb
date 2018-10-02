@@ -12,7 +12,8 @@ module Types
     it { is_expected.to have_field :similars }
 
     context "queries" do
-      let(:context) { {} }
+      let(:user) { create :user }
+      let(:context) { { current_user: user } }
       let(:variables) { {} }
       let(:result) {
         res = TaroFaceSchema.execute(
@@ -29,7 +30,7 @@ module Types
 
       describe "showTerm query" do
         let(:query_string) { %| query showTerm($id: ID!) { term(id: $id) { id } } | }
-        let(:term) { create :term }
+        let(:term) { create :term, user: user }
         let(:variables) { {id: term.id} }
 
         subject { result.dig("data", "term") }
@@ -38,17 +39,31 @@ module Types
           is_expected.to have_key("id")
           expect(subject["id"]).to eq(term.id.to_s)
         end
+
+        context "when no logged-in user" do
+          let(:context) { { } }
+
+          # FIXME: class level authorized? message
+          it { is_expected.to be_nil }
+        end
       end
 
       describe "indexTerms query" do
         let(:query_string) { %| query indexTerms { terms { id } } | }
-        let!(:terms) { create_list :term, 2 }
+        let!(:terms) { create_list :term, 2, user: user }
 
         subject { result.dig("data", "terms") }
 
         it do
           expect(subject.length).to eq 2
           expect(subject.map { |record| record["id"] }).to eq(terms.map { |t| t.id.to_s })
+        end
+
+        context "when no logged-in user" do
+          let(:context) { { } }
+
+          # FIXME: class level authorized? message
+          it { is_expected.to be_nil }
         end
       end
     end

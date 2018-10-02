@@ -2,35 +2,35 @@
 
 module Types
   class QueryType < Types::BaseObject
-    field :term, TermType, null: true do
+    field :term, TermType, null: true, auth: true do
       description "Find a Term by ID"
       argument :id, ID, required: true
     end
 
-    field :terms, [TermType], null: true do
+    field :terms, [TermType], null: true, auth: true do
       description "List all Term"
     end
 
-    field :paper_sheet, PaperSheetType, null: true do
+    field :paper_sheet, PaperSheetType, null: true, auth: true do
       description "Find a PaperSheet by ID"
       argument :id, ID, required: true
     end
 
-    field :analyzed_terms, [TermType], null: true do
+    field :analyzed_terms, [TermType], null: true, auth: true do
       description "Get the analyzed tems from given text"
       argument :q, String, required: true
     end
 
     def term(id:)
-      Term.find id
+      Term.where(user: context[:current_user]).find id
     end
 
     def terms
-      Term.all
+      Term.where(user: context[:current_user]).all
     end
 
     def paper_sheet(id:)
-      PaperSheet.find id
+      PaperSheet.where(user: context[:current_user]).find id
     end
 
     def analyzed_terms(q:)

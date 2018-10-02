@@ -27,6 +27,11 @@ module Mutations
       res
     }
 
+    it_behaves_like "unauthenticated GraphQL request" do
+      let(:terms_params) { (1..3).map { attributes_for :term } }
+      let(:variables) { { terms: terms_params } }
+    end
+
     describe "createTerms with valid params" do
       let(:terms_params) { (1..3).map { attributes_for :term } }
       let(:variables) { { terms: terms_params } }

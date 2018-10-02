@@ -2,7 +2,7 @@
 
 module Mutations
   RSpec.describe CreateTerm do
-    let(:context) { {} }
+    let(:context) { { current_user: create(:user) } }
     let(:variables) { {} }
     let(:query_string) {
       %|
@@ -25,6 +25,11 @@ module Mutations
       )
       res
     }
+
+    it_behaves_like "unauthenticated GraphQL request" do
+      let(:params) { [attributes_for(:question)] }
+      let(:variables) { { questions: params } }
+    end
 
     describe "createPaperSheet with valid params" do
       let(:params) do

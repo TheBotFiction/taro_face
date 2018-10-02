@@ -3,5 +3,6 @@
 module Types
   module BaseInterface
     include GraphQL::Schema::Interface
+    include ContextAuthenticatable
   end
 end

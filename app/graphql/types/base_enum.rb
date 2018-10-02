@@ -2,5 +2,6 @@
 
 module Types
   class BaseEnum < GraphQL::Schema::Enum
+    include ContextAuthenticatable
   end
 end

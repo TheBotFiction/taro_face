@@ -2,4 +2,5 @@
 
 class PaperSheet < ApplicationRecord
   has_many :questions, inverse_of: :paper_sheet
+  belongs_to :user
 end

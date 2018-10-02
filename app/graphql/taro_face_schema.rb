@@ -7,4 +7,10 @@ class TaroFaceSchema < GraphQL::Schema
   mutation Types::MutationType
 
   use GraphQL::Batch
+
+  class << self
+    def unauthorized_object(error)
+      raise GraphQL::ExecutionError, "An object of type #{error.type.graphql_name} was hidden due to permissions"
+    end
+  end
 end

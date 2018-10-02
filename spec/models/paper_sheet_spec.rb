@@ -5,6 +5,7 @@ require "rails_helper"
 RSpec.describe PaperSheet, type: :model do
   context "associations" do
     it { should have_many :questions }
+    it { should belong_to :user }
   end
 
   describe ".new" do
@@ -14,7 +15,7 @@ RSpec.describe PaperSheet, type: :model do
   describe ".create" do
     it { expect(described_class).to respond_to :create }
     it do
-      action = -> { described_class.create(attributes_for :paper_sheet) }
+      action = -> { described_class.create(attributes_for(:paper_sheet).merge({user: create(:user)})) }
       behavior = -> { described_class.count }
       expect { action.call }.to change { behavior.call }.by(1)
     end

@@ -8,6 +8,7 @@ AllCops:
     - gemfiles/**/*
     - tmp/**/*
     - vendor/**/*
+    - db/schema.rb
 GitHub/RailsControllerRenderLiteral:
   Enabled: false
 GitHub/RailsControllerRenderPathsExist:
