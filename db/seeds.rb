@@ -27,3 +27,5 @@ Term.all.each do |term|
     puts "\tCreated sample phrase #{phrase.phrase}"
   end
 end
+
+10.times { Character.create name: Faker::DragonBall.character }
