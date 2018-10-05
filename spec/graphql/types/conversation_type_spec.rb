@@ -30,8 +30,8 @@ module Types
       }
 
       before do
-        conversations = create_list :conversation, 2, user: user
-        conversations.each do |conversation|
+        @conversations = create_list :conversation, 2, user: user
+        @conversations.each do |conversation|
           create_list :message, 2, conversation: conversation
         end
       end
@@ -52,6 +52,14 @@ module Types
           it { expect(subject).to be_kind_of Array }
           it { expect(subject.flatten.length).to eq 4 }
         end
+      end
+
+      describe "showConversation query" do
+        let(:query_string) { %| query showConversation($id: ID!) { conversation(id: $id) { id } } | }
+        let(:variables) { { id: @conversations[0].id } }
+
+        subject { result.dig("data", "conversation", "id") }
+        it { is_expected.to eq @conversations[0].id.to_s }
       end
     end
   end

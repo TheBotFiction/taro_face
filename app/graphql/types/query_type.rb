@@ -23,8 +23,15 @@ module Types
 
     field :characters, [CharacterType], null: true,
       description: "Available character for the conversation"
+
     field :conversations, [ConversationType], null: true, auth: true,
       description: "List of current_user's conversations"
+
+    field :conversation, ConversationType, null: true, auth: true do
+      description "Show the conversation"
+      argument :id, ID, required: true
+    end
+
     field :messages, [MessageType], null: true,
       description: "List of messages"
 
@@ -54,6 +61,10 @@ module Types
 
     def conversations
       Conversation.where(user: context[:current_user]).all
+    end
+
+    def conversation(id:)
+      Conversation.where(user: context[:current_user]).find(id)
     end
 
     # TODO: messages should not a top level query, or must has identity ex:
