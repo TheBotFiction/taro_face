@@ -8,6 +8,10 @@ module Types
         it { expect(subject.of_type).to eq GraphQL::Types::ID }
         it { expect(subject.non_null?).to be_truthy }
       end
+      describe "field `title'" do
+        subject { ConversationType.fields["title"].type }
+        it { is_expected.to eq GraphQL::Types::String }
+      end
       # NOTE: a workaround of array type
       describe "field `messages'" do
         subject { ConversationType.fields["messages"].type }
