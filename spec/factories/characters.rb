@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :character do
-    name { "MyString" }
+    sequence(:name) { |i| "Character Name #{i}" }
   end
 end
