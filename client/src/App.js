@@ -15,7 +15,12 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <Link to="/papersheets/16">PaperSheet #16</Link>
+        |
         <Link to="/papersheets/new">New PaperSheet</Link>
+        |
+        <Link to="/terms/new">New Term</Link>
+        |
+        <Link to="/conversations/new">New Conversation</Link>
       </div>
     );
   }

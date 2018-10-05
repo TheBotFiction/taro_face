@@ -38,6 +38,9 @@ function HeaderLinks({ ...props }) {
             </Link>,
             <Link to="/papersheets/new" className={classes.dropdownLink}>
               New PaperSheet
+            </Link>,
+            <Link to="/conversations/new" className={classes.dropdownLink}>
+              New Conversation
             </Link>
           ]}
         />
