@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import _ from 'lodash'
 import withStyles from '@material-ui/core/styles/withStyles'
 import Layout from 'components/Layout'
-import Form from './Form'
+import ConversationForm from './Form'
 
 const paralax: Object = {
   image: 'https://res.cloudinary.com/yeuem1vannam/image/upload/v1538759374/backgrounds/bg2.jpg',
@@ -55,7 +55,7 @@ export class ConversationNewComponent extends Component<Props, State> {
         <main className={classes.root}>
           {selectCharacterSlot({chooseCharacters: this.chooseCharacters})}
           { !_.isEmpty(characters) &&
-            <Form characters={characters} onSubmit={onCreateConversation} />
+            <ConversationForm characters={characters} onSubmit={onCreateConversation} />
           }
         </main>
       </Layout>

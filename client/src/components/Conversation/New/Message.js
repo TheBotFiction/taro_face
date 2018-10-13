@@ -1,15 +1,14 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Field } from 'react-final-form'
-import TextField from '@material-ui/core/TextField'
+import TextField from 'components/UIKit/TextField'
 import FormControl from '@material-ui/core/FormControl'
 import Grid from '@material-ui/core/Grid'
 
 export class Message extends Component {
   static propTypes = {
     characters: PropTypes.array.isRequired,
-    index: PropTypes.number.isRequired,
-    addMessageSlot: PropTypes.func.isRequired
+    index: PropTypes.number.isRequired
   }
 
   static defaultProps = {
@@ -26,7 +25,7 @@ export class Message extends Component {
               <Field
                 id="outlined-select-currency-native"
                 select
-                name={`message[${index}][characterId]`}
+                name={`messages[${index}][characterId]`}
                 type="text"
                 label="Character"
                 SelectProps={{
@@ -36,6 +35,7 @@ export class Message extends Component {
                 required
                 component={TextField}
               >
+                <option />
                 {characters.map(character => (
                   <option key={character.id} value={character.id}>
                     {character.name}
@@ -47,7 +47,7 @@ export class Message extends Component {
           <Grid item xs={8}>
             <FormControl margin="normal" required fullWidth>
               <Field
-                name={`message[${index}][content]`}
+                name={`messages[${index}][content]`}
                 type="text"
                 label="Message"
                 variant="outlined"

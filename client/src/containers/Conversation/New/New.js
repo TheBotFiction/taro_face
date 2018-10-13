@@ -6,9 +6,17 @@ import NewComponent from 'components/Conversation/New'
 import SelectCharacterContainer from './SelectCharacter'
 
 const CREATE_CONVERSATION = gql`
-  mutation createConversation($conversation: ConversationInputObject) {
-    createConversation(conversation: $conversation) {
-      id
+  mutation createConversation($messages: [MessageInputObject!]!, $title: String, $description: String) {
+    createConversation(messages: $messages, title: $title, description: $description) {
+      conversation {
+        id
+        title
+        messages {
+          id
+          characterId
+          content
+        }
+      }
     }
   }
 `
@@ -33,7 +41,8 @@ const MutableConversationNewContainer = (props) => (
   <Mutation mutation={CREATE_CONVERSATION}>
     {(createConversation, { data }) => {
       const _onCreateConversation = (payload) => {
-        createConversation({variable: {conversation: payload}})
+        console.log(payload)
+        createConversation({variables: payload})
       }
       return (
         <ConversationNewContainer
