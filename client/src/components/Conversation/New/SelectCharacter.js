@@ -24,7 +24,8 @@ const MenuProps = {
 
 export class SelectCharacterComponent extends Component {
   static propTypes = {
-    data: PropTypes.array.isRequired
+    data: PropTypes.array.isRequired,
+    chooseCharacters: PropTypes.func.isRequired
   }
 
   state = {
@@ -33,6 +34,10 @@ export class SelectCharacterComponent extends Component {
 
   handleChange = event => {
     this.setState({ selectedIds: event.target.value })
+    const selectedIds = event.target.value
+    const { data, chooseCharacters } = this.props
+    const chosenCharacters = data.filter(character => selectedIds.indexOf(character.id) > -1)
+    chooseCharacters(chosenCharacters)
   }
 
   render () {

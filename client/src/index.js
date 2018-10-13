@@ -60,7 +60,7 @@ if (rootElement) {
         <ApolloProvider client={graphClient}>
           <Switch>
             <Route path='/' component={App} exact />
-            <Route path='/sign-in' component={SigninContainer} exact />
+            <Route path='/login' component={SigninContainer} exact />
             <ProtectedRoute path='/terms/new' component={TermNewContainer} />
             <ProtectedRoute path='/terms/:id' component={TermShowContainer} />
             <ProtectedRoute path='/papersheets/new' component={PaperSheetNewContainer} />

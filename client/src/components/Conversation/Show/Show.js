@@ -9,7 +9,7 @@ import { Table, TableHead, TableBody, TableCell, TableRow } from '@material-ui/c
 import Layout from 'components/Layout'
 
 const paralax: Object = {
-  image: require('assets/img/bg9.jpg'),
+  image: 'https://res.cloudinary.com/yeuem1vannam/image/upload/v1538759744/backgrounds/bg6.jpg',
   title: 'Conversation'
 }
 

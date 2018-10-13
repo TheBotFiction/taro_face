@@ -19,7 +19,7 @@ export class SelectCharacterContainer extends Component<*, *> {
     if (!data) return null
     const { characters } = data
     return (
-      <SelectCharacterComponent data={characters} />
+      <SelectCharacterComponent {...this.props} data={characters} />
     )
   }
 }

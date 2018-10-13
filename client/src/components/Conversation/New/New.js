@@ -3,26 +3,60 @@
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import _ from 'lodash'
 import withStyles from '@material-ui/core/styles/withStyles'
 import Layout from 'components/Layout'
+import Form from './Form'
 
 const paralax: Object = {
-  image: require('assets/img/bg2.jpg'),
+  image: 'https://res.cloudinary.com/yeuem1vannam/image/upload/v1538759374/backgrounds/bg2.jpg',
   title: 'New Conversation'
 }
 
-export class ConversationNewComponent extends Component<*, *> {
+type MessageType = {
+  content: String,
+  characterId: number
+} | {}
+
+type Props = {
+  classes: *,
+  selectCharacterSlot: Function,
+  onCreateConversation: Function
+}
+
+type State = {
+  characters: Array<*>
+}
+
+export class ConversationNewComponent extends Component<Props, State> {
   static propTypes = {
     classes: PropTypes.object.isRequired,
-    selectCharacterSlot: PropTypes.node.isRequired
+    selectCharacterSlot: PropTypes.func.isRequired,
+    onCreateConversation: PropTypes.func.isRequired
   }
 
-  render() {
-    const { classes, selectCharacterSlot } = this.props
+  state = {
+    characters: [],
+  }
+
+  chooseCharacters = (chosenCharacters: Array<MessageType>): void => {
+    this.setState({characters: chosenCharacters})
+  }
+
+  render () {
+    const {
+      classes,
+      selectCharacterSlot,
+      onCreateConversation
+    }: Props = this.props
+    const { characters }: State = this.state
     return (
       <Layout paralax={paralax}>
         <main className={classes.root}>
-          {selectCharacterSlot}
+          {selectCharacterSlot({chooseCharacters: this.chooseCharacters})}
+          { !_.isEmpty(characters) &&
+            <Form characters={characters} onSubmit={onCreateConversation} />
+          }
         </main>
       </Layout>
     )
