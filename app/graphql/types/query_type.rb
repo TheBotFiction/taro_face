@@ -21,6 +21,20 @@ module Types
       argument :q, String, required: true
     end
 
+    field :characters, [CharacterType], null: true,
+      description: "Available character for the conversation"
+
+    field :conversations, [ConversationType], null: true, auth: true,
+      description: "List of current_user's conversations"
+
+    field :conversation, ConversationType, null: true, auth: true do
+      description "Show the conversation"
+      argument :id, ID, required: true
+    end
+
+    field :messages, [MessageType], null: true,
+      description: "List of messages"
+
     def term(id:)
       Term.where(user: context[:current_user]).find id
     end
@@ -39,6 +53,24 @@ module Types
       data.map do |d|
         Term.new term: d[:term], reading: d[:reading]
       end
+    end
+
+    def characters
+      Character.all
+    end
+
+    def conversations
+      Conversation.where(user: context[:current_user]).all
+    end
+
+    def conversation(id:)
+      Conversation.where(user: context[:current_user]).find(id)
+    end
+
+    # TODO: messages should not a top level query, or must has identity ex:
+    # conversation_id
+    def messages
+      Message.all
     end
   end
 end

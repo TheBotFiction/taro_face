@@ -35,6 +35,22 @@ type PaperSheetType = {
   questions: Array<QuestionType>
 }
 
+type CharacterType = {
+  id: number,
+  name?: String
+}
+
+type MessageType = {
+  content: String,
+  characterId: number
+}
+
+type ConversationType = {
+  title?: String,
+  description?: String,
+  messages: Array<MessageType>
+}
+
 type QuestionInputObject = {
   term: string,
   phrase: string,
@@ -53,6 +69,9 @@ export type {
   PaperSheetType$ChosenQuestion,
   QuestionType,
   PaperSheetType,
+  CharacterType,
+  MessageType,
+  ConversationType,
   TermInputObject,
   QuestionInputObject
 }

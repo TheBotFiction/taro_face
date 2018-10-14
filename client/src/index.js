@@ -39,6 +39,14 @@ const PaperSheetShowContainer = Loadable({
   loader: () => import('containers/PaperSheet/Show'),
   loading: PageLoadingComponent
 })
+const ConversationNewContainer = Loadable({
+  loader: () => import('containers/Conversation/New'),
+  loading: PageLoadingComponent
+})
+const ConversationShowContainer = Loadable({
+  loader: () => import('containers/Conversation/Show'),
+  loading: PageLoadingComponent
+})
 
 
 const browserHistory: any = createBrowserHistory()
@@ -52,11 +60,13 @@ if (rootElement) {
         <ApolloProvider client={graphClient}>
           <Switch>
             <Route path='/' component={App} exact />
-            <Route path='/sign-in' component={SigninContainer} exact />
+            <Route path='/login' component={SigninContainer} exact />
             <ProtectedRoute path='/terms/new' component={TermNewContainer} />
             <ProtectedRoute path='/terms/:id' component={TermShowContainer} />
             <ProtectedRoute path='/papersheets/new' component={PaperSheetNewContainer} />
             <ProtectedRoute path='/papersheets/:id' component={PaperSheetShowContainer} />
+            <ProtectedRoute path='/conversations/new' component={ConversationNewContainer} />
+            <ProtectedRoute path='/conversations/:id' component={ConversationShowContainer} />
           </Switch>
         </ApolloProvider>
       </AuthProvider>

@@ -17,7 +17,7 @@ export class ProtectedRoute extends Component {
           <AuthContext.Consumer>
             {({currentUser, authLoaded}) => {
               if (authLoaded && !currentUser) {
-                return <Redirect to="/" />
+                return <Redirect to="/login" />
               }
               if (!authLoaded) {
                 return 'Authenticating...'
