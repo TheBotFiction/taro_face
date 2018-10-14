@@ -128,9 +128,6 @@ export class ConversationForm extends Component<Props, State> {
                       Create Conversation
                     </Button>
                   </Grid>
-                  <Grid item xs={12}>
-                    <pre>{JSON.stringify(values, 0, 2)}</pre>
-                  </Grid>
                 </Grid>
               </Fragment>
             </Collapse>
