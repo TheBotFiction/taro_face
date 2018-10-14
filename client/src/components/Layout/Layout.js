@@ -37,7 +37,7 @@ class Layout extends Component {
       scrolledColor: 'white'
     },
     paralax: {
-      image: require('assets/img/bg4.jpg'),
+      image: 'https://res.cloudinary.com/yeuem1vannam/image/upload/v1538759390/backgrounds/bg4.jpg',
       title: 'Taro\'s Face',
       subtitle: 'Learn in active way'
     }

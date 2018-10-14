@@ -127,7 +127,7 @@ Array [
     className="Parallax-parallax-203"
     style={
         Object {
-            "backgroundImage": "url(bg.jpg)",
+            "backgroundImage": "url(https://res.cloudinary.com/yeuem1vannam/image/upload/v1538759368/backgrounds/bg.jpg)",
             "transform": "translate3d(0,0px,0)",
           }
     }
