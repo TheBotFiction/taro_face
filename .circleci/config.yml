@@ -112,6 +112,9 @@ jobs:
     docker:
       # - image: buildpack-deps:trusty
       - image: circleci/ruby:2.5.1-node
+        environment:
+          REACT_APP_GRAPHQL_ENDPOINT: https://taro-face-stg.herokuapp.com/graphql
+          NODE_ENV: production
     working_directory: ~/app
     steps:
       - *attach_code
