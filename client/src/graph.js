@@ -9,7 +9,7 @@ import { withClientState } from 'apollo-link-state'
 import { ApolloLink, Observable } from 'apollo-link'
 import { firebase } from 'Auth'
 
-const GRAPHQL_ENDPOINT = 'http://localhost:3000/graphql'
+const GRAPHQL_ENDPOINT = process.env.REACT_APP_GRAPHQL_ENDPOINT || 'http://localhost:3000/graphql'
 
 const cache: InMemoryCache = new InMemoryCache()
 

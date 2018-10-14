@@ -18,8 +18,6 @@ import { firebase } from 'Auth'
 
 import loginPageStyle from 'assets/jss/material-kit-react/views/loginPage'
 
-import image from 'assets/img/bg7.jpg'
-
 const uiConfig = {
   signInFlow: 'popup',
   signInOptions: [
@@ -47,7 +45,7 @@ class SigninComponent extends Component {
         <div
           className={classes.pageHeader}
           style={{
-            backgroundImage: "url(" + image + ")",
+            backgroundImage: "url(https://res.cloudinary.com/yeuem1vannam/image/upload/v1538759493/backgrounds/bg7.jpg)",
             backgroundSize: "cover",
             backgroundPosition: "top center"
           }}

@@ -1,5 +1,4 @@
 import { container } from "assets/jss/material-kit-react";
-// import mainBackground from "assets/img/channel-background.jpg";
 const mainBackground = 'https://res.cloudinary.com/yeuem1vannam/image/upload/v1538759433/backgrounds/channel-background.jpg'
 
 const componentsStyle = (theme) => ({

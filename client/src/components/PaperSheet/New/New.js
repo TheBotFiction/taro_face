@@ -34,7 +34,7 @@ const header: Object = {
 }
 
 const paralax: Object = {
-  image: require('assets/img/bg.jpg'),
+  image: 'https://res.cloudinary.com/yeuem1vannam/image/upload/v1538759368/backgrounds/bg.jpg',
   title: 'New Paper Sheet'
 }
 
