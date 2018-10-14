@@ -3,9 +3,9 @@ import 'firebase/auth'
 
 // Configure Firebase.
 const config = {
-  apiKey: 'AIzaSyCoIfpUCKUmhJ5pA9-yaYljmmBfC0SaPWU',
-  authDomain: 'ums-auth-kit.firebaseapp.com',
-  projectId: 'ums-auth-kit'
+  apiKey: 'AIzaSyAmdLMsw8NB93nSbXOsppg1PRMWKF9FMxU',
+  authDomain: 'with-taro-dev.firebaseapp.com',
+  projectId: 'with-taro-dev'
 }
 
 firebase.initializeApp(config)
