@@ -3,7 +3,6 @@
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import _ from 'lodash'
 import withStyles from '@material-ui/core/styles/withStyles'
 import Layout from 'components/Layout'
 import ConversationForm from './Form'
@@ -12,11 +11,6 @@ const paralax: Object = {
   image: 'https://res.cloudinary.com/yeuem1vannam/image/upload/v1538759374/backgrounds/bg2.jpg',
   title: 'New Conversation'
 }
-
-type MessageType = {
-  content: String,
-  characterId: number
-} | {}
 
 type Props = {
   classes: *,
@@ -35,28 +29,19 @@ export class ConversationNewComponent extends Component<Props, State> {
     onCreateConversation: PropTypes.func.isRequired
   }
 
-  state = {
-    characters: [],
-  }
-
-  chooseCharacters = (chosenCharacters: Array<MessageType>): void => {
-    this.setState({characters: chosenCharacters})
-  }
-
   render () {
     const {
       classes,
       selectCharacterSlot,
       onCreateConversation
     }: Props = this.props
-    const { characters }: State = this.state
     return (
       <Layout paralax={paralax}>
         <main className={classes.root}>
-          {selectCharacterSlot({chooseCharacters: this.chooseCharacters})}
-          { !_.isEmpty(characters) &&
-            <ConversationForm characters={characters} onSubmit={onCreateConversation} />
-          }
+          <ConversationForm
+            selectCharacterSlot={selectCharacterSlot}
+            onSubmit={onCreateConversation}
+          />
         </main>
       </Layout>
     )

@@ -1,3 +1,6 @@
+/**
+ * @flow
+ */
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Field } from 'react-final-form'
@@ -5,18 +8,24 @@ import TextField from 'components/UIKit/TextField'
 import FormControl from '@material-ui/core/FormControl'
 import Grid from '@material-ui/core/Grid'
 
-export class Message extends Component {
+import type { Node } from 'react'
+import type { CharacterType } from 'types'
+
+type Props = {
+  index: number,
+  name: string,
+  characters: Array<CharacterType>
+}
+
+export class Message extends Component<Props, *> {
   static propTypes = {
     characters: PropTypes.array.isRequired,
+    name: PropTypes.string.isRequired,
     index: PropTypes.number.isRequired
   }
 
-  static defaultProps = {
-    index: 0
-  }
-
   render () {
-    const { index, characters } = this.props
+    const { name, characters }: Props = this.props
     return (
       <Fragment>
         <Grid container spacing={40} justify="space-between">
@@ -25,18 +34,18 @@ export class Message extends Component {
               <Field
                 id="outlined-select-currency-native"
                 select
-                name={`messages[${index}][characterId]`}
-                type="text"
-                label="Character"
                 SelectProps={{
                   native: true
                 }}
+                name={`${name}.characterId`}
+                type="text"
+                label="Character"
                 variant="outlined"
                 required
                 component={TextField}
               >
                 <option />
-                {characters.map(character => (
+                {characters.map((character: CharacterType): Node => (
                   <option key={character.id} value={character.id}>
                     {character.name}
                   </option>
@@ -47,7 +56,7 @@ export class Message extends Component {
           <Grid item xs={8}>
             <FormControl margin="normal" required fullWidth>
               <Field
-                name={`messages[${index}][content]`}
+                name={`${name}.content`}
                 type="text"
                 label="Message"
                 variant="outlined"

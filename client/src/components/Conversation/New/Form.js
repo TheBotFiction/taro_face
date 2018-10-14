@@ -1,51 +1,66 @@
 /**
  * @flow
  */
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
+import _ from 'lodash'
 import { Form, Field } from 'react-final-form'
+import arrayMutators from 'final-form-arrays'
+import { FieldArray } from 'react-final-form-arrays'
 import TextField from 'components/UIKit/TextField'
 import Grid from '@material-ui/core/Grid'
 import FormControl from '@material-ui/core/FormControl'
 import Button from '@material-ui/core/Button'
+import Collapse from '@material-ui/core/Collapse'
 import Message from './Message'
 
-type MessageType = {
-  content: String,
-  characterId: number
-} | {}
+import type { CharacterType } from 'types'
 
-export class ConversationForm extends Component<*, *> {
+type Props = {
+  onSubmit: Function,
+  selectCharacterSlot: Function
+}
+type State = {
+  characters: Array<CharacterType>
+}
+
+export class ConversationForm extends Component<Props, State> {
   static propTypes = {
-    characters: PropTypes.array.isRequired,
-    onSubmit: PropTypes.func.isRequired
+    onSubmit: PropTypes.func.isRequired,
+    selectCharacterSlot: PropTypes.func.isRequired
   }
 
   state = {
-    messages: [{}]
+    characters: []
   }
 
-  addMoreMessage = (event: any): void => {
-    const { messages }: { messages: Array<MessageType> } = this.state
-    this.setState({
-      messages: [
-        ...messages,
-        {}
-      ]
-    })
+  chooseCharacters = (chosenCharacters: Array<CharacterType>): void => {
+    this.setState({characters: chosenCharacters})
   }
 
   render () {
-    const { characters, onSubmit } = this.props
-    const { messages } = this.state
+    const {
+      onSubmit,
+      selectCharacterSlot
+    }: Props = this.props
+    const { characters }: State = this.state
     return (
       <Form
         onSubmit={onSubmit}
         validate={() => {}}
-        initialValues={{ messages: messages}}
-        render={({ handleSubmit, pristine, submitting, invalid }) => (
+        mutators={{
+          ...arrayMutators
+        }}
+        render={({
+          form: { mutators: { push, pop } },
+          handleSubmit,
+          pristine,
+          submitting,
+          invalid,
+          values
+        }) => (
           <form onSubmit={handleSubmit}>
-            <Grid container spacing={40}>
+            <Grid container spacing={8}>
               <Grid item xs={12}>
                 <FormControl margin="normal" required fullWidth>
                   <Field
@@ -57,7 +72,7 @@ export class ConversationForm extends Component<*, *> {
                   />
                 </FormControl>
               </Grid>
-              <Grid item xs={12}>
+              <Grid item sm={6}>
                 <FormControl margin="normal" required fullWidth>
                   <Field
                     name="description"
@@ -65,43 +80,60 @@ export class ConversationForm extends Component<*, *> {
                     label="Description"
                     variant="outlined"
                     multiline
-                    rows="4"
+                    rows="2"
                     component={TextField}
                   />
                 </FormControl>
               </Grid>
-            </Grid>
-            {messages.map((message, index) => (
-              <Message key={index} index={index} characters={characters} />
-            ))}
-            <Grid container spacing={40}>
-              <Grid item xs={4}>
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  size="small"
-                  type="button"
-                  disabled={submitting}
-                  fullWidth
-                  onClick={this.addMoreMessage}
-                >
-                  Add More Message
-                </Button>
-              </Grid>
-              <Grid item xs={4}>
-              </Grid>
-              <Grid item xs={4}>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  type="submit"
-                  disabled={submitting}
-                  fullWidth
-                >
-                  Create Conversation
-                </Button>
+              <Grid item sm={6}>
+                {selectCharacterSlot({chooseCharacters: this.chooseCharacters})}
               </Grid>
             </Grid>
+            <Collapse in={!_.isEmpty(characters)}>
+              <Fragment>
+                <Grid container spacing={40}>
+                  <Grid item xs={4} />
+                </Grid>
+                <FieldArray name="messages">
+                  {({fields}) => (
+                    fields.map((name, index) => (
+                      <Message key={name} index={index} name={name} characters={characters} />
+                    ))
+                  )}
+                </FieldArray>
+                <Grid container spacing={40}>
+                  <Grid item xs={4}>
+                    <Button
+                      variant="contained"
+                      color="secondary"
+                      size="small"
+                      type="button"
+                      disabled={submitting}
+                      fullWidth
+                      onClick={() => push('messages', undefined)}
+                    >
+                      Add More Message
+                    </Button>
+                  </Grid>
+                  <Grid item xs={4}>
+                  </Grid>
+                  <Grid item xs={4}>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      type="submit"
+                      disabled={submitting}
+                      fullWidth
+                    >
+                      Create Conversation
+                    </Button>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <pre>{JSON.stringify(values, 0, 2)}</pre>
+                  </Grid>
+                </Grid>
+              </Fragment>
+            </Collapse>
           </form>
         )}
       />
