@@ -14,7 +14,7 @@ type Props = {
 }
 
 const paralax: Object = {
-  image: require('assets/img/bg7.jpg')
+  image: 'https://res.cloudinary.com/yeuem1vannam/image/upload/v1538759493/backgrounds/bg7.jpg'
 }
 
 export class PaperSheetShowComponent extends Component<Props, {| |}> {
