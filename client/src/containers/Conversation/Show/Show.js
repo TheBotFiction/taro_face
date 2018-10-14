@@ -30,6 +30,7 @@ const SHOW_CONVERSATION = gql`
     conversation(id: $id) {
       id
       title
+      description
       messages {
         id
         content

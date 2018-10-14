@@ -21,11 +21,11 @@ export class ConversationShowComponent extends Component<*,*> {
   }
 
   render () {
-    const { classes, data: { title, messages }, characters } = this.props
+    const { classes, data: { title, description, messages }, characters } = this.props
     return (
-      <Layout paralax={paralax}>
+      <Layout paralax={Object.assign(paralax, { title })}>
         <main className={classes.root}>
-          <h2>{title}</h2>
+          <pre>{description}</pre>
           <Table className={classes.table}>
             <TableHead>
               <TableRow>
@@ -36,7 +36,9 @@ export class ConversationShowComponent extends Component<*,*> {
             <TableBody>
               {messages.map(message => (
                 <TableRow key={message.id}>
-                  <TableCell>{_.get(characters, [message.characterId, 'name'], 'Anonymous')}</TableCell>
+                  <TableCell>
+                    {_.find(characters, ['id', message.characterId]).name}
+                  </TableCell>
                   <TableCell>{message.content}</TableCell>
                 </TableRow>
               ))}
